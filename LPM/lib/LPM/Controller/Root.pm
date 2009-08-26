@@ -23,6 +23,7 @@ This servers the London.pm website
 =cut
 
 my $cal_url = 'http://www.google.com/calendar/ical/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic.ics';
+my $rss_url = 'http://www.google.com/calendar/feeds/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic';
 
 sub auto : Private {
     my ( $self, $c ) = @_;
@@ -54,8 +55,15 @@ sub london_ics :Path('london.pm.ics') {
 sub london_rss :Path('london.pm.rss') {
     my ( $self, $c ) = @_;
 
-    # FIXME: Get this working
-    $c->res->redirect($cal_url);
+    # Bah, use atom!
+    $c->res->redirect($rss_url);
+    return 1;    
+}
+
+sub london_atom :Path('london.pm.atom') {
+    my ( $self, $c ) = @_;
+
+    $c->res->redirect($rss_url);
     return 1;    
 }
 
