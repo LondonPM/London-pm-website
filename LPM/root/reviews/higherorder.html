@@ -1,0 +1,100 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Higher-Order Perl",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Mark Jason Dominus</p>
+  <p>ISBN: <div class="isbn">1558607013</div></p>
+  <p>Publisher: Morgan Kaufmann</p>
+  <p>Reviewed by: Robin Barker</p>
+</div><div class="item">
+    <p>
+I really wanted to like this book: I liked the title, and I liked the
+description of how to use Perl to program in lisp rather than using Perl to
+program in C.  And Perl can do higher order programming: it has anonymous
+functions as first class objects, which give closures, and can be used to
+delay evaluation to allow lazy programming; there are even tricks with Perl
+syntax to make it look more like higher order programming.  But Perl can't
+do pattern matching on constructed values (like ML or Haskell) and as a
+consequence there is only so far the syntactical tricks can go to make
+higher order programming comfortable in Perl.  So, I'm afraid some 
+parts of the book left me cold.
+</p>
+<p>
+Chapter 1 explains recursion, what problems it is good for, and how it is
+implemented in Perl.  The examples tackled typical recursive problems: the
+Tower of Hanoi, and reading and writing tree structures such as directory
+trees and HTML documents.  Recursion can also go wrong because naive
+implementation lead to multiple calls to a function with the same argument
+- Perl can not know this will always have the same result.
+</p>
+<p>
+Chapter 2 explains the use of dispatch tables: these are hashes whose
+values are (anonymous) subroutines.  This gives a more robust and flexible
+way of detailing how to process nested structures such as configuration
+files or expressions in a calculator.
+</p>
+<p>
+Chapter 3 showed how to solve the problem with recursion in Chapter 1 using
+memoization.  This detects multiple calls to a function with the same
+argument and returns the previously calculated result from a cache; this
+allows a naive implementation of calculating Fibonacci numbers to run
+sensibly.  There are many subtleties to implementing memoization, which are
+explained here, but the programmer using techniques can simple use the
+Memoize module.
+</p>
+<p>
+Chapter 4 described iterators and transformations on iterators.  Iterators
+correspond to processes that produce a sequence of values, and they can be
+transformed in the same way as stepping through a list - as long as the
+transformation does not need to read to the end of the list.  Chapter 5
+shows how to turn solve recursion problems with iterators and give other
+general techniques for eliminating recursion.  I found these examples here
+confusing: the elimination of recursion for the powerset function produced
+reasonable code.  But the Fibonacci number example ended up with code that
+was emulating the use of the stack in implementing recursion, producing
+code that did not look like a reasonable, recursion-free calculation of
+Fibonacci numbers<a href="#footnote1"><sup>1</sup></a>.  
+</p>
+<p>
+Chapter 6 showed how Perl can model the infinite lists of lazy (functional)
+languages, as streams.    The examples create streams of strings that match
+particular patterns, e.g. regular expressions and grammars.  The streams
+examples are also used for managing iterative numerical calculations.
+</p>
+<p>
+Chapter 7 defines some higher order functions that are used in Chapter 8 to
+define lexers and parsers based on streams.  A number of different parsers
+are developed and form part of the extended examples in Chapter 9.
+</p>
+<p>
+The book is clearly written and the code examples are clear but sometimes
+the motivation for transforming/evolving the examples is not clear.  The
+reader will learn much about higher-order programming and many new
+techniques for designing their Perl code.  However they may find that
+mimicking higher-order programming too closely in Perl may not be as
+readable as true functional programs or other Perl programs.
+</p>
+<hr/>
+<p><a name="footnote1">1:</a> For example:
+<pre> 
+    sub fib {
+        my $n = shift; 
+        return $n if $n &lt;= 1; 
+        my($a, $b) = (0, 1); 
+        while( --$n ) { ($a, $b) = ($b, $a + $b); }
+        return $b 
+    } 
+</pre>
+</p>
+
+</div>
+
+
+[% END %]

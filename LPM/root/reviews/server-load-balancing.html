@@ -1,0 +1,72 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Server Load Balancing",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Tony Bourke</p>
+  <p><a href="http://www.oreilly.com/catalog/serverload/">ISBN: 0596000502
+</a></p>
+  <p>Publisher: O'Reilly &amp; Associates</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div>
+
+<div class="item">
+<p>
+I like concise books, no one wants a 1500 page breeze block which has long winded examples and rambles through the subject matter (*cough* Wrox *cough*) but this book sets new standards in small. With eleven chapters and three appendixes in just under 170 pages you get a nagging suspicion that the meat of the topic is going to be left uncovered. You'd be half right.</p>
+
+<p>The chapters are broken in to three sections with the same number of appendixes at the end of the book:</p>
+
+<p>
+  <ul>
+    <li>Part 1, Concepts and Theory</li>
+    <ul>
+      <li>Introduction to Server Load Balancing</li>
+      <li>Concepts of Server Load Balancing</li>
+      <li>Anatomy of a Server Load Balancer</li>
+      <li>Performance Metrics</li>
+    </ul>
+    <li>Part 2, Practice and Implementation</li>
+    <ul>
+      <li>Introduction to Architecture</li>
+      <li>Flat-Based SLB Network Architecture</li>
+      <li>NAT-Based SLB Network Architecture</li>
+    </ul>
+    <li>Part 3, Configuring Server Load Balancers</li>
+    <ul>
+      <li>Alteon WebSystems</li>
+      <li>Cisco CSS Config Guide</li>
+      <li>F5 Big-IP</li>
+      <li>Foundry ServerIron Series</li>
+    </ul>
+    <li>Appendixes</li>
+    <ul>
+      <li>Quick command reference</li>
+      <li>Direct Server Return Configuration</li>
+      <li>Sample Configurations</li>
+    </ul>
+  </ul>
+</p>
+
+<p>Whats to like about the book? Well it provides a good overview of the concepts and some of the theory behind the technology. The pace is brisk (although it doesn't have much choice!) so you can gain a basic grounding in the technology in short order. Parts one and two of the book are both good, understandable and cover their ground well but i couldn't help but think they belonged in another book, Craig Hunts TCP/IP Administration for example would make a good home, as they are not strong enough to make the book a must have purchase.</p>
+
+<p>Now on to the less than excellent aspects of the book. As would be expected from a book this size covering such a large topic the coverage is pretty shallow, all the books examples focus on webservers and pay only lip service to other potential uses of the technology.</p>
+
+<p>The network diagrams deserve a special mention, I'm unsure if i should love them or hate them. On the upside they shed light on a number of passages that could otherwise end up being meaningless and require pages of solid text to explain. On the downside a number of them are wrong. Examples include multiple machines in the same diagram sharing the same IP address (the real address, not the virtual one) when they definitely shouldn't and confusion as to which network the hosts are on.</p>
+
+<p>The third section covers 4 chapters, is 63 pages long (a significant chunk of the book) and provides short tutorials on using the four different vendor solutions, if you don't plan on using one of these systems or only use one of them then the other chapters will be of only moderate use as examples of possible implementations that you could use as inspiration. The same can be said of appendix A which serves as a command quick reference for the products covered in section 3.</p>
+
+<p>Any book covering commercial networking products is going to age rapidly and this book falls into that trap. The coverage of the four commercial solutions eats up over a third of the book. While it provides some nice contrasts between the available options it doesn't make a very strong section and ties up a lot of pages for very little real coverage. The documentation that came with your load balancer should cover everything the respective chapter in this book does and a lot more besides.</p>
+
+<p>What could a second edition do to improve the book? Coverage of an OpenSource balancer or two wouldn't go amiss. The books focus could also be widened to increase it's appeal. In the very first chapter the author introduces firewall load balancing and global server load balancing but with only a paragraph on each they are left woefully neglected. A couple of chapters on these topics would help shift the books focus from just web servers and increase make it a much more desirable purchase.</p>
+
+<p>This is a good introductory book on the subject matter that just isn't strong enough to justify its purchase. Its far from the only book on the subject you'll ever need (although with only four other published books on the topic your choices are limited!) but makes an ideal advert for the Safari service O'Reilly provide, something you'll read the first section of once, comprehend perfectly on the first time through and never need again.</p>
+</div>
+
+
+[% END %]

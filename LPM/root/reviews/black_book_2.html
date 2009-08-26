@@ -1,0 +1,125 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "The Perl Black Book, 2nd Edition",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Steven Holzner</p>
+  <p>ISBN: <div class="isbn">1588801934</div></p>
+  <p>Publisher: Coriolis</p>
+  <p>Reviewed by: Mark Fowler</p>
+</div><div class="item">
+<p>
+Summary: In conclusion, this book is a slightly flawed masterpiece, a
+potential master in the field that is sadly let down by a few
+omissions and factual errors that spoils an otherwise wonderful
+reference.
+</p><p>
+The Perl Black Book, 2nd Edition, is a hefty tome of twelve hundred or
+so pages that intends to be "as much of the whole Perl story as one
+book can hold".  The publishers Coriolis are recommending a retail
+price of 41.99ukp a copy, making this seems like a good deal.  Lets
+take a look at what we get for our money.
+</p><p>
+The format of the book is such that most chapters start with an "In
+Depth" section, which attempts to explain the general concepts and the
+whyforths of the issue that chapter explains.  The bulk of the chapter
+is then padded out with an "Immediate Solutions" section that covers
+there whereforths in a brief quick fire "cookbook" like format of
+question...code example...answer.
+</p><p>
+This format is very readable, and working though the book is a lot
+less painful than one might expect for such a large number of pages,
+and the format also lends itself well to being an easily accessible
+reference book too.  The cookbook like examples are illustrated with
+requests for further explanations from a fictitious supporting cast
+ranging from the 'novice programmer' to the 'programming correctness
+cazer'. These requests, and their corresponding answers, the author
+is able to provide both entertainment and much needed context to the
+examples.
+</p><p>
+Understanding Perl, more so than many other languages, is about
+understanding culture of the language.  Things hang together because
+of common concepts and themes.  The Perl Black Book does a reasonable
+job at writing down these unwritten rules and explaining not only how
+each of the functions work, but in what situation and why things work.
+</p><p>
+The one true Perl book, any Perl programmer will tell you, is the
+"Camel Book", Programming Perl by Larry Wall et al.  The Perl Black
+Book does a good job of complementing The Camel Book; It's style is
+significantly different that, though containing mostly the same
+information, it is not superfluous.  Indeed, programmers who have
+tried reading the Camel Book and found it less than agreeable may
+prefer the slightly more bite sized and practical approach of the Perl
+Black Book.
+</p><p>
+Despite all these great points the Perl Black Book is not without
+significant and worrying flaws.  The most significant of these being
+the lack of "use strict" in the examples in the book.  To its credit,
+the book does mention the pragma in all it's form several times, but
+in my opinion it does not mention it forcefully enough or in the right
+place (just after covering the "-w" switch for example.)  For a
+beginner, the "use strict" pragma is a must (and indeed, for any
+professional) as it enforces good style and catches many common
+mistakes and typos that are otherwise hard to spot and frustrating to
+track down.  Such treatment of the subject (or lack there of) by the
+book is almost unforgivable.
+</p><p>
+Other glaring stylistic mistakes that I would have though would have
+been caught by technical review are striking.  The old technique of
+using typeglob aliasing for constants rather than the "use constant"
+directive (the book uses 5.6.1 where this is possible) is a good
+example.  Worse, is where the book almost gets it right; For example
+the book advocates writing test scripts with module distributions - a
+good thing - but then seems to suggest you use the script to print out
+output which you then check by eye rather than using Test.pm (or any
+of the other testing modules) to print out the standard "ok" or "not
+ok" messages.  Such an approach is likely to cause confusion with
+Test::Harness and make a beginner programmer wonder what they've done
+wrong when their module fails to pass it's tests.
+</p><p>
+More worrying are things that effect the security aspects of some of
+the advice.  The section on CGI programming demonstrates serious
+security flaws.  Environment variables are echoed unprotected to output
+of webpages (enabling cross-site scripting attacks allowing malicious
+people to commender such pages and use them to redirect traffic to
+their site and worse.)  File based databases are not locked so
+multiple people accessing the website can cause writes to occur at the
+same time corrupting the data.  Tainting is not covered.  At least the
+code uses CGI.pm!
+</p><p>
+One of the reasons the book may be so brief on such critical areas is
+that the book does cover an extraordinary range of topics.  The
+included material on Tk is a more
+than reasonable primer on GUI programming in Perl (a section missed by
+many other books.)  The section on XML includes a fair amount of info
+on the basics of DOM and SAX processing techniques.  Other subjects
+are treated worse; The SOAP discussion amounts to outputting custom
+XML and would be much better replaced by a discussion of the SOAP::Lite
+module.  The WML section is somewhat lacking on important issues and a
+programmer would be much better off with Martin Frost's
+Learning WML and
+WMLScript book.  Most notable by it's complete absence is anything
+on DBI, the Perl Database Interface
+that allows Perl to communicate with SQL driven databases.
+</p><p>
+In conclusion the question is: Would I recommend this book to someone
+learning Perl?  Tough call.  Maybe. I would to someone who didn't like
+any of the excellent O'Reilly or Manning books.  I certainly wouldn't
+hesitate to recommend a third edition of this book in which the
+errors and omissions corrected - the format and general coverage is
+very appealing, as is the quality of explanation.  Until such an issue
+is published I'm going to have to refrain from drawing any conclusions
+such.
+</p>
+
+	</div>
+
+
+
+[% END %]

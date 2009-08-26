@@ -1,0 +1,387 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Extending and Embedding Perl",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Authors: Tim Jenness &amp; Simon Cozens</p>
+  <p>ISBN: <div class="isbn">1-930110-82-0</div></p>
+  <p>Publisher: Manning</p>
+  <p>Reviewed by: Nicholas Clark</p>
+</div><div class="item">
+<p>This is a long review. I could have said "the book is missing things that I
+think should be there" and leave it at that. But it's trivial to say, easy to
+dismiss, and impossible to follow. As I'm clear in my head about the specifics
+of what I think is missing but relevant to the book's subject matter, I've
+backed things up every time with examples. This makes a much longer review,
+but hopefully much clearer to follow, and easier to understand why I hold
+my opinions. Maybe it's more of a short article than a review, but it says what
+I feel I need to say.</p>
+
+<p>The two authors have an excellent pedigree in the Perl world, and the
+writing of this book generated direct improvements in the Perl code. Tim
+Jenness is a respected module author, and submitted two thorough API testing
+modules to the Perl core during the creation of this book. Simon Cozens
+concentrated on improving the Unicode support in perl5.8, and was submitting
+more core patches than I was prior to becoming the first parrot
+pumpking. Despite herding the first 4 parrot releases and writing this book,
+he still managed to contribute back significant core API documentation
+updates.</p>
+
+<p>Extending and Embedding Perl says that it assumes that the reader is a
+competent Perl programmer, but it doesn't assume proficiency in C. <i>It
+should be possible to gain a lot of benefit from this book without any prior
+exposure to C</i> and to help achieve this the first and third chapters are
+entitled "C for Perl programmers", and "Advanced C" respectively. I will
+divide the book, and hence review, into two parts; the C tutorial, and the
+rest of the book. I will start with, and concentrate on the important part -
+the main book.</p>
+
+<p>The "main book" consists 9 chapters of varying length; two are over 60
+pages, two are under 15. Two deal with XS, Perl's extension language used to
+automate writing glue code, with a third covering alternatives to XS. Two
+provide references to how Perl holds variables, and the Perl API. The two
+shortest chapters of the book describe embedding Perl into other
+programs. Chapter 10 is called "An introduction to the Perl internals", and
+covers how the Perl interpreter parses Perl source code to generates opcodes.
+The final chapter describes the core Perl development process, and touches on
+the future.</p>
+
+<p>The authors say <i>we have worked hard to make this book the definitive
+tutorial for all reference to all topics involved in the interaction of Perl
+and C</i>. I find that the book sits uneasily between either - I don't find it
+a clear introduction or tutorial to the internals of Perl, nor do I feel that
+it will become my first port of call as a reference work. There are some parts
+of the book I really like - the sections on interface design in the two XS
+chapters gives an excellent guide on how to craft a natural Perl level
+interface onto a C API. 20 pages are well spent in a clear description of the
+multiplicity of ways to pass arrays to and from Perl, contrasting
+implementation simplicity, Perl interface simplicity and speed. There are
+insights into the internals, with hacks that I was unaware of, such as how and
+why there is no simple <span class="code">IV</span> or <span class="code">NV</span> type, just
+composites with <span class="code">PV</span>. The section on the <span class="code">B</span> modules is
+an excellent guide to one of the most feared family of core modules (judging
+by the fact that no-one has the courage yet to write regression tests for
+them), clearly showing their underlying simplicity, and leaving me wondering
+what everyone was so afraid of. There are good explanations of some of the
+traps in C laying in wait for the unsuspecting Perl programmer, such as
+<span class="code">float var = 1/4</span> being <span class="code">0.0</span> and the dangling
+<span class="code">else</span> ambiguity. But ultimately I find the book disappointing,
+which is sad, because I appreciate that a lot of effort went into its
+production. I will group my concerns under 4 headings: ordering, overview,
+insight and errors/omissions.</p>
+
+<h2>Ordering</h2>
+
+<p>The introduction recommends <i>that the experienced C programmer skip
+chapters 1 and 3</i> (the C tutorial which I cover later). Chapter 4 says
+<i>If this is your first look at the insides of Perl, feel free to skip this
+chapter and come back to it later.</i> Chapter 5 says <i>This chapter is a
+reference to the Perl 5 API ... you are encouraged to jump around this
+chapter.</i> Chapter 10, the book's penultimate chapter is "An introduction to
+the Perl internals". Some of the XS examples chosen for chapter 6 are actually
+much simpler than many in chapter 2, and better illustrated how XS is meant to
+work to simplify the programmer's task.  Smoothly breaking the reader into a
+subject as self-referential as the Perl internals is hard, it means trying to
+find a good order to minimise forwards references, but this is what a tutorial
+should set out to do, and this book fails to find a successful order.</p>
+
+<p>Ordering within chapters is also confusing. Chapter 5 sets out to be a
+reference to the API rather than a tutorial, yet it is not in alphabetical
+order. If anything, the API functions are set out in progressive order of
+complexity, minimising forward references, more akin to a tutorial. Section
+5.4.1 even starts <i>As usual, we'll begin our investigation</i> . Chapter 6
+innocently presents an XS example, then adds after half a page of explanation
+<i>As it stands, this code will not compile, because...</i>. Later during an
+explanation of passing arrays it only announces after the code example that
+actually this one differs from the previous implementation because it passes
+by reference rather than in <span class="code">@_</span>. Chapter 4 first introduces the
+general concepts of SV types and reference counting in dry text, before a very
+accessible illustration of the same thing with simple Perl and
+<span class="code">Devel::Peek</span>. I would have found it clearer the other way round; I
+suspect that many Perl programmers would have too.</p>
+
+<p>Some choices of introduction points for ideas are also illogical. Chapter 8
+ends with a section "embedding wisdom" in which there is the point <i>Avoid
+using Perl API macros as arguments to other Perl API macros (this advice is
+also relevant to XS programming)</i>. Why is this advice first mentioned on
+page 266 of 361, but neither in the chapters on the Perl API, nor in the
+chapters on XS? Similarly, the only mention I can spot of the XS
+<span class="code">BOOT</span> directive is in chapter 5, the Perl API reference.</p>
+
+<h2>Overview</h2>
+
+<p>The book only concerns itself with the details of the various topics it
+covers. Nowhere is there any overview of the architecture of the Perl
+interpreter; contrast this with the "Perl Internals" chapter of <i>Advanced
+Perl Programming</i>[<a href="#1">1</a>] which starts with a description of
+the architecture, accompanied by a block diagram of a running Perl interpreter.
+As you read through it becomes apparent that Perl passes arguments to and
+returns results from extensions via an argument stack, but this is not
+stated up front. In fact, all argument passing in Perl between ops is done
+via this stack, but the first mention of it is at page 169.</p>
+
+<p>Likewise there is no overview of the XS language. XS is designed to provide
+an quick[<a href="#2">2</a>] way to wrap external C libraries to create Perl
+libraries. The XS compiler <span class="code">xsubpp</span> assembles complete C wrapper
+subroutines from the XS instructions you give it. It has a template which it
+uses to build the C wrapper, and various XS keywords are used to instruct it
+on which pre-fabricated units to choose, or provide a custom over-ride for one
+of its sections. As a C programmer I find it much easier to understand if I
+think of it in terms of a tool that automates writing C for me, as C is
+something I already understand, even if I don't yet understand the details of
+the C that it is writing. But there's no paragraph like this to introduce XS.
+And there's no table showing how the various XS keywords fit together in the
+template to build a whole wrapper, or which keywords act as alternatives to
+each other or to automatic code. In fact, the XS keywords aren't even listed
+in one place, but introduced without fanfare throughout the book. Nor are the
+various C variables that the XS code defines for you ever written out. As an
+XS programmer you need to know their names to avoid choosing the same names
+for your parameters or temporary variables. But they are never listed, only
+alluded to.</p>
+
+<p>Finally, Perl plays a lot of pre-processor games to hide its namespace from
+other C programs, using C macros to redefine all its function names with a
+<span class="code">Perl_</span> prefix, to avoid name clashes when linking with external
+libraries. This lets your source code continue to refer to
+<span class="code">sv_gets</span>, even though the symbol that the C compiler and linker see
+is <span class="code">Perl_sv_gets</span>. The same mechanism is used to add in an extra
+context parameter to pass thread local state around if you build a threaded
+Perl. Being aware that all this is going behind the scenes is useful,
+even though it's not something you normally need to worry about. But it is
+possible for an XS author to make assumptions and mess up because of it, so
+it is useful to be aware of it if things are going wrong for you. But the
+book gives no overview of any of this, only a few passing references.</p>
+
+<h2>Insight</h2>
+
+<p>With two very experienced Perl developers as authors, I hoped that the book
+would be full of insights into how things work, and tips and tricks of the
+trade of the extension writer - things you can't learn from reading the
+documentation or the source code. Some sections do give these, but there are
+many places where there are things that I believe would have been beneficial
+to state. The most important of these is <span class="code">PL_na</span>, an integer
+variable originally provided to simplify user code that wants to ignore the
+length returned by <span class="code">SvPV()</span>.  Because some code actually uses the
+global <span class="code">PL_na</span>, to keep this code working <span class="code">PL_na</span> is
+stored in thread local storage in a threaded Perl. Hence it represents a speed
+hit, and new code should use a local variable instead. But the book doesn't
+say this. Similarly, there's a C trap that it's easy to fall into when calling
+a function <span class="code">foo</span>. This is tempting to write, but <b>wrong:</b>
+<pre>
+  STRLEN len; foo
+  (SvPV(sv, len), len);
+</pre>
+because it's undefined behaviour in C (the code shown relies on the order of
+evaluation of function parameters). The <b>correct way</b> is:
+<pre>
+  STRLEN len;
+  char *pv = SvPV(sv, len);
+  foo (pv, len);
+
+</pre>
+It's a trap that is easy to unwittingly fall into, so the book could have
+mentioned it.</p>
+
+<p>In the chapter on the Perl internals, section 10.3.2 describes sublexing,
+and how the function <span class="code">scan_str</span> is called to extract a string
+within balanced delimiters, which is then passed on to another function which
+deals with variable interpolation. This description of how the quote and
+quotelike operators are parsed is accurate, but it missed an opportunity to
+give insight into the implications of this implementation. Because the end of
+the entire string or regexp has to be found before it is digested, if you
+patched the <span class="code">re</span> pragma to give an option to make extended regexps
+the default, you still couldn't put <span class="code">/</span> inside a regexp comment,
+because the Perl parser will stop at the first un-backslashed <span class="code">/</span>
+that it sees, independent of internal regexp context. (Note that such a
+pragma would get round the other problem: that the <span class="code">//x</span> flag is
+after the regexp)</p>
+
+<p>Chapter 7 describes SWIG, an alternative to XS which also generates wrappers
+for Python, Ruby and many other languages. However, there's no discussion of
+the strengths and weakness of SWIG, or when you should choose it over XS.
+Until recently SWIG wasn't able to use nested Perl namespaces, hence all the
+wrappers it generated had to be top level namespaces. Acceptable locally,
+but no good for distributions. This limitation is now gone, but readers may
+be aware of it, so the book should have mentioned it. SWIG has better
+support for C++ in general, and automatically generating accessor methods for
+C structures. However, it is limited to generating wrapper code that treats
+each parameter in isolation, whereas XS gives you full power to override
+its auto-generated code, letting you create wrappers with variable argument
+lists, or the flexibility to cope with arguments being of different types
+(scalars, array references etc). Simplifying: SWIG handles data better,
+XS handles functions better. But Extending and Embedding Perl doesn't tell you
+this.</p>
+
+<p>The book starts to hint at the biggest design problem I found with SWIG. To
+use SWIG you write an interface file, which SWIG converts to a wrapper. This
+leads to two real difficulties. Firstly, you can't directly include system
+headers defining types you need, because if you do SWIG will attempt to wrap
+every function and structure it finds in them. So you end up duplicating the
+definitions you need. Secondly SWIG generates your C wrapper code <b>and your
+Perl module</b> from this interface file up front. There is a great temptation
+to edit the auto-generated C and <span class="code">.pm</span> files, but you must
+not. This is not what you might be used to with <span class="code">h2xs</span> and the
+<span class="code">.pm</span> file it generates for you once. Couple this with the poorer
+handling of arguments, and the result is that with SWIG is that you tend to
+end up with one auto-generated <span class="code">.pm</span> file that gives the raw
+interface, and another handwritten <span class="code">.pm</span> module that fixes up the
+interface to give a more natural feel. This may not be what you want, either
+for speed or aesthetics.  These two paragraphs may seem irrelevant - what am I
+doing, going on about something that's not in the book? Well, that's my point
+- I would have hoped that the book would give you an insight into all these
+things, so that you learn from the experience others, rather than having to
+spend the time on getting the experience yourself.</p>
+
+<h2>Errors/Omissions</h2>
+<p>Perl tracks which memory is in use by reference counting is structures
+such as scalars. As a programmer manipulating the internals, you need to get
+your reference counting right, otherwise Perl will leak memory or free things
+prematurely. It's crucial to get this right, yet the book hardly touches on
+it. There should be a whole section on how to do it - who owns the reference
+of items on the argument stack, which API routines increase the reference
+count for you on the assumption that this will save you another call, which
+API routines hook the pointer you gave them into another structure without
+changing the reference count, and in effect take a reference from you.
+The book briefly mentions this, but with no more detail than I have here.
+Most of the descriptions in the API reference section make no mention of
+what they do to reference counts. When XS is introduced there's no mention 
+that everything on the argument stack should be "mortal", as your caller
+mortal copies things onto it, and copies off anything you pass back. This
+alluded to later, but blink and you'll miss it. This is crucial stuff to
+get right, but it's just not there.</p>
+
+<p>Internally Perl throws and catches the exception generated by
+<span class="code">die</span> by using C's <span class="code">setjmp</span> and <span class="code">longjump</span>
+functions. The implication of this is that if something you call in the
+Perl API causes a C level <span class="code">croak()</span> or a Perl level
+<span class="code">die</span> (such as the <span class="code">FETCH</span> method on a tied value
+that you read) then <span class="code">longjump</span> is going to bypass the rest of
+your extension's code, and any cleanup and resource deallocation it would
+have done. Hence if your extension is called in an <span class="code">eval</span>
+Perl code execution will continue, but you will have leaked resources.
+If you're trying to write bullet-proof code for a persistent environment such
+as mod_perl this could become important. Yet Extending and Embedding Perl
+never mentions this, or what can be done to ensure cleanup happens.</p>
+
+<p>The Perl API reference in chapter 5 could never realisticly hope to cover
+every nook of of the Perl API, as there isn't an official API - historically
+people have just seen a function in the core source they liked the look of,
+and started using it. However, the reference in chapter 5 is incomplete, in
+that it doesn't cover all the Perl API used in the rest of the book. The body
+text makes reference to <span class="code">sv_setref_pv</span> in two different chapters
+without describing what it does. I didn't know, so I looked in chapter 5, but
+it's not there. Similarly the API guide contains no entry for
+<span class="code">SvUPGRADE</span> or <span class="code">sv_upgrade</span>. This considerably
+diminishes the utility of the book as a reference - as I know that I may not
+find something, I won't look in this book first. Likewise the scope macros
+(<span class="code">ENTER</span>, <span class="code">SAVETMPS</span>, <span class="code">FREETMPS</span>,
+<span class="code">LEAVE</span>) are mentioned several times but never clearly defined or
+explained in the API reference. The API reference chapter's introduction
+only ever uses the word "functions", never saying that many are actually
+macros. The difference is crucial, as every competent C programmer knows to
+avoid putting expressions with side effects, such as <span class="code">i++</span>, in the
+arguments to a macro.  They are described as functions, so C programmers could
+well treat them such, and this will cause bugs.</p>
+
+<p>I spotted two subtle but potentially serious errors in the API reference.
+Firstly, the <span class="code">SvIOK()</span> example is given as:<pre>
+SvIVX(sv) = 123;
+SvIOK_only(sv);
+
+</pre>
+You can get away with this on a fresh SV, but it could cause a core dump on a
+re-used SV. The two statements <b>must</b> go the other way round, so that
+<span class="code">SvIOK_only</span> can call cleanup functions for things such as the
+offset hack. Secondly, the book wrongly says that <span class="code">hv_fetch</span> will
+compute the key length for you if you pass in a length of zero. It does not,
+and getting this wrong will cause hard to find bugs.</p>
+
+<h2>The C tutorial</h2>
+<p>The book starts with a chapter designed as an introduction to C for Perl
+programmers, and the third chapter is described as "advanced C". People have
+argued that a C introduction/refresher has no place in this book. I do not
+agree - Perl is a weakly typed language with self-resizing strings builtin,
+automatic memory management, introspection, and dynamic code compilation. C
+is strongly typed, and has none of the other features. Yet Perl is implemented
+in C, so somehow it has to be providing all its features using C. I think that
+contrasting C and Perl, describing the similarities and emphasising the
+differences, gives an excellent introduction to the Perl internals, setting the
+scene for just how much they have to do.</p>
+
+<p>However, the C tutorial given is not good. It is unclear, fails to define
+important concepts, contains dangling cross references and several serious
+errors. Worse still, it has a showstopper error. This <b>should</b> have been
+spotted, and the production run stopped until it was corrected. Strings in
+C are very different from Perl, and often a source of errors even among
+experienced C programmers. Page 58 gives an example of how C strings work.
+The entire explanation is based around manipulating a string as defined
+below, with an accompanying box diagram as shown:
+
+<blockquote><span class="code">char a[5] = "hello";</span> <table
+border="1"><tr><td><span class="code">h</span></td><td><span class="code">e</span></td><td><span class="code">l</span></td><td><span class="code">l</span></td><td><span class="code">o</span></td><td><span class="code">\0</span></td></tr></table></blockquote>
+This is a serious off by one error. The initialiser as given is valid C
+(although not C++) but does not do what you want to do here. If you attempt to
+compile the code with a C++ compiler, such as g++, you get this error message:
+<pre>offbyone.c:1: initializer-string for array of chars is too long
+</pre>
+
+The actual data stored in the array <span class="code">a</span> in C is this:
+<table border="1"><tr><td><span class="code">h</span></td><td><span class="code">e</span></td><td><span class="code">l</span></td><td><span class="code">l</span></td><td><span class="code">o</span></td></tr></table>
+
+(note lack of terminator) which means that the rest of the section is
+completely wrong. For an introduction this is appalling - anyone reading this
+will think that the C language automatically adds an extra byte of storage for
+the terminating <span class="code">\0</span>. It <b>never</b> does. <span class="code">strlen()</span>
+never counts the <span class="code">\0</span>, but you must remember to add one for it if
+allocating memory. This is probably the most common C bug, yet it's not
+mentioned.</p>
+
+<p><span class="code">NULL</span> is introduced without definition or explanation.
+<span class="code">NULL</span> pointers are an important concept in C - nowhere is it
+mentioned what they are, or that in a numeric context they evaluate to 0, and
+hence are logically false, whereas all other pointers are true. C has a
+<span class="code">switch</span> statement - just about the only part of C syntax that is
+not part of Perl's. But the book doesn't make it clear that this is only for
+integers, and the case targets have to be integer constants. This would be an
+obvious point to note, because in the chapter on XS the book there is a
+section describing the C code for finding constants that Perl utilities
+auto-generate - effectively the utilities are writing out a
+<span class="code">switch</span> on strings longhand, because C's builtin
+<span class="code">switch</span> cannot do this.</p>
+
+<p>The contents of rest of the book are good; my principle complaints are the
+ordering and the omission of related or relevant content. The C tutorial is
+actively bad. Avoid.</p>
+
+<h2>Summary</h2>
+<p>In summary, excluding the C tutorial, the content of the book is good.
+There are a couple of small factual errors, but these do not mar the book.
+However, I feel that the book is a missed opportunity. The existing content is
+not in an optimal order for a tutorial, the main API reference section is not
+laid out in an easy order for direct lookup, and there are no reference tables
+or diagrams for other information important to an extension writer. The
+opportunity was there to provide much greater insight into how Perl works, and
+how to write extensions, but it was rarely taken. This book makes me sad,
+because it could have been so much more.
+
+<ol><li><a name="1">Sriram Srinivasan (1997). <i><a
+href="http://www.oreilly.com/catalog/advperl/">Advanced Perl
+Programming</a>.</i> O'Reilly &amp; Associates, Sebastopol. pp427</a></li>
+
+<li><a name="2">quick</a> and easy with minimal typing once you know what
+you're doing - what Perl the language gives in terms of shallow learning
+curve, seems to be balanced out by the cliff face that is the Perl the
+internals.</li>
+</ol>
+</p>
+
+</div>
+
+
+[% END %]

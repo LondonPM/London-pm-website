@@ -1,0 +1,34 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Make who's who xml",
+    keywords => "who's who, xml, make",
+    section => "who",
+%]
+
+
+
+
+<item name="Make who's who">
+<p> 
+	All fields are optional, except for 'name'. <br />Simply fill in the values, hit make and then save the resulting xml somewhere
+	web accessible and mail the url to <a href="mailto:lpm-whoswho@thegestalt.org">Simon Wistow</a><br/>
+	<form action="/cgi-bin/makewhoxml.cgi" method="POST">
+		Name: <br /><input name="name" type="text" /> <br />
+                Nickname: <br /><input name="nick" type="text" /> <br />
+                Bio: <br /><textarea align="bottom" name="bio" cols="72" rows="4"> </textarea><br />
+    	        Email Address: <br /> <input name="email" type="text" /> - <input type="checkbox" name="linked" /> (make this linked?)<br />
+                Image url: <br /><input name="image" type="text" /> <br />
+                Website: <br /><input name="site" type="text" /> <br />
+                CPAN ID: <br /><input name="id" type="text" /> <br />
+		<input type="checkbox" name="escape" checked="on" />  &amp;nbsp; Uncheck this if you <b>DON'T</b> want your entries HTML escaped. 
+		You should check the resultant XML even if you do leave it checked.<br />
+                <input type="submit" value="make" />
+
+	</form> 
+</p>
+</div>
+
+
+
+
+[% END %]

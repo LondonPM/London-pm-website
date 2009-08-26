@@ -1,0 +1,119 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Web Caching",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Duane Wessels</p>
+  <p>ISBN: <div class="isbn">1-56592-536-X</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: Andy Williams</p>
+</div><div class="item">
+<p>Why do we need web caching?</p>
+<p>Web caching helps the speed and efficiency of the web. Used correctly
+it can speed up response times to keep users happy, and can maximise
+network bandwidth to keep network administrators happy.
+</p>
+<p>Chapter 1 is an introduction, or refresher for those who already work with the Web, on the basics of web architecture, protocols, reasons for and against web caching, and types of web caching. It explains the differnece between server and client caching - although this is not rocket science it has been my experience that a lot of developers do not understand the difference.</p>
+
+<p>Chapter 2 is an explanation of how web caching works. It covers the =
+differences bewteen HTTP and non-HTTP (ftp, gopher etc proxy requests). Why certain pages should or shouldn't be cached. Explains what HTTP headers are used to help caching.  How to force a cache refresh. This chapter also has a section on caching algorythms - although this is just a a reasonably high level.</p>
+
+<p>In chapter 3 the author covers the politics of a web caching system. It includes how web cache logs can be used to compromise a users' privacy, and how caching can be used to strengthen privacy. There is a nice section on copyright issues which in my opinion does an excellent job of explaining the issues invovled.</p>
+
+<p>The focus of chapter 4 is on configuring the caching mechanism on the
+client
+side. This section was a little dissapointing in that it focused mainly
+on
+Microsoft Internet Explorer and Netscape. I would have like to have seen
+some
+code based configuration, e.g. LWP. It does however briefly mention
+Mosaic,
+Lynx and Wget. There is a nice section on Proxy auto-configuration
+scripts,
+which I have never been able to master, not entirely sure that this
+section is
+in quite enough detail though.</p>
+
+<p>Chapter 5 has an explation of how to make your network users actually
+use
+the cache - Interception proxying and caching.</p>
+
+<p>In chapter 6 we discover how to configure servers to work with caches.
+This
+section is aimed at web administrators. It explains the important HTTP
+response
+headers that should be used. There is also a nice list of "ten ways to
+be cach-friendly".
+Apache seems to be the server of choice in this section, so sorry to all
+you IIS users
+out there.</p>
+
+<p>Chapter 7 explains how caches work with other caches - a cache
+hierarchy.
+It builds on some of the knowledge from chapter 2 - hit ratios and
+freshness.</p>
+
+<p>Chapter 8 is a good section intercahe protocols - ICP, CARP and HTCP and
+Cache
+digests. There are comparisons bewteen the protocols and a "Which
+Protocol to Use"
+section which is extrememly helpful.</p>
+
+<p>Chapters 9 and 10 cover the physical requirements of a caching system -
+clustering,
+load sharing, design.</p>
+
+<p>Chapters 11 and 12 are there to help with monitoring and benchmarking
+your new
+cache sytem. It includes a description of several tools - UCD-SNMP from
+the university
+ of California, RDDTool and Web Polygraph. The benchmarking section
+(chapter 12) is
+ incredibly detailed and has proved very useful in setting up my web
+cache.</p>
+
+<p>Appendix A covers analysis of your web cache trace data, and backs up
+what Duane
+has been talking about throught the book.</p>
+
+<p>Appendix B is an in-depth description of the Internet Cache Protocol.
+Most of this
+information is contained in RFCs 2186 and 2187, but the layout in this
+appendix is
+much easy to read and comprehend. This section builds on chapter 8.</p>
+
+<p>Appendix C builds on the CARP protocol originally discussed in chapter 8.</p>
+
+<p>Appendix D builds on the HCTP protocol originally discussed in chapter
+8.</p>
+
+<p>Appendix E builds on Cache Digests originally discussed in chapter 8.</p>
+
+<p>Appendix F is a very nice section on HTTP status codes. Although all
+this
+information is in the relevant RFCs, I find it much easier to have in
+paper form.</p>
+
+<p>There is a list of all the acronyns used in the book in appendix H.</p>
+
+<p>I was hoping that this book was going to cover not only system
+administration
+of web caching but also some programming insite. Unfortunately I was
+mistaken,
+however, what this book does give you is pretty much everything you ever
+wanted
+to know about about design, deployment and operation
+of a Web cache.</p>
+
+<p>Another good book on caching/proxying is "Web Proxy Servers" by Ari
+Luotonen
+and is well worth a read.</p>
+</div>
+
+[% END %]

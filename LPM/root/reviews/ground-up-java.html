@@ -1,0 +1,92 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Ground Up Java",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Philip Heller</p>
+  <p>ISBN: <div class="isbn">0782141900</div></p>
+  <p>Publisher: <a href="http://www.sybex.com/">Sybex</a></p>
+  <p>Reviewed by: Ben Evans</p>
+</div><div class="item">
+<p><em>[Caveat: Throughout the book, mention is made of the Illustrated Exercises. 
+These are java programs designed to act as online labs or 'magic workbooks'. 
+The screenshots look enticing and similar tools have proved to be very useful 
+as teaching aids in other circumstances. Unfortunately, the disc with my copy 
+failed to mount on any of the Linux or Windows machines I tried it on so I am
+unable to comment on their suitability or effectiveness].</em></p>
+
+<p>This book purports to be an introductory programming text, to teach the 
+complete beginner how to program through the vehicle of the Java language. It 
+makes a number of claims about being the only such book, and about having a 
+unique approach to the subject.</p>
+
+<p>Unfortunately, there are already a large number of books that occupy this 
+space, and I have read more than a few that treat the subject in the same way 
+that Heller claims is unique. It will be painfully familiar to anyone who has 
+tried to teach beginners -- the text makes no real attempt made to discuss the 
+subject in anything other than the standard pedagogical way and the average 
+student will quickly be lost or bored or both.</p>
+
+<p>The early chapters, in particular, are not good. The introductory chapter
+introduces an imaginary virtual machine called SimCom and its associated 
+assembly language. In no way is this material suitable for the first chapter 
+of a book which is supposed to be for absolute beginnners. The very reason 
+high-level languages were developed in the first place was to prevent the 
+typical programmer from having to deal with the actual nature of the machine.</p>
+
+<p>In later chapters the precedence given to the material is somewhat bizarre. 
+Java's features which prevent pointer arithmetic (at least by the casual user) 
+are dismissed in a couple of paragraphs (without so much as a mention of why 
+this is an important security feature as compared to C/C++, or even using the 
+word 'overflow') whereas five pages of Chapter 3 are devoted to bitwise 
+operations. A strange choice for a beginners book on Java. Equally, discussion 
+of the formats used internally for numbers seems irrelevant to the average
+beginner, except those poor souls doomed to program early versions of J2ME.</p>
+
+<p>The treatment of operator precedence is also substandard. I found myself
+having to read the discussion several times, as the sense was unclear. I'm
+sure a beginner would have been confused by it. There are numerous other
+problems - that post and pre-increment are treated as entirely equivalent is
+just one example.</p>
+
+<p>Another low point is the treatment of exceptions. The opening, oversimplified
+treatment seems to imply that exceptions are preferable to error codes because 
+the former allow the programmer to write less code or do less work. It is this
+kind of attitude which encourages programmers to write coarse-grained handlers
+and other bad habits in their dealings with exceptions. The statement that
+runtime exceptions should never be caught in production code is laudable but
+laughably unrealistic. In practice, beginning and intermediate Java
+programmers will need (or worse, be told to) catch these due to a whole host 
+of possible factors (integration with shoddy binary-only 3rd party code,
+desire to never display error screens to the end user, management hubris,
+etc.). Far better to discuss these cases, and explain that while a proper
+usage of exceptions is a pain in the neck, failure to do so will ultimately
+lead to bad and broken code.</p>
+
+<p>The typesetting also lets the book down -- the sections are too long and not
+broken up with breakout boxes, key facts are not highlighted and it is very
+hard to see which concepts are the important ones and which simply supporting
+material.</p>
+
+<p>If this really represents the state of the art in beginners Java books then 
+the market is clearly still wide open for a text which attempts to teach
+proper practice as well as syntax and which brings to the fore the design
+patterns principles which underlie so much of Java's design and theory. Most
+importantly (and this is perhaps the biggest failing of Heller's book) a book 
+is needed which discourages beginners from developing the bad habits
+responsible for the bloated, inelegant, antipattern-ridden systems which are
+sadly all too familiar to working programmers in the field.</p>
+
+
+
+
+</div>
+
+
+[% END %]

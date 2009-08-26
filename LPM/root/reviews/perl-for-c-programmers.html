@@ -1,0 +1,222 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Perl for C Programmers",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+<p>Author: Steve Oualline</p>
+<p>ISBN: <div class="isbn">0-7357-1228-X</div></p>
+<p>Publisher: New Riders (<small><a href="http://www.it-minds.com">web</a></small>)</p>
+<p>Reviewed by: Nicholas Clark</p>
+</div><div class="item">
+<pre>use strict;
+use warnings;
+</pre>
+
+<p>This is a book aimed at C programmers who want to learn perl. It doesn't
+teach you to program, as it is aimed squarely at people who already know C
+(or a related language such as C++). Similarly it doesn't waste time teaching
+you the parts of perl that are the same as C; it notes that they are the same,
+and moves on to where perl differs. To paraphrase the Ronseal advert, it's a
+tutorial that "does exactly what it says on the tin".</p>
+
+<p>The classic first example in any programming tutorial is printing "hello
+world". So it's notable that this book doesn't start with "hello world". In
+fact the first chapter only has one perl script, midway through. Instead the
+first chapter describes where to find documentation on perl, how to find and
+download modules from CPAN (4th paragraph!), and how to use perl debuggers,
+both the builtin debugger and Tk's debugger. The prominence given to
+debuggers may seem strange to perl programmers, who are more used to
+inserting a <span class="code">print</span> statement, but C, with its potentially
+lengthy compile and link cycle, means that it's often far more efficient to
+use a debugger, hence it is explaining perl in terms important to a
+programmer with a C background.</p>
+<p>The author explains early on that he isn't going to regurgitate the perl
+documentation through the book; paper versions are "expensive, out-of-date,
+and more difficult to access than the stuff that comes with Perl." I
+wholeheartedly agree. Instead the end of each chapter has a "resources"
+section which gives the relevant perl man pages (expressed as the
+<span class="code">perldoc</span> commands needed to view them), relevant URLs, and the
+names of all modules used in that chapter. This book teaches good habits:
+it emphasises where to find the documentation you need, it encourages code
+re-use (via CPAN), all the example programs are fully documented in POD,
+every <span class="code">open</span> is checked, with a helpful <span class="code">die</span> on failure,
+all the programs <span class="code">use strict;</span> and <span class="code">use warnings</span>, and
+all the CGI examples use taint mode too. The text is well written in style that
+is easy to read, and the light dusting of humour stops it becoming dry.</p>
+
+<p>The second and third chapters explain the basics of perl; the parts that
+are similar to C, such as control logic, scalars and arrays. The book clearly
+explains the potential traps and pitfalls that are new with perl, such as
+the C trap of <span class="code">=</span> vs <span class="code">==</span> gaining a new twist with
+<span class="code">==</span> vs <span class="code">eq</span>. It explains the meaning of truth, and
+how perl's rules mean that <span class="code">"00"</span> is true, which can come as a
+surprise. The book keeps to a minimum forward references to syntax covered in
+later chapters, but is not afraid to use them where unavoidable.</p>
+<p>Chapter 4 explains regular expressions, and this is the first
+disappointment. Regular expressions are the greatest strength of perl, and
+will be new to most C programmers. Hence they would benefit greatly from a
+clear introduction to regular expressions. Sadly this chapter does not
+provide one. The author states that commenting regular expressions helps
+organise your thoughts, helps make sure all the parts do what they should,
+and helps subsequent maintainers. He starts using a commenting syntax
+like this
+<pre>
+#    ++--------- literal dot
+#    ||++------- literal dollar
+#    ||||++----- word character
+#    ||||||+---- repeated 1 or more times
+if (/\.\$\w+/)
+</pre>
+and only later moves on to the <span class="code">//x</span> flag. For the example that he
+comments both ways, he observes
+<blockquote>Now are these 29 lines of comment regular expression easier to read
+than the line regular expression with its 24 lines
+of comments? Not that much really. It seems that no matter how you arrange
+a mess, it still looks like a mess.</blockquote> It's his book; he's entitled to
+his
+opinion, but I fear it will put potential perl programmers off one of the
+most important parts of perl, and consequentially they won't benefit from
+the full power of the language. Also, he missed the important objective
+point that his line commenting style will make maintenance pig as soon as
+any part of the regexp is edited to a different width - so in his example
+keeping the comment up to date could require 24 lines of editing for a 1
+character tweak to the regexp.</p>
+<p>His regexp examples get far too complex far too quickly. Barely has he
+introduced regexps, when he's starting to write regexps to match balanced
+quoted strings, including using negative look behind assertions. This is not
+a good idea - quoted strings, particularly with escaped quotes inside, are
+complex beasts, and the fearsome regexps they need are not good teaching
+aids. He also does something I've never seen any regexp tutorial do; he uses
+<span class="code">re 'debug'</span> to try to explain how regexps work. The
+<i>perldebug</i> documentation says that the debugging output is aimed at
+debugging perl's regexp engine, not users' regexps. I think he's
+misunderstood its purpose, which is unfortunate as he spends a full third of
+his regexps chapter on it.</p>
+
+<p>He doesn't provide any memorable overview of how regexps work. He doesn't
+explain that alphanumerics match as is, and only become meta-characters when
+preceded by backslash, whereas punctuation characters start off as
+meta-characters but become literals when escaped by a backslash. He doesn't
+explain that upper and lower case alphabetics are opposites, such as
+<span class="code">\s</span> matching whitespace, <span class="code">\S</span> matching
+non-whitespace.  You won't learn regexps from this chapter - you'll learn to
+be scared of them.</p>
+
+<p>The next chapters build logically, giving an overview of perl's new
+syntax (<i>ie</i> new to a C programmer), hashes, complex data structures,
+subroutines, modules, object orientation, advanced I/O and finally POD. This
+takes roughly until the middle of the book. The syntax introduction is
+logical, although there are several cases where subtly different new syntax
+is slipped in without any comment, such as <span class="code">x</span> on a list instead
+of a scalar (page 61), adding a second argument to <span class="code">bless</span> (page
+157), and <span class="code">&lt;&gt;</span> in list context (page 118). I would have
+hoped that the technical reviewers would have spotted these. The "new"
+syntax chapter attempts to cover all syntax variations you might meet (while
+wisely recommending not to use them) but doesn't mention hash slices, which
+are likely to confuse the unsuspecting. Also, there is a subtle but crucial
+error in the description of <span class="code">foreach</span> - the books wrongly says
+that the loop variable is <em>assigned</em> - I pity the programmer who as a
+result spends considerable time tracing down a bug because he didn't realise
+that actually it is <em>aliased</em>.</p>
+<p>The second half of the book puts it all together, with complete examples
+of perl programs. This half is somewhat disappointing. The programs tend to
+be presented complete rather than broken down by re-usuable functionality.
+There is no "here is how it would be done in C; here it is in perl" to show
+where perl has the advantage over C, and how to translate your thought
+process from C to perl. There are comments on how the programs work, but
+they are not overly detailed because most of the examples are not that
+complex in function. The author is very thorough in his POD documentation,
+and 100% consistent in his use of <span class="code">strict</span> and
+<span class="code">warnings</span>, which is good. He also includes the complete listing
+of every program, and I make the ratio <span class="code">description:code listing</span>
+about <span class="code">1:2</span>. In addition, about 50% of the description section is
+spent citing the code to explain how each section works. For contrast, I
+estimate that the ratio in the <i>Perl Cookbook</i> of textual description
+to code is <span class="code">2:1</span>. The examples can all be downloaded from the <a
+href="http://www.newriders.com/">New Riders website</a> (not the <a
+href="http://www.oualline.com/perl">URL given on the book cover</a>, which
+is currently a 404). Given that all the important code is stated in the
+descriptions, the book would be leaner and more efficient without the full
+listings, but it would then have a thinner spine.</p>
+<p>Some related example programs seem to suffer from insufficient extraction of
+common functionality to modules, but most examples are careful to put their
+re-usable code in modules. Unfortunately, you can see that the author is
+from a Unix/C background (laid back lowercase, rather than SHOUTY DOS or VMS
+UPPERCASE) because he names all his example modules completely in
+lowercase. This contradicts the most important perl module naming guideline
+- all lowercase is pragma space, which is an unfortunate habit to get into
+if you ever want to contribute to CPAN. Also all the modules use
+<span class="code">@EXPORT</span> exclusively, instead of the more polite
+<span class="code">@EXPORT_OK</span>, and all sit in top level namespaces.</p>
+
+<p>The CGI examples all use tainting, are careful to HTML encode all input
+they are sending out, and use modules whenever possible rather than hand rolled
+code. There is a note that input parameters can be array references
+rather than simple scalars if they are specified multiple times. There is a
+good section on basic security, so if this is your first introduction to CGI
+programming you'll have to <b>un</b>learn things to make basic security
+mistakes.  It suggests crafty ways of running a CGI script from the webserver
+for both the command line or Tk debuggers, which I'd never considered, but
+might turn out to be productivity boons. However the examples all use
+heredocs of HTML code, without even a mention of templating systems. For
+simple examples this is perfectly adequate, but if you're using this book as
+a first step into web programming, it doesn't teach you that it is good
+design to split content and presentation logic - you're likely to discover
+this only after you've build a legacy maintenance nightmare.</p>
+<p>The perl code taught is not particularly idiomatic. For example, the
+author likes writing<pre>
+  while (1) {
+    my $line = &lt;&lt;IN_FILE&gt;&gt;
+
+    if (not defined($line)) {
+      last;
+    }
+</pre>
+instead of the terser and clearer:
+<pre>
+  while (defined(my $line = &lt;&lt;IN_FILE&gt;&gt;)) {
+</pre>
+There is also needless copying, that will start impact on efficiency. There
+are several examples of the form
+<pre>
+    while (...) {
+        <b>my</b> @data = ...;
+        ...
+        $accumulator{$key} = <b>[</b>@data<b>]</b>;
+    }
+</pre>
+for both arrays and hashes. Copying the array using the <span class="code">[ ]</span>
+anonymous array reference constructors <b>isn't</b> necessary because the
+<span class="code">my</span> will create a new array for <span class="code">@data</span> on each
+iteration, so it's more efficient to replace <span class="code">[@data]</span> with
+<span class="code">\@data</span>.</p>
+<p>There is no mention of autovivification of references, which is one of
+the major programmer advantages of perl over C. It's not clear whether the
+author is even aware of it, as his code is always careful to initialise
+his array references to <span class="code">[]</span> before assigning to them. The
+author also likes using <span class="code">not defined ($hash{$key})</span> for an
+entry that will either exist as a reference or not exist - simply using
+inverting the order of the condition and writing <span class="code">$hash{$key}</span>
+simplifies things greatly. Individually these are minor points, but together
+they mean that this book alone will never teach you to be a fluent perl
+programmer.</p>
+
+<p>In summary, this book will do what it claims - teach perl to C programmers.
+If you understand C or a C like language, you can probably read this book
+through in under a day, and it will give you a grounding in almost all the
+topics you'd need to be a competent and effective perl programmer. Just skip
+the chapter on regular expressions, and use a good regular expression tutorial
+instead. This book does one thing, and does it well. However I suspect that
+this means that you will read it about twice, by which time it will give you
+the confidence and ability to find everything you need answered online, from
+which point it will remain on your bookshelf.</p>
+</div>
+
+
+[% END %]

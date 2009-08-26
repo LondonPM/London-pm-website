@@ -1,0 +1,49 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Mulberry",
+    keywords => "",
+    section => "reviews/sw",
+%]
+
+
+
+
+<div class="item">
+  <p>Product: Mulberry</p>
+  <p>Publisher: <a href="http://www.cyrusoft.com">Cyrusoft</a></p>
+  <p>Reviewed by: David Cantrell</p>
+</div><div class="item">
+<p>Mulberry is a GUI mail user agent available for Mac (both OS X and the shonky older versions), Windows, Linux and Solaris.  I'm reviewing the Mac OS X version.  It's shareware, so you can download it and try it out for a period before deciding whether to buy.  If you do buy, then it's not particularly expensive, at USD35.</p>
+
+<p>I started using it when I was faced with a boring train journey to work, and wanted to get at my mail during it.  However, I want to keep all my mail on my server for ease of backing it up, archiving and searching.  So I need support for the IMAP protocol.  My previous mail client - mutt - only has the most basic IMAP support.  It effectively treats a remote IMAP server as being a set of mboxes accessed on demand over the network, which is fine if you are always connected, but that's not really what IMAP is about.  The most important bit about IMAP is that it can also work in a disconnected mode, where you download mail to your workstation, do stuff with it (like shuffle it around between folders, read messages, delete messages etc) and then re-synchronise with the server.  There are very few clients that actually support this properly.  In fact, Mulberry is only the second one I have ever come across, the other being Multimail for Palm OS - although some people have mentioned that Multimail's IMAP implementation gets, errm, creative with the standard.</p>
+
+<p>So, what's good and what's bad about Mulberry?  Well, the good bit is that once you've got it running, it works pretty reliably, it does exactly the job I wanted and does it well, and has a pretty clean user interface.  Of course, as a user I notice its faults far more than its virtues.  Those faults are legion - although none are particularly nasty.</p>
+
+<p>Perhaps the biggest fault is one which the authors, being Macistas (Mulberry was originally a Mac-only product) will not be aware of - because just about *all* Mac software suffers from the same dumb design flaw.  You *have* to use the mouse.  This is Bad and Wrong, as the mouse is a really crappy interface - see Alan Cooper's book "The Essentials of User Interface Design", chapter 15 for the details.  Using a mouse slows me down and makes me less accurate.  I rarely hit the wrong shortcut key, but when I have to remove my hand from the keyboard I frequently hit the wrong mouse target.  I can understand having to use the mouse for particularly unusual actions for which there were no more keyboard shortcuts left, but there are no shortcuts for such common tasks as changing the sort-order of a folder, connecting to your mail server, or changing mail folders.  The people at Cyrusoft tell me that they are looking at ways to make the menu shortcuts configurable in a future release, but that, of course, does not mitigate the user interface badness that current users are saddled with.  The nice people at <a href="http://www.unsanity.com">Unsanity</a> have <a href="http://www.unsanity.com/haxies/menumaster/">a new haxie</a> to get around at least some of this, but that's another piece of software to buy, and I'm uncomfortable with having too many dodgy hacks delving into the innards of my OS and applications like this.  Another bit of bad design is that searching is inconsistent.  MUAs such as mutt use exactly the same option for searching in the body of a message or searching headers in a mailbox.  Mulberry splits this into two entirely seperate functions.  Bad Cyrusoft.  Naughty Cyrusoft.  No muffins for you.</p>
+
+<p>Initial configuration is another big problem.  There are *lots* of options, and it's none too clear what they all do.  I eventually figured it out, but not without some effort.  And even now, some of the things I have configured don't appear to work right.  Mail signatures, for example.  If I start a new thread, no sig is appended.    And there's no support for sigmonsters :-(.  If I *reply* to a message, my sig *is* appended, but the client helpfully leaves a gap at the top of the message and puts the cursor in it, obviously thinking that I am the sort of idiot who thinks that this:
+<blockquote>
+    Who's there<br/>
+    > Knock Knock
+</blockquote>
+is a good way to start a joke - which cancels out what little good karma they gain from managing to append my sig.  If there's a way to correct this egregious sin then I have yet to find it.  And frankly, I shouldn't have to.</p>
+
+<p>Another minor fault is that occasionally it fails to sync properly if you don't have a folder selected when you connect to the server - thankfully, no harm is done, but no new messages appear on the workstation.</p>
+
+<p>It has no support for PGP encryption or signatures, without a piece of add-on software which, of course, costs money.  I haven't bothered with that cos I so rarely use PGP that it hasn't been necessary.  If I need it, I'll use the command-line gpg, which will give me the advantage of not having to rely on closed-source crypto products.</p>
+
+<p>And finally, one which hasn't bitten me yet but it might do.  The free trial lasts thirty days.  With two days left, I decided to register, so went to Cyrusoft's web site to do so.  Filled in the form and got a mail back saying that my registration would be processed by hand "to assure (sic) accuracy" (yeah right), and that I would be emailed my registration code within one US business day.  Now, I did this on a Saturday.  Which means that if they send my registration code out too late on Monday (bearing in mind that the vast majority of USians don't even start work until the early afternoon at least), my evaluation copy will have expired already.  Thankfully, I have other routes in to my mail server, but if I were a typical Mac user without that, then I'd be stuffed.  I'd have to go and install some virus-ridden bloatware like Lookout just to get my registration code.  Sorry guys, that manual credit card processing just doesn't cut it.  Or if you have to do it, at least send a temporary licence code valid for a few days when you acknowledge receiving my order.</p>
+
+<p>In summary, Mulberry gets a thumbs up.  Mostly because it's the only IMAP game in town and if you need IMAP like what I do, the minor irritations won't count for much.  They get bonus points for responding quickly to email from customers.</p>
+
+<p><strong>Links</strong></p>
+
+<p><a href="http://www.cyrusoft.com">http://www.cyrusoft.com</a> - Cyrusoft</p>
+
+<p><a href="http://www.angio.net/misc/mail.html">http://www.angio.net/misc/mail.html</a> - how to achieve my goals using mutt.  I'm lazy and just couldn't be bothered.</p>
+
+<p><a href="http://mailsync.sourceforge.net/">http://mailsync.sourceforge.net/</a> - a tool for syncing a remote IMAP server to local mboxes.  I decided not to use this because it trashes message flags, and also because it's awkward to get it to only synchronise certain mailboxes.  I do *not* want it trying to sync my hundred+ Mb archive folders!</p>
+</div>
+
+
+[% END %]

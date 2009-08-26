@@ -1,0 +1,96 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Programming the Perl DBI",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Alligator Descartes &amp; Tim Bunce</p>
+  <p>ISBN: <div class="isbn">1565926994</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: Mark Fowler</p>
+</div><div class="item">
+<p>
+I have mixed feelings about this book.  To be honest, I haven't really
+read it properly.  Let me explain why....
+	</p>
+
+	<p>
+The book starts off with a section describing the concepts of databases
+and then moves on to talking about other options other than DBI to the
+programmer, such as flat files, storeable and Data::Dumper and even DBM
+files. Unfortunately, as the stressed out programmer I have neither the
+time or inclination to read this.  Nor do I care about the SQL tutorial.
+I learned SQL back in uni, and what I really need is the one thing missing
+from the chapter...a summary of the commands by name.
+	</p>
+
+	<p>
+Moving on through the book by page 87 I get the first example of some
+actual perl code that deals with the DBI.  My impatience (apparently a
+virtue) has caused me to skip all the sections describing the model of how
+the DBI abstractions work without any real example.  And now I don't
+instantly understand them.  Maybe it's just me.
+	</p>
+
+	<p>
+Nice section on handling errors...now this is something all database
+people need to read, including the section on using eval and handling
+errors.  Finally something useful advice that I can't get just by reading
+the pod.  Section on quoting.  Nice.  If I just slow down a little and
+start reading properly...
+	</p>
+
+	<p>
+Now the really important bit of the book.  The bits I actually bothered to
+make time to read, The bit I wish I could just rip out and stick in it's
+own little book.  Chapter 5 and Chapter 6...The basic hows and whys of the
+many fetch methods that DBI uses.  If you've ever used DBI then you'll
+know there's about a zillion ways to pull out data...and this section
+describes which one to use and why.  Oh and stuff on dealing with weird
+data types.  And how to close handles prematurely.  In fact, pretty much
+all of the important "Now how do I do *that* questions" - this stuff
+really *isn't* in the pod.
+</p>
+<p>
+Moving swiftly on we get onto some discussion about ODBC.  The section is
+heavily prejudiced and tells you what (and really only just what) you need
+to know to survive with ODBC if you've been using DBI.  If you like this
+or not is really up to you...more skipping on my part.
+</p>
+<p>
+The latter half of the book is a collection of appendices.  Included is the
+DBI specification that tells you exactly how each command works which is
+just a more readable version that the pod. YMMV...I tend like having both
+thid dead tree summary and a pod guide open at the same time as they
+complement each other well.
+</p>
+<p>
+The last apendices is a collection of information on the different DBD
+(data base drivers) that handle the connection to the databases and the
+peculiarities that go with each of these.  Nice if you need it.  The MySQL
+drivers are notable by their absence.
+</p>
+<p>
+Okay, back to why I haven't read this book properly.  Don'y you see?
+Half the book I didn't really need to read.  But it was hard to find the
+bits that I did and would have been really entertaining and useful.
+</p>
+<p>
+In conclusion I think that Programming The Perl DBI is a good book that
+could have benefited tremendously from some judicious editing.  Lots of
+content needs to be cut out and reworded to be more concise.  In
+particular the book could do with a better structure (and more whitespace)
+that makes things easier to find and 'flick to'.  Or maybe I'm just
+looking for a different book.
+
+	</p>
+
+	</div>
+
+
+[% END %]

@@ -1,0 +1,64 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "",
+    keywords => "",
+    section => "about",
+%]
+<?xml version="1.0" encoding="UTF-8"?>
+<page keywords="irc" title="About the #london.pm IRC channel">
+	<h2>Where is the IRC channel?</h2><div class="item">
+		<p>To join the channel, connect to irc.perl.org, and /join <a
+href="irc://irc.perl.org/#london.pm">#london.pm</a></p>
+	</div>
+	
+	<h2>That host doesn't resolve!</h2><div class="item">
+		<p>Hopefully this shouldn't happen so much, but maybe try
+		irc.london.pm.org, which is an alias for
+		london.rhizomatic.net.</p>
+	</div>
+	
+	<h2>What is a bot?</h2><div class="item">
+		<p>A bot is a program that responds to events on IRC (like people speaking) with useful information.</p>
+
+		<p>There's an informal convention on #london.pm that bots receive voice (+v) but not ops (+o), so you can tell them from people who will either be opped or unopped, but rarely have voice.</p>
+	</div>
+	
+	<h2>What is dipsy?</h2><div class="item">
+		<p>dipsy is an <a href="http://www.infobot.org/">infobot</a> that acts as a kind of community memory. For example, you can say to dipsy <tt>dipsy, next meeting?</tt> and it will tell you when the meeting is.</p>
+
+		<p>dipsy learns as things are said on channel; there's no real need to learn how to teach it things (as you'll catch yourself up as often as you make things better.)</p>
+
+		<p>dipsy also knows how to read in RSS feeds from news sites such as <a href="http://slashdot.org/">slashdot</a> (<tt>dipsy, slashdot</tt> and <a href="http://use.perl.org/">use.perl.org</a> (<tt>dipsy, use perl rss</tt>) and more (<tt>dipsy, rss feeds</tt>) find out the weather (<tt>dipsy, weather for EGLC</tt>) and much more (<tt>dipsy, help</tt>).</p>
+
+		<p>In addition, dipsy measures 'karma', which can be given or removed by saying the name of something followed by ++ or --. You can also give a reason for this after a comment tag (#) which will be stored. For example, <pre>dipsy++ # knows things
+(my computer)-- # a bit rubbish really
+</pre></p>
+
+		<p>You can find out the karma of an item by asking <tt>dipsy, karma for dipsy</tt> and you can find out why something has the karma it has by asking <tt>dipsy, explain karma netscape</tt>.</p>
+	</div>
+	
+	<h2>What is scribot?</h2><div class="item">
+		<p>scribot is a bot that records what has been said and places it on a web page. Usually, this is a URL followed by a comment. You can see items that we've added on the <a href="http://www.scribot.com/">scribot.com</a> site.</p>
+	</div>
+	
+	<h2>What is pasty?</h2><div class="item">
+		<p>pasty is a <a href="http://sf.net/projects/pastebot/">pastebot</a>. You can go to a <a href="http://paste.husk.org/">web page</a>, enter a large block of text and have the bot tell the IRC channel a web page where the content can be seen.</p>
+
+		<p>Many IRC regulars will appreciate your choice not to 'spam' the channel if you're posting a large code fragment or quote.</p>
+
+		<p>If you don't want to launch a web browser, you can use pasty's 'view' command to see it on the IRC channel itself. Say 'pasty, help' in a private message.</p>
+
+		<p>If you don't want to use pasty, and you need to paste in a large block of code or a quote, please at least change your nick to '|', partly so that it looks nicer, and partly so that people can ignore the pastes if they want.</p>
+	</div>
+	
+	<h2>What is tbot?</h2><div class="item">
+		<p>tbot is a bot that takes messages and reminders for people who may not be on channel at the time, but who you expect to return later.</p>
+	</div>
+	
+	<h2>What is slavorg?</h2><div class="item">
+		<p>As I mentioned earlier, usually people on #london.pm have ops. slavorg is a bot to keep it that way, by opping people who it 'trusts'. It also gives voice to bots it 'believes'.</p>
+	</div>
+
+ 
+
+[% END %]

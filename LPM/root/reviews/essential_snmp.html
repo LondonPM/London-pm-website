@@ -1,0 +1,133 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Essential SNMP, Second Edition",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Authors: Douglas R. Mauro &amp; Kevin J. Schmidt</p>
+  <p>ISBN: <div class="isbn">0-596-00290-4</div></p>
+  <p>Publisher: <a href="http://www.oreilly.com/">O'Reilly</a></p>
+  <p>Reviewed by: Alistair McGlinchy</p>
+</div><div class="item">
+
+<p>"Essential SNMP, Second Edition" seeks to explain "How can I best put
+SNMP to work on my network?". This book covers many areas where SNMP
+could be put to good use in my network, but it is let down time and
+again by being inconsistent, vague, terse or just plain sloppy.</p>
+
+<p>The first chapter sets a good tone as to what you can expect from SNMP
+and how an SNMP enabled network fits into good network and system
+management processes.</p>
+
+<p>It is in chapter 2 where the sloppiness creeps in. For instance, the
+first snmpget example would not work [<a href="#1">*1</a>], and their chosen OID returns
+the null string (surely sysUpTime or sysDescr would have been a better
+first example)? The authors then imply that snmpget can only collect a
+single OID (untrue) and that getnext can collect multiple OIDs but only
+"over time". Fortunately the second snmpget example uses the correct
+syntax, but without warning they switched to polling their loopback
+address rather than the router of the first example; this is an
+unnecessary complication bound to frustrate newbies. There then follows
+a confusing and inaccurate description of getnext operation [<a href="#2">*2</a>]. There
+are no explicit command-line examples showing getnext working, instead
+we jump into a verbose tethereal extract of the snmpwalk with no
+subsequent analysis (eg, should the user care that there are UDP
+checksum errors?).  Presenting tethereal extracts is a good idea, but it
+must come with detailed commentary and a healthy cropping of all but
+SNMP payload after the first example. By the time we get to the example
+of a SNMPv2 getbulk you have to flip back and forth 10 pages of packet
+traces to try to work out the difference between it and a getnext.</p>
+
+<p>The chapter on SNMPv3 was my prime reason for reading this book. Having
+been scared off by the verbatim-RFC-quoting in Stalling's "SNMP, SNMPv2,
+SNMPv3, and RMON 1 and 2", I had hoped that a more practical O'Reilly
+book would cushion the blow into migrating to an SNMPv3 enabled network.
+Unfortunately the promised "expanded coverage of SNMPv3" means 10 pages
+on naming conventions and terminology with no command line examples, no
+v1/2c to v3 migration tips, no passphrase management strategies, no
+examples/success stories of v3 in high risk environments. You get just
+one page on "SNMPv3 in the real world" and it ends with an ambiguous
+assertion that "...isn't it nice to see that the basics of SNMPv3 really
+aren't that scary". Humph!  Although there are occasional examples of
+configuring and collecting via SNMPv3 throughout the rest of the text, I
+would not dream of using SNMPv3 on a production network without
+significantly more research.</p>
+
+<p>Chapter 4 returns to "O'Reilly" form with some decent high-level advice
+on planning your network management strategy, although explicit examples
+would have been nice (eg, our 2x1Ghz box polls X devices every Y
+minutes, etc). Chapters 5 and 6 provide a good flavour of the work
+required to configure the NMS and individual agents, with HP OpenView
+and Net-SNMP receiving the best attention.</p>
+
+<p>Chapter 7 repeats many of the examples of Chapter 2 but now also using
+their two chosen NMS GUIs. Here HP OpenView is definitely showing its
+age and although the authors provide good work-arounds to it's
+"features" (including Appendix A and B), they would have done well to
+suggest alternatives (eg. MGSoft and GetIf). There is a tiny section
+discussing RMON1 within Chapter 8. It covers interface threshold alerts
+but fails to mention that RMON1 also includes local traffic history
+storage, MAC address conversations totals and a full packet capture
+functionality. RMON1 and RMON2 could well have had a chapter of their
+own.</p>
+
+<p>Chapters 8 through to 11 cover the main systems and network
+administration tasks commonly performed using SNMP. The body of the text
+that goes with this section is very good and inspires a lot of ideas for
+applying SNMP to standard admin problems. Unfortunately the perl code
+examples to accompany the text are horrible. I can forgive the lack of
+"use strict" in the seven line example in Chapter 7, but its absence
+from the eight page disk-space checking utility [<a href="#3">*3</a>] with variable names
+like $SNMP_EVENT_VAR_THREE and $IGNORE2 should not occur in published
+code. In addition, the authors cannot seem to settle on a preferred SNMP
+module, switching between  NetSNMP, SNMP::Info, SNMP, SNMP_Session and
+SNMP_util [<a href="#4">*4</a>]. Eeew!</p>
+
+<p>Chapter 12 and 13 relate to MRTG and Cricket monitoring packages
+respectively. Although it is nice that these tools get the endorsement
+of their own chapters, the actual discussion adds little to the
+packages' own documentation. Had this book used a standard network
+throughout (with known router names, IP addresses etc), and had they
+used the tools constructed in Chapters 7-11 then this section could have
+been an excellent worked example.</p>
+
+<p>Finally, there are a few hidden gems in the appendices, especially
+Appendix G's reviews of the current open source NMS packages. OpenNMS
+and NINO look like something to experiment with further.</p>
+
+<p>"Essential SNMP, Second Edition" could have been so much better. It
+covers all the areas required to become the SNMP equivalent of the
+Llama, but with so many bugs it just does not make the "O'Reilly" grade.
+I may suggest this book to colleagues who want to get a feel for SNMP
+and network monitoring, but would definitely refer them to other sources
+for practical examples.</p>
+
+<p><a name="1" />[*1] The community string needs a -c flag before it. This may be a
+side-effect of this being the Second Edition where the first edition
+uses a now-unmentioned snmp tool with a different syntax. Their test
+router changes names several times too, sometimes even within the same
+install script.</p>
+
+<p><a name="2" />[*2] A getnext of .1 (iso) will not return .1.3 (org) as implied from
+the discussion, you will likely go straight to .1.3.6.1.2.1.1.1.0
+(sysDesc.0), as this will be the first *accessible* OID.</p>
+
+<p><a name="3" />[*3] See: esnmp2/ch11/polling.pl in
+<link>http://examples.oreilly.com/esnmp2/esnmp2-examples.tar.gz</link></p>
+
+<p><a name="4" />[*4] Why did favourite, <cpan>Net::SNMP</cpan>, still not make it onto the list, I
+wonder? Unlike all of the other modules, this one can poll multiple
+devices in parallel. See <link>http://search.cpan.org/dist/Net-SNMP/</link></p>
+	
+
+
+
+</div>
+
+
+[% END %]

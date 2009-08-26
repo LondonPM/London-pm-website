@@ -1,0 +1,194 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Network Intrusion Detection, 3rd ed",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+<div class="item">
+  <p>Authors: Stephen Notthcutt &amp; Judy Novak</p>
+  <p>ISBN: <div class="isbn">0-7357-1265-4</div></p>
+  <p>Publisher: New Riders</p>
+  <p>Reviewed by: Neil Fryer</p>
+</div><div class="item">
+<p>Firstly let me state that this is undoubtedly one of the greatest books on
+TCP/IP and Intrusion Detection that I have ever read, although the book is
+not targeted at novices, or anyone who does not have a fairly decent
+understanding of the different network protocols. The authors assume that
+the reader is from a networking background, and with quite a fair bit of
+knowledge behind them. I would recommend this book to anyone who is either
+working with security, or looking after a network, regardless how large or
+small it may be. The authors also focus more on a Unix side of things, than
+a Windows side, I do however feel that anyone interested in networking
+and/or security could learn a lot from this book.</p><p>Stephen Northcutt has the background that makes you want to read this book.
+He was author/co-author of Incident Handling Step By Step, Intrusion
+Signatures and Analysis, Inside Network Perimeter Security, and the Previous
+two editions of this book. He was also the leader of the Department Of
+Defense's Shadow Intrusion Detection team, and then moved on to accept the
+position of Chief for Information Warfare at the Ballistic Missile Defense
+Organization. Stephen also currently serves as the Director of Training and
+Certification for the SANS Institute. </p><p>Judy Novak primarily works at the Johns Hopkins University Applied Physics
+Laboratory where she is involved in intrusion detection, and traffic
+monitoring, as well as Information Operations research. She was also one of
+the founding members of the Army Research Labs Computer Incident Response
+Team. She has greatly contributed to a SANS course in TCP/IP and written a
+SANS hands-on course.</p><p>You can tell that both of these authors are doing what they do for the
+enjoyment, and that seems to be purely all there is to it. You read the
+book, and it just makes you want to go and do more research on the things
+that you don't know about, and even more on the ones that do. This book is
+also an eye opener to some of the concepts used against our networks, and
+thankfully how to do a rather large amount to detect these things, and in
+some cases how to stop them to the best of our ability. </p><p>Part 1: TCP/IP</p><p>The first section of this book is about TCP/IP, and is written considerably
+better than most other books that I've read on this subject. The way that
+Stephen and Judy discuss TCP/IP is from a "real-world" perspective, the way
+that things actually happen, and not just the theory behind the way that
+different packets travel though the Ether. I have read a lot of books on the
+subject of TCP/IP, and I can honestly say that this book goes into a lot
+more depth than any of the others have, including even some of the books
+that are written as training manuals for some of the greatest networking
+equipment, where the certifications will raise your salary by a rather large
+amount. Albeit, Judy and Stephen go about things in a much different manner,
+but you can tell that it is based on practical experience, and not so much
+what was learnt at University. I suppose the best way to describe this
+section is that this was written from practical experience, instead of
+Academic theory. </p><p>Chapter 1: IP Concepts</p><p>This chapter starts off with basics that anyone reading this book should be
+familiar with, the different TCP/IP layers, and how the packets traverse
+through them, and the data flow involved. It also covers bits, bytes,
+packets, CRC's, and gives a quick refresher course on IP encapsulation, and
+what the different header fields actually do. The one thing that I really
+liked about this chapter is that it also covered binary-to-decimal
+conversion, as well as hexadecimal-to-binary conversion, which I have found
+that some books have failed to do. They seem to cover only one or the other,
+and neither is as much depth, but as few words as is done here. This section
+also has a brief section on DNS, and Routing, which s continued in much
+greater depth later on in the book.</p><p>Chapter 2: Introduction To TCPdump and TCP</p><p>This is where you start getting acquainted with TCPdump, and if you have
+never really been able to find enough information on TCPdump, and how to use
+it effectively, this is where things start getting really interesting. This
+is also where TCP starts getting broken down into the various communication
+signals, such as SYN, ACK, PUSH, RESET, and FIN. And how the TCP connections
+get established with the three-way handshake, and terminated, both
+gracefully and abruptly. This also covers ACK scans, Telnet scans, and TCP
+session hijacking. This is roughly where the book really starts grabbing
+hold of you, and not wanting to let you go, until it feels that it has done
+it's duty to you and worldwide networks.</p><p>Chapter 3:	Fragmentation</p><p>"Denial-Of-Service attacks use heavily fragmented traffic to exhaust system
+resources." Going from the theory of fragmentation, to showing you what to
+look for, and then actually watching it happen using TCPdump, and explaining
+why some packet filtering devices will still allow Denial-Of-Service attacks
+to happen, as the cannot support packet reassembly, or cannot do it
+correctly. The legendary Teardrop attack is also covered here, and why it
+was so effective, and how it actually accomplished its goal.</p><p>Chapter 4:	ICMP</p><p>Internet Control Message Protocol (ICMP,) was conceived as a method of
+reporting error conditions, and responding to various stimuli. When ICMP was
+first introduced as a relatively simple protocol, the world was a happier
+place, but once it was mutated in what it has become today, it is now a
+rather lethal protocol, due to the modifications it has undergone over the
+years. This chapter teaches you how ICMP is used for scanning ports, and how
+to identify these scans. It also tells gives you more information as to why
+you should be denying ICMP on you routers and firewalls, and covers some of
+the threats that are out there, namely Smurf, Tribe Flood Network, and Loki
+attacks.</p><p>Chapter 5:	Stimulus and Response</p><p>This chapter covers why a lot of Network Intrusion Detection Systems (NIDS)
+fail, due to the fact that they are sending out alerts, when in reality
+these stimuli that they have noticed are really just normal network
+activity. It also teaches you how to differentiate between positives (real
+threats), and false positives (normal network activity) using your TCPdump
+logs, and actively watching your TCPdump analyzer. It does this by showing
+you what should be expected, and what should not be seen in your log files.</p><p>Chapter 6:	DNS</p><p>Yes, there is a whole chapter dedicated to DNS, and with good reasoning. DNS
+servers, if compromised can give a hacker very valuable information about
+your network, such as what hosts, what IP range, hostnames, etc. If your
+business relies heavily on DNS, this should be one of your most highly
+protected assets. It also widely known, that DNS servers are great trophy's
+to hackers, so don't ever think that just because you have a small company,
+you DNS isn't worth protecting. This chapter also tells you some of the
+different exploits used against DNS servers, and how and why they work. Such
+as cach poisoning or reverse lookup attacks. And how reconnaissance is done
+on your networks by using your DNS servers.</p><p>Part 2: Traffic Analysis</p><p>This part of the book covers just what is expected. Traffic Analysis, by
+considering what all the header fields represents. It also begins to show
+you the importance of all of these fields, and how understanding each of
+these different fields is of crucial importance to your networks security.
+This is where the book starts getting a lot more involved, and you really
+have to be prepared to maybe read some of these chapters again, but it's
+well worth it in the end.</p><p>
+Chapter 7:	Packet Dissection Using TCPdump</p><p>You may be asking yourself, that if this book is about Network Intrusion
+Detection, why should I bother learning how to manually do packet
+dissection? The only answers to this are accuracy, and piece of mind. I for
+one would feel better if I sat down and went through my own log files, to
+make sure that we have had some attempts on our DNS server from an IP
+address in some foreign country, before calling in the lawyers. And this
+chapter teaches you the basics of this, as well as a bit more on what
+TCPdump is capable of.</p><p>Chapter 8:	Examining IP Header Fields</p><p>Following on from the previous chapter, we now go to even more depth about
+header fields, and how things like the MF (More Fragments) flag can be
+modified to say that there are 10 packets coming after the one just
+received, when in reality there are only 2.
+Also how to set the DF (Don't Fragment) field, and how to detect that both
+the MF and DF flags have been modified by using the other information
+available to you. As well as, how to check IP Checksums</p><p>Chapter 9:	Examining Embedded Protocol Header Fields</p><p>This chapter discusses the headers found after the IP header, namely TCP,
+UDP, and ICMP headers. Covered here are Operating System fingerprinting, and
+how it's done, and how to check via TCPdump, if someone has been trying to
+fingerprint one of your servers, using nmap, or one of the other freely
+available tools for doing such things. It also covers the Code Red, and
+LaBrea attacks, and why the worked, and how to identify such things should
+newer versions of these be developed.</p><p>
+Chapter 10: Real-World Analysis</p><p>As the title of the chapter states, this is about real world analysis, the
+things to check, a brief summary of how to check them. And the importance of
+having an IDS present on your network, so that you are able to do an audit
+trail in the worst-case scenario. This is where anyone who has ever had that
+unpleasant feeling that you have been hacked, or may have been hacked, will
+really identify with the book. It also states something very valuable to
+anyone in the security line of work. "Don't loose endless nights of sleep
+worry about hackers getting into your system, you can only do your best. No
+system is ever completely hacker-proof." Which if you take the time to think
+about it, really is correct.</p><p></p><p>
+Chapter 11: Mystery Traffic</p><p>This chapter is based upon a real event that happened, and the fact that no
+one had any idea what was happening at the time. As there was no documented
+evidence of this sort of attack, and the only way to really figure out what
+was really going on was to actively monitor the network traffic, and try and
+come up with some sort of conclusion as to why a number of various hosts
+where attacking a system, and how they were going about it. I will leave it
+to you to read, and find out all the tasty bits involved in doing this, and
+the steps that where taken. </p><p>Part 3: Filters/Rules for Network Monitoring</p><p>This section of the book serves as a manual for both TCPdump, and Snort.
+Showing you how to write filters for TCPdump, and how to understand Snort,
+and write your own effective rulesets as well. To me this was the part of
+the Snort manual that I had never found on their website before, I really
+hope that other people will feel the same way about it. Either way, this is
+a very useful section to anyone looking after a network.</p><p>Chapter 12: Writing TCPdump Filters</p><p>This chapter covers in depth, the mechanics of writing TCPdump filters, for
+IP, UDP, and TCP, with a large amount of examples. Definitely a great
+chapter after reading all that TCPdump is capable of, but wondering how to
+automate it, well this shows you just that.</p><p>Chapter 13: Introduction To Snort and Snort Rules</p><p>This is the first chapter that actually deals with Snort, it tells you about
+its usefulness, as well as showing you how to write some of the more simple
+rules. This is one of the chapters that I would honestly say that even a
+novice could read, and would probably get a very good understanding of, as
+far as Snort goes. As knowledge of Snort would be nothing, without the vast
+networking protocol knowledge that this book has provided up until now, so
+it was very wise of them to leave this section till after the rest was
+covered thoroughly.</p><p>Chapter 14: Snort Rules -Part 2</p><p>This follows on from the previous chapter's introduction to Snort.  Just as
+snort rules are made up of two parts, a rule header and a rule option.  This
+chapter covers in depth the rule options, such as TTL, ID, Dsize, Itype and
+Icode, as well as many others.</p><p> </p><p></p><p>Part 4: Intrusion infrastructure.</p><p>This is the part of the book that leads away from the pure technical jargon,
+so to speak.  And even though the book is a truely amazing read, and
+invaluable source of knowledge, by now you'll really appreciate the break.</p><p>Chapter 15: Mitnick Attack</p><p>This covers the events of the infamous attack on Tsutomu Shimomura's systems
+in 1994.  And how Mitnick exploited weaknesses in TCP to gain access to the
+afore mentioned systems.  And how the attack was detected.</p><p>Chapter 16: Architectural issues.</p><p>Chapter 16 covers where about you should place your IDS on your network,
+behind your firewall or in front of it.  Also giving you all the pros and
+cons of both instances, although recommendations are made, the author's
+leave the decision making to you.  There is no, "You should do it this way!"
+approach, which makes a very welcome change.</p><p>Chapter 17: Organizational issues</p><p>This chapter starts giving you some groundwork, to present your case to
+management.  Quite a fair amount of time is spent in this chapter assessing
+the risks that your company and network have, and also how to reduce these
+risks.  There are also some very good formula's here for assessing how much
+a worst-case scenario could set your company back financially.</p><p>Chapter 18: Automated And Manual Response</p><p>Definitely a good chapter to read for anyone who has ever wondered what the
+consequences would be if you configured Portsentry to send a nuke to the
+little Script Kiddie's machine that just nmapped your server.  As the
+chapter says, there are manual and automated responses, which one's best?</p><p>Chapter 19: Business Case For Intrusion Detection</p><p>This is a chapter that will undoubtedly make some people's lives that little
+bit easier.  It looks at how to present your case to management, and why
+they should spend money on another computer or two for IDS.  The thing I
+liked about this chapter is, it seems to be written from a management point
+of view, and it can be rather enlightening.</p><p>Chapter 20: Future Directions</p><p>The final chapter in the book is the author's points of view about Cyber
+Terrorism.  Where it's heading, what we can do to protect our valuable
+networks, and the various so-called "bleeding edge" technologies.</p><p>
+I would not say that this is the kind of book you should fly through while
+reading it, I would say, read it slowly, and absorb as much of it as
+possible, you won't regret it. </p>
+</div>
+
+
+[% END %]

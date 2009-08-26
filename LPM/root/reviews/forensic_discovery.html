@@ -1,0 +1,65 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Forensic Discovery",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+<div class="item">
+  <p>Authors: Dan Farmer, Wietse Venema</p>
+  <p><a
+href="http://www.awprofessional.com/bookstore/product.asp?isbn=020163497X&amp;rl=1">ISBN: 020163497X</a></p>
+  <p>Publisher: Addison Wesley</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net">Dean Wilson</a></p>
+</div>
+
+<div class="item">
+<p>Forensic Discovery is a small book that packs a big punch. In just over
+200 pages it presents more information than books three times its size (and
+weight).</p>
+
+<p>The book is divided in to three main sections. The first,
+"Basic Concepts", explains two of the books core ideas, the order of
+volatility, how it influences the gathering of evidence, and the
+importance of time based information. It also introduces a number of
+less obvious information sources, such as the Ext2/3 file system journal
+and in memory DNS caches before providing a primer on MACtimes. Chapter
+two ends with an example intrusion, how the time based information
+revealed the attackers actions and a second previously undetected
+intrusion.</p>
+
+The second part, which makes up the bulk of the book, dives in to file
+systems, subverting kernels and (the slightly out of place but still
+interesting) analysing malware. These chapters cover a lot of ground in a
+rapid, but understandable way. Due to the size of the book all padding
+seems to have been stripped out, leaving nothing but the highlights. And
+when the authors are Dan Farmer and Wietse Venema there are a lot of
+highlights.
+
+The final section is two, technically dense, chapters long. The first
+looks at how long deleted files persist on disk, the information they
+leave behind, presents some tools that can help retrieve them and
+shows some example retrieval numbers taken from experiments using
+Solaris, FreeBSD and Linux. The closing chapter focuses on memory. It
+explains how swap and memory pages relate to forensic discovery, how files
+reside in memory and how to extract chunks of them once the file has been
+deleted.
+
+<p>While the principles presented are widely applicable, nearly all of the
+technical examples are Unix focused. The concepts are clearly presented
+and remarkably accessible but the examples themselves require strong
+familiarity with Unix commands, file-systems, networking and processes.
+It's also worth noting that the book is full of little tips and tricks -
+examples are detecting filesystems mounted over existing directories,
+extracting chunks of files using lazarus.</p>
+
+<p>Score: 8/10. Essential reading for anyone interested in digital
+forensics, a greater understanding of Unix systems or just some very cool
+technical tricks.</p>
+
+</div>
+
+
+[% END %]

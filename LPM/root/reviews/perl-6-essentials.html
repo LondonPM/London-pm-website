@@ -1,0 +1,145 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Perl 6 Essentials",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Allison Randal, Dan Sugalski &amp; Leopold Toetsch</p>
+    <p><a href="http://www.oreilly.com/catalog/perl6es/index.html">ISBN: 0-596-00499-0</a></p>
+      <p>Publisher: O'Reilly &amp; Associates</p>
+        <p>Reviewed by: Nicholas Clark</p>
+	</div><div class="item">
+	<p>"How do you write a book about a language that does not exist?"</p>
+	
+	<p>The short answer is that you can't. Here we have 208 pages of evidence that
+	Perl 6 isn't just vapourware. Sure, you can't run a Perl 6 program yet (unless
+	Damian's upgraded his brain to a multi-user OS), but most of basic design is
+	done, a lot of Parrot (the runtime engine) is already written, and it is these
+	things that this book is about.</p>
+	
+	<p>The book is split into three parts. The first 3 chapters are fairly short,
+	and give an introduction to the Perl 6 project - how it came about, what is
+	the philosophy behind it, and how is it structured. The information in these
+	chapters set the scene for what is to follow, but I suspect it is also of use
+	to anyone outside the Perl community who is trying to work out what the
+	secrets of Perl's success are, and how to emulate that success with their own
+	collaborative projects.</p>
+	
+	<p>Chapter 4 is the first big chapter, and gives a thorough grounding in Perl
+	6 syntax. The chapter is organised as an introduction to Perl 6 for the
+	beginner - somewhere between the a pocket-sized "Perl 6 quick reference" and a
+	"Learning Perl 6". The layout and text are clear, building up from scalars
+	through arrays and hashes into some of the newer Perl 6 features, such as the
+	extra context types, the generic smart match operator (<span class="code">~~</span>),
+	junctions and currying. The authors are careful to show how Perl 6 will be
+	similar to Perl 5 by choosing examples that are very similar to exiting
+	introductions to Perl 5.  You have to look very carefully to spot the subtle
+	differences in Perl 6 syntax - for example <span class="code">open</span> returns a file
+	handle, no parentheses are needed round the conditions of <span class="code">if</span>
+	<i>etc</i>, and that the sigils <span class="code">@</span> and <span class="code">%</span> are used on
+	array and hash element lookups instead of Perl 5's use of <span class="code">$</span>.
+	Unlike the <a href="http://dev.perl.org/perl6/apocalypse/">Apocalypses</a>
+	(Larry's design documents) or <a
+	href="http://dev.perl.org/perl6/exegesis/">Exegeses</a> (Damian's explanations
+	of how to use the new features) this book doesn't explain what's changed, and
+	what's the same - that's not its intent. It presents Perl 6 as a coherent
+	language with a stand alone description, a plan which works well.  It took me
+	about half the chapter to realise that no mention is ever made of Perl 5 -
+	with this book you can learn Perl 6 without any any prior knowledge of
+	Perl. (Although admittedly you'll be somewhat frustrated if you actually want
+	to put your knowledge to use writing Perl 6 programs). The chapter concludes
+	with rules (Perl 6's superset of regular expressions) and the new subroutine
+	parameter syntax, so is currently completely up-to-date.</p>
+	
+	<p>Chapters 5, 6 &amp; 7 form the third part of the book, and describe parrot,
+	the virtual machine on which Perl 6 will run. Parrot development is well under
+	way, so there's a lot more of it in existence, and hence a lot more nailed
+	down firmly enough to be written about. Consequently the Parrot section is
+	about twice the size of the Perl 6 section. Chapter 5 introduces the design of
+	Parrot, giving an broad overview of how its internals have been designed to
+	give the flexibility and speed demanded respectively by the Perl 6 language
+	and Perl 6's users. It explains the reasoning behind the design, such as why
+	Dan has chosen to ignore current trends towards stack based virtual machines,
+	and instead build a register based virtual machine. A lot is explained,
+	clearly and concisely, but one commonly asked question seems to go unanswered,
+	notably why write a whole new virtual machine rather than targeting (say) the
+	Java VM or .NET.</p>
+	
+	<p>At heart, Parrot is a register based virtual machine, running bytecode
+	not dissimilar to the machine code of a register based hardware CPU. Hence
+	at the lowest level, you can quite happily program Parrot in its own assembly
+	language. Although most sane people will not do this, the ultimate output of
+	all other languages running on Parrot will be Parrot bytecode, so it is
+	helpful for the authors of such languages to know what the underlying system
+	can do easily, and what is hard. Chapter 6 details this assembly language,
+	providing a thorough tutorial in how to bend Parrot to your will. Although
+	the low level nature of the assembly language is syntactically  quite different
+	from the high level language Perl 6, it directly supports most of the
+	fundamental datatypes that Perl uses, such as arrays, hashes and lexical
+	variables. This chapter is quite a lot drier than the chapter on Perl 6, and
+	also ends with a 22 page quick reference, which might have been better as an
+	appendix.</p>
+	
+	<p>Parrot assembler has a big advantage over Perl 6, in that you can already
+	download a working implementation of it, so if you wish you could start
+	writing programs in it immediately. Masochists can even write sophisticated
+	self-modifying code, as the Parrot assembler contains an <span class="code">eval</span> op,
+	although I suspect that even language implementors won't use the assembly
+	language directly, but instead target IMCC, the subject of chapter 7. This
+	Intermediate Code Compiler provides a much nicer target for compilers. Parrot
+	itself has a fixed number of registers (32 of each type) whereas IMCC provides
+	the illusion of infinite registers, so targeting IMCC instead lets you skip
+	writing (and debugging) register spilling code. Likewise IMCC provides
+	nested scopes to save each language having to write its own. A 6 page quick
+	reference concludes both the chapter, and the book. An index follows, but
+	there is no summary or conclusion chapter - it is taken as given that both
+	Perl 6 and Parrot works in progress "to be continued...". This shouldn't come
+	as a surprise as the introduction states that the intent is to publish a new
+	edition of this book yearly to track developments up to the release of 6.0.0</p>
+	
+	<p>The book is really two books in one - an overview of the Perl 6 language
+	which will be useful to people interested in writing in high level languages,
+	and a working introduction to Parrot, which will be useful to people
+	interested in writing language interpreters. I'm not sure how many people fit
+	into both groups, and hence whether most people will find little to interest
+	them in some of the chapters.  Based on their expertise, I suspect that the
+	first 4 chapters were written by Allison, chapters 5 and 6 by Dan, and chapter
+	7 by Leopold. However, it's impossible to tell because the style is consistent
+	throughout, with both the Perl 6 and Parrot examples full of Hitch-Hiker's
+	Guide to the Galaxy references. (A nice contrast to the camel book, which
+	favours Flintstones and Simpsons references) </p>
+	
+	<p>So, should you buy this book, particularly as you know that it will be
+	updated within 12 months? If you've been following the twisty maze of Perl 6
+	development from the start, and you've been watching how the development lists
+	functions, then you could argue that this is "just" telling you things that
+	you already know, or at least do once you've been reminded of them. Even if
+	you haven't, you could still glean most this information from studying online
+	announcements and mailing lists archives (although you should avoid doing this
+	if you value your time and your sanity). A notable exception are the contents
+	of Chapter 3, <cite>Design Philosophy</cite> - I don't think the principles
+	behind the design of Perl 6 have been written down in a coherent clear way
+	before.</p>
+	
+	<p>My impression is the book is aimed at people outside the project looking
+	in, who want to know what's going on. The authors and their excellent job of
+	accurately and readably summarising the important bits, and unlike the list
+	archives they don't fill your brain with a lot of things that you don't need
+	to know. Even if you're already following Perl 6 or Parrot this book will give
+	you a good summary of what has been decided to date.  However, it will date
+	quickly (some of the parrot section is already history), so this year's
+	edition will only really leapfrog you up to July 2003 - from there on you'll
+	have to bring yourself up to date with the online documentation. If you don't
+	want to do this, you could wait until next year's edition - although you'll
+	have to be ready to move immediately that comes out, else you'll be in exactly
+	the same position behind the times in 2004.</p>
+	
+	</div>
+	
+
+[% END %]

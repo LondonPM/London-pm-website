@@ -1,0 +1,115 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Pragmatic Version Control Using CVS",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+  <div class="item">
+    <p>Author: Dave Thomas and Andy Hunt</p>
+    <p><a href="http://www.pragmaticprogrammer.com/starter_kit/vc/">ISBN:
+0974514004</a></p>
+    <p>Publisher: The Pragmatic Programmers</p>
+    <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+  </div>
+
+  <div class="item">
+    <p>While the presence of a version control system doesn't mean that
+       all is well with a project its absence is often a warning sign
+       of bad practises. Pragmatic Version Control with CVS provides the
+       fundamentals required to ensure your project has a least the
+       basics covered. </p>
+
+    <p>Firstly let's discuss what this book isn't, comprehensive and for
+       experienced CVS users; unless you want something to hand to your
+       less experienced co-workers. The book focuses on teaching the
+       essentials of CVS, the commands used on a daily basis to,
+       ideally, an audience new to the benefits and principles of
+       revision control and usage of CVS.</p>
+
+
+    <p>The first two chapters explain the why and how of version
+       control, beginning with an explanation of why you would want to
+       store a project under revision control through to an introduction
+       of the terminology and principles. These early chapters provide a
+       clear and concise guide that is accessible to people with no
+       previous experience in this area. In a bold move Chapter two
+       explains the basic concepts behind merging and branching,
+       something which too many articles on CVS leave to the footnote
+       and closing paragraphs.</p>
+
+    <p>Chapter three contains the first hands on interaction with CVS,
+       it explains how to install a CVS server on both Windows and Unix
+       machines before taking the reader through a simple exercise in
+       using the day-to-day functionality. It also differentiates itself
+       from most writing on the subject by deliberately causing
+       conflicts and showing you have to resolve them. This part of the
+       chapter shouldn't be overlooked: the tendency to use real world
+       examples, warts and all, makes the book a lot more useful.</p>
+
+    <p>Chapter three is extremely clear and easy to follow. If you have
+       coders unfamiliar with CVS who need the 20 second guide then this
+       chapter alone justifies the cost of the book. It's worth noting
+       this chapter covers all the basic, common tasks using the command
+       line. This ensures you understand what's going on under the hood,
+       it doesn't focus on tools such as TortoiseCVS that, while making
+       CVS easier to use, hide all the working parts and stop you
+       forming the mental framework required to debug and fix any
+       problems that may arise in casual usage.</p>
+
+    <p>Chapters five, six and seven cover CVS in more detail, chapter
+       five, 'Accessing the Repository', contains what you'd expect from
+       the title. However only the most common approaches are covered,
+       SSH and pserver. This is followed by details of the related
+       environmental variables, $CVSROOT and $CVS_RSH. These are used to
+       specify the transport and repository locations and receive
+       adequate attention. While this isn't as comprehensive as other
+       sources these two mechanisms should suit most people.</p>
+
+    <p>The next two chapters take a more recipe based approach and
+       expand upon the basics covered in chapter three. They provide a
+       closer look at the common CVS tasks and explain the best
+       practises and trade-offs involved. While most of the book should
+       be read sequentially these two chapters are likely to be flicked
+       to and referenced once CVS usage becomes the norm in the project
+       and the user gains confidence with the checkout, update and
+       commit cycle. Each recipe is self-contained and avoids
+       unnecessary cross-referencing to make them easy to scan and
+       digest in future rereads.</p>
+
+    <p>The final three chapters discuss how to set up your project in
+       CVS, chapter eight explains one potential structure for your
+       projects, detailing the directory layouts and providing an
+       explanation of the different types and purposes of stored content
+       that should steer CVS newbies away from the horror of trying to
+       rename files and directories once the project has begun.</p>
+
+    <p>Dividing the project into modules, systems and sub-projects is
+       covered in chapter nine, the advice in this chapter goes beyond
+       just the commands required and explains some of the potential
+       pitfalls you'll encounter when working in large projects or when
+       checking out to a central build box. The final chapter of the
+       book continues the theme and provides help and advice on
+       integration with third party code and its place in both your
+       project and revision system.</p>
+
+    <p>Appendix A provides what amounts to copies of the man pages for
+       some of the CVS commands. This is followed by an index of the
+       recipes covered in earlier chapters. Appendix B covers further
+       resources but doesn't surprise you with anything beyond what a
+       Google search would return.</p>
+
+    <p>If you are new to revision control in general or CVS in
+       particular this book is an excellent place to start; clear, hands
+       on, and need I say it, pragmatic in its coverage. The book's few
+       negatives include its focus on the more common usages, if you
+       want to use the more esoteric functionality, such as kerberos
+       authentication or the scripting hooks in CVSROOT, then you'll be
+       better off with the on-line docs or a different book such as
+       Essential CVS by Jennifer Vesperman.</p>
+  </div>
+
+
+[% END %]

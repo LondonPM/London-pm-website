@@ -1,0 +1,104 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "RADIUS",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Jonathan Hassell</p>
+  <p><a href="http://www.oreilly.com/catalog/radius/">ISBN: 0596003226</a></p>
+  <p>Publisher: O'Reilly &amp; Associates</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div>
+
+<div class="item">
+
+<p>RADIUS (the Remote Authentication Dial-In User Service) isn't getting any
+younger or popular, it's a specialised technology that very few people
+seem to discuss and even fewer write books about. Unfortunately the ones
+we do have, such as this, don't exactly encourage it's adoption.</p>
+
+<p>The book starts with a solid overview of the AAA process/framework, AAA
+in this context being Authentication, Authorisation and Access Control.
+This is followed by a look at the typical client authentication
+processes (in regards to systems layout and topology) and then finishes
+with a brief, and very high level, overview of RADIUS.</p>
+
+<p>Chapter two introduces some of the more technical details and covers the
+basic packet structure, the packet types that comprise the
+authentication and authorisation phases of each transaction and the two
+main methods of authentication, PAP and CHAP. This is where I began to
+struggle with the book, after a concise start in the first chapter I
+felt I was being introduced to too much dry detail before I had a
+conceptual grasp or relevant overview.</p>
+
+<p>While I understand the need for the reader to possess certain
+knowledge before advancing into the book, the facts seemed too dry and
+too early to encourage anyone but the most determined first time reader.
+If the reader was already familiar with the RADIUS protocol and
+applications, then this section would make a better reference guide than
+the RFC, although this is faint praise as it leaves the chapter in no-
+mans land; too dry for casual reading and not the definitive answer.</p>
+
+<p>Then we get to the chapter that made me stop reading the book on my
+first and second attempt. Chapter 3 is an alphabetised listing of 63
+RADIUS attributes taken from the RFC, but with slightly expanded
+explanations. It's also a chapter that you'll skip, skim-read or it will
+cause you to stop reading the book due to the sheer dry and frankly dull
+explanations.</p>
+
+<p>So you've persevered, skim-read when no one was looking and made it to
+chapter 4! What delights await you? Well a short explanation of how
+RADIUS accounting works and yes, more attribute lifted from the RFC.
+This marks the end of what I'd consider the first part of the book (the
+dry as heck theory section).</p>
+
+<p>Moving on from here we have two hands-on chapters that introduce
+FreeRADIUS, or at least they introduce an old version of the software.
+It's worth noting that the book was released in October 2002 (and so was
+probably written early in 2002) and my reading and review were both done
+in 2004 so the aging of the software is an inescapable issue. These
+chapters details configuration files that are no longer used and covers
+config directives that are no longer valid or make any sense. Not
+something that makes it easy to follow the text.</p>
+
+<p>For the sake of full disclosure I'll confess I gave up half way
+through chapter 5 (Getting Started With FreeRADIUS), I wasn't getting
+anywhere trying to mentally map the configs in the book to those on screen
+so I just skipped this and the following chapter, Advanced FreeRADIUS, with
+the assumption I can learn enough about the server from current articles
+and the man pages.</p>
+
+<p>The tragic thing is that the third part of the book, chapters 7 through
+to 10, is actually quite interesting, finally the author starts to
+discuss how RADIUS fits into the bigger picture; it's just a shame so
+few people will get this far. Topics include the current security
+problems in the protocol, what's being planned for future releases
+(including a short mention of a potential RADIUS replacement) and details two
+sample, RADIUScentric, infrastructures.</p>
+
+<p>With the benefit of hindsight (and this of course is going to be highly
+subjective) I think the layout of the book is wrong, when you start
+reading the early chapters no real hook is given. You are thrown
+into low level details that are of very little use to beginners (I know
+nothing of RADIUS) too soon. Instead I think the later chapters, the where,
+why and how should be pulled forward and "dumb downed" to require less
+knowledge of how RADIUS works. These would then provide a hook to
+interest people and show them the more pragmatic and useful aspects of
+the technology. After they know it can be useful illustrate how to set
+up a simple server and then, in the third part, show how the underlying
+principles work.</p>
+
+<p>The short summary? If you have no previous knowledge of RADIUS then the
+first and last four chapters are worth a read. If you do understand the
+basics then save your money and read the man pages and RFCs (when actually
+needed) instead. Score: 3/10</p>
+
+</div>
+
+
+[% END %]

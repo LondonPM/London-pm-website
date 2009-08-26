@@ -1,0 +1,111 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Network Troubleshooting Tools",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Joseph NB. Sloan</p>
+  <p>ISBN: <div class="isbn">0-596-00186-X</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: Roger Burton-West</p>
+</div><div class="item">
+<p>
+
+Network Troubleshooting Tools (the Basilisk book) is a book that has no
+clear brief. In theory it is an introduction to data-gathering tools for
+use when networking problems occur; in practice, it also deals with
+general network device management, monitoring, and diagnostic
+procedures. It tends to the superficial at times, in an attempt to
+include at least a mention of all this material, but manages to serve as
+a useful general introduction to network troubleshooting.
+</p><p>
+
+The book is openly biased towards Unix-based tools; however, there is a
+section at the end of each chapter introducing, and briefly explaining,
+Windows-based tools for those required to use them. Although it is clear
+that the examples are written with FreeBSD in mind, they are
+sufficiently generic that there is no difficulty in using them with
+Linux or Solaris.
+</p><p>
+
+The chapters are arranged in a step-by-step fashion, starting with
+connectivity: checking the local host configuration, basic
+point-to-point testing, and path testing. Next is packet capture and
+device discovery, ranging from passive listening to active
+port-scanning. At this point the book abandons its troubleshooting theme
+to include a fairly thorough treatment of SNMP; while this might be
+useful to some readers, it has the feel of filler material, having
+little to do with the book's primary purpose, except insofar as it lays
+groundwork for the next chapter's discussion of gathering of RMON data
+(as well as use of mrtg and ntop) for performance monitoring and
+location of network bottlenecks.
+</p><p>
+
+After this, the book returns to its main theme, with connectivity
+protocol testers (custom packet injectors, netcat, and load generators).
+There follows an overview of application-level tools, which consists
+largely of an explanation of how to telnet to ports 25, 80 and 110,
+followed by some notes on DNS testing, route checking and NFS.
+</p><p>
+
+The next chapter is a miscellany: capturing command sessions, remote
+logging by means of syslog, tcpwrappers, NTP and Tripwire. Finally, as a
+counterpart to the first chapter's generic troubleshooting instructions,
+is a section of specific instructions for troubleshooting firewalls,
+measuring performance, finding bottlenecks, and other such tasks.
+</p><p>
+
+The book is aimed at a fairly new network administrator; it serves as a
+light-weight introductin to networking (though it is pleasing to note
+that the traditional "this is how a netmask works" explanation has not
+been repeated here) and system administration, particularly in the early
+chapters. It is an excellent match to the skills required for network
+operations jobs, and is highly recommended for anyone starting in that
+role.
+</p><p>
+
+More experienced administrators may still find something of use in this
+book; while it does not by any means cover advanced concepts, its
+overview of programs may well include utilities new to the reader. There
+are some surprising omissions - mtr, for example, is significantly more
+powerful and easy to use than the path-timing utilities described here -
+but these are comparatively few.
+</p><p>
+
+The over-emphasis on SNMP is disappointing. While SNMP may well be
+suitable for use across an internal network, the inherent insecurity and
+difficulty of tunnelling a UDP-based protocol is not sufficiently
+emphasised. No attention is paid to alternative means of collecting
+current-function data - to network monitoring and alerting packages in
+general - although this could certainly have been considered within the
+book's ambit and would have added considerably to its value.
+</p><p>
+
+An omission of rather more concern is detail of the types of information
+one can usefully gain from interrogating dedicated routers; while the
+SNMP section describes one way of doing this, there is no discussion of
+how else one might obtain a routeing table from (e.g.) a Cisco or
+NetGear router, what other data are available, or what diagnostic
+procedures might be of use.
+</p><p>
+
+There is more general Unix administration information here than would be
+expected from a book focussed on network troubleshooting: use of ps and
+netstat, for example, should surely be familiar to an administrator
+before he is given responsibility for anything outside his own machine.
+</p><p>
+Overall, this is a useful book for the beginner and early intermediate
+network administrator, with strong emphasis on Unix both as a diagnostic
+platform and as the major component of the network.
+</p>				
+				
+        </div>
+
+
+
+[% END %]

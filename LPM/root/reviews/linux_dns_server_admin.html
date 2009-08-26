@@ -1,0 +1,173 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Linux DNS Server Administration",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Craig Hunt</p>
+  <p>ISBN: <div class="isbn">0782127363</div></p>
+  <p>Publisher: Sybex</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div><div class="item">
+<p>
+DNS is one of the elite few subjects that inspire newbie admins to break
+out in a cold sweat at the merest mention of its name, along with sendmail
+it has the stigma of being a critical system allowing no down time making
+it difficult to learn or tinker with and having documentation that is far
+over shadowed by an O'Reilly book. When i came to need a good tutorial on
+DNS i went to the Linux Documentation project and skimmed over the
+introductions provided there and then prepared to shell out for the newest
+edition of the rather unfriendly cricket book after being left hungry for
+more in-depth coverage.
+</p><p>
+While walking through Borders looking for a copy of the cricket book i
+noticed a section of ugly looking books (Not quite Wrox ugly though...)
+that all had the "Linux Library" tag on them and spotted the name of the
+author of a number of them, Craig Hunt.
+</p><p>
+
+The authors name (Craig Hunt) may sound familiar to experienced Linux
+Admins as the author of Linux Network Servers 24seven, a book that covers
+the standard setup and deployment of all the services a SOHO or larger
+environment could need on a Linux box. I'd read through the DNS section in
+that book and been impressed enough at the clear explanations to get Hunts
+Linux DNS Server Administration book instead of the one I'd gone out for,
+and i think it was a good call.
+</p><p>
+
+The book is divided in to four main parts with an appendix covering four
+smaller topics. The fours parts cover:
+</p><p>
+
+Part 1 How Things Work<br/>
+Part 2 Essential Configuration<br/>
+Part 3 Advanced Configurations<br/>
+Part 4 Maintaining a Healthy System<br/>
+</p><p>
+
+Part one is the usual set of chapters that come with almost every book that
+covers an application of a network protocol, the history behind its
+development, how the protocol works and how to get the software. This
+section covers all the bases that you'd expect and has enough sample
+program output that you should be able to map the given examples to real
+life output from your own servers.
+</p><p>
+
+The strangest part of this section is in chapter three where the two topics
+the chapter cover feel like they are out of sequence, the control tool
+(ndc) is covered before the install of the actual software. It may just be
+me but i would have preferred to be guided through a basic install first and
+then shown how it can be controlled rather than just being given theory.
+</p><p>
+
+The second part is both the meat of the book and where most people will
+make the mistake of leaving the book. The problem is the book makes things
+seem too easy with plenty of well explained examples, sample files and
+descriptions of the flows that just encourage you to go and flaunt your new
+found skills before you tackle the later sections including the all
+important security section.
+</p><p>
+
+Chapter four is the first in the second part of the book and covers the
+resolv.conf, host.conf and nsswitch.conf files and shows an in-depth
+coverage of the resolv.conf that I've yet to see matched elsewhere. The
+smaller sections in the same chapter on host and nsswitch conf files show
+you how to make the most of a Linux box that doesn't run its own named.
+</p><p>
+
+Chapters five and six are where it all comes together, setting up slave,
+caching and master servers are all given enough coverage and explanation to
+allow someone who's only previous DNS experience has only been following
+this book to set up a fully functional server that's ready for internal
+deployment. Add one of the better explanations of reverse look up records
+that I've seen and this section alone made the book worth the cover price
+to me.
+</p><p>
+
+The third section helps to round out the readers knowledge and helps the
+admin move from basic skills to being able to do some of the more "deep
+voodoo" tasks such as delegating reverse domains, adding the lesser known
+records that allow easier gathering of the human admins and even showing
+where the ever more popular Dynamic DNS is heading (And Microsoft likes DDNS
+so its not going away!)
+</p><p>
+
+Although the book is on Linux a couple of pages on Windows based clients and
+the newer DNS developments would have been nice, interoperability is not
+always near the top of the list of Microsoft and the other DNS server's
+authors. Chapter 9 is one of the few that i didn't get that much out of,
+i already knew most of the basics from how the Microsoft version handles it
+(Badly if it involves NT and 2K) and the coverage of the Linux version seems
+a little out of date as the capabilities were only at an early stage when the
+book went to press.
+</p><p>
+
+The fourth section is more of a mop up and covers the topics that didn't
+really fit elsewhere in the book but the admin should be aware of to round
+out his toolkit. Chapters on securing both bind and the box its on, testing
+that the config does what you think it does and how to read your log files
+all tie in better than you'd think at first glance and help to reinforce an
+understanding of how every thing fits together and effects each other.
+</p><p>
+
+The appendixes are more reference based in nature and include a brief
+introduction of Bind 9 (This is the most time ravaged section of the book),
+a command reference of the options allowed in named.conf, a listing of the
+more obscure DNS record types and a section on NIS which i have to admit to
+skipping over.
+</p><p>
+
+What's wrong with it?
+The book is actually difficult to find fault with in general, its not
+pitched at the same Guru level people that would buy the bat or cricket
+books and use them as printed man pages only for reference and so uses
+clearer more wordy examples than some people may like but the added
+explanations were a feature from my angle (I've never had to set up a
+public BIND server before.)
+</p><p>
+
+Chapter nine could do with a bit of an update in any second edition that
+gets released. The Linux DDNS software has matured enough to warrant some more
+attention and a little bit on interoperability between Linux and Windows
+would be the icing on the cake.
+</p><p>
+
+Something that isn't really a problem but more of a wish-list is a chapter
+or appendix on a small number of case studies. A small number of complete
+DNS set ups of maybe four or five hosts with the full configs of the slave
+and master servers along with why those designs were chosen over the other
+possibilities would have made the book more useful, war stories from the
+trenches and why the common mistakes are made would have helped reinforce
+the good practices that the book gives. Then again the authors going to
+need to pull a few tricks like that to get people to buy a second edition
+as this ones going to take some effort to top.
+</p><p>
+
+The only thing stopping me from recommending this as a onestop DNS
+solutions bok is its age, the verison of Bind the book is based upon is
+starting to look dated as people move to Bind 9. The background, testing
+and throey chapters make this an excellent starting bookm but if you plan
+on putting up a secure DNS server (And if not why not?) be prepaired to
+read some documentation from more up todate sources afterwards.
+</p><p>
+
+Total rating?
+I liked this book, while working through it i managed to set up a fully
+working master server on my laptop (VMWare is a good thing!) that my
+virtual machines had no trouble with using without stumbling over any of
+the more obvious mistakes or requiring any other howtos or books.
+</p><p>
+
+I'd give it an 8 out of ten and I'm going out to buy his sendmail book
+tomorrow.
+
+</p>
+</div>
+
+
+[% END %]

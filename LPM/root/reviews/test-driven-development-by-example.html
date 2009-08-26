@@ -1,0 +1,101 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Test Driven Development by Example",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+<div class="item">
+  <p>Author: Kent Beck</p>
+  <p>ISBN: <div class="isbn">0321146530</div></p>
+  <p>Publisher: Addison Wesley</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div><div class="item">
+<p><strong>Summary:</strong>
+An interesting book that presents a useful approach, some good idea's and
+many pithy quotes but not a classic.</p>
+<p>Testing is one of the most overlooked phases of the development cycle. From
+the worst case scenario of not being done to the more common case of all
+the testing being done at the tail end of a project, when time is most
+precious and least available, it is more often a rushed afterthought than
+a real part of the process. Kent Beck's new book sets out to change this by
+encouraging the writing of tests before code.</p>
+
+<p>The principles behind this approach are simple in essence. First you write
+the test code, code that does not even have to compile. Then you add the
+minimum amount of code to the real project that enables the test to
+run successfully. Once the test runs you refactor and remove duplication
+tidying your code and removing any 'sins' you committed to get the test
+running as quickly as possible. Beck refers to this as the Test Driven
+Development (TDD) mantra; Red/Green/Refactor.</p>
+
+<p>The book is broken up into three parts consisting of 32 short chapters and
+two appendixes.
+
+<ul>
+<li>Part 1: "The Money Example"</li>
+<li>Part 2: "The xUnit Example"</li>
+<li>Part 3: "Patterns for Test-Driven Development"</li>
+<li>Append 1: Influence Diagrams</li>
+<li>Append 2: Fibonacci</li>
+</ul>
+</p>
+<p>Part one eases you into the ideas behind TDD by applying it to a set of
+classes that will be used for multi-currency arithmetic. While the examples
+are well explained and illustrate the basic benefits I do feel that even in
+this early section readers will bring more away from the book if they have
+read Fowler's excellent book on Refactoring. TDD assumes some knowledge of
+both the concept of design patterns and the terminology of refactoring.
+The code examples in this section are easy to follow and written in Java.</p>
+
+<p>The second part of the book is another case study on a project using TDD,
+this time the emphasis is on building a basic xUnit testing framework
+in Python. The examples here illustrate some of the more advanced design
+decisions behind a TDD project while also picking up the pace by dropping
+the tiny steps approach used in the first chapter.</p>
+
+<p>The third part of the book shows the design patterns that were used in the
+previous sections. These chapters are more reference like in style and will
+be the part of the book you gain the most reuse from once you have read the
+through the whole book.</p>
+
+<p>Appendix I briefly covers Influence Diagrams, a simple way of displaying a
+systems positive and negative feedback and connections. This is followed by
+a very short case study of implementing a test driven Fibonacci. This is a
+very terse example that condenses and rehashes part one and helps to
+reinforce what you have learned. If you like to see the code then this may
+be the section of the book that makes the bulb come on.</p>
+
+<p>This is not a long book and is written in a chatty style that makes it an
+easy read. The examples are short, clear and to the point, although i
+did get the impression that the author didn't really like Java but was a
+Smalltalk fan. This doesn't detract from the book but it does make you look
+twice at the few Smalltalk code samples if you come from a main stream
+language. The Smalltalk examples could have been implemented in something
+more common such as Java or C++ and been just as effective but more
+accessible to the mass market.</p>
+
+<p>In order to get the most out of the book the author recommends working
+along through the examples on a computer, i agree with this, i retain
+more if I'm active rather than passive and this book is written in a style
+that suits and encourages this approach. Something that annoyed
+me however was the lack of concrete, full code. Although the examples are
+complete and show the changes being made and discussed you are expected to
+know enough about the language being used to put the classes together and
+run them on your own.</p>
+
+<p>A good example of this is the Java code, it is never given as an actual
+class but rather presented as a selection of methods. It would have been
+nice to have a boxout with the code as it looked at that stage every few
+chapters. The same can be said of the test suite code. This is not a show
+stopper but coupled with the complete lack of JUnit coverage (JUnit is used
+in some screen-shots and would have made it simpler to follow along) and
+the use of two main languages it raises the entry bar, something that could
+have been avoided by the inclusion of a small third appendix and a small
+number of more detailed code samples.</p>
+
+</div>
+
+[% END %]

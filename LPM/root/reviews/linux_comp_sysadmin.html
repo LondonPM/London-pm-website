@@ -1,0 +1,103 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Linux Companion for System Administrators",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Jochen Hein</p>
+  <p>ISBN: <div class="isbn">0-201-67525-0</div></p>
+  <p>Publisher: Addison-Wesley</p>
+  <p>Reviewed by: Roger Burton-West</p>
+</div><div class="item">
+<p>
+Linux Companion for System Administrators (second edition): Jochen Hein,
+Addison-Wesley, 0-201-67525-0, 574pp (softcover)
+</p><p>
+The Linux Companion is positioned, according to the back cover, for
+"anyone who wants to get more out of their Linux box"; and "will help
+the experienced Linux user attain a more efficient level of system
+administration". However, in practice it seems to be aimed much more at
+the beginning Linux user; in general, only one way of performing any
+given task is covered in detail, with only the briefest mention of
+alternatives that might be more effective in particular situations.
+</p><p>
+The book opens with a quick review of Linux distributions, mentioning
+only the positive points of each. It continues with a chapter on the
+layout of files on a Linux system (with side notes on RAID, deletion of
+temporary files, and man page categories); these are all things with
+which the experienced Linux user will already be familiar, but which
+could well be useful to a novice. Next is an analysis of the Linux boot
+process, with notes on LILO configuration as well as a brief discussion
+of other boot loaders.
+</p><p>
+After this, there is no particularly clear progression of topics; this
+is a book to be used as a reference for a particular situation, not to
+be read through. There are chapters on the X window system, backups,
+Emacs (which the author favours), localisation, text processing tools,
+emulators, shell use, and then a slew of network-related material. Much
+of this is at a very introductory level - "this is what a domain name
+is", "this is what inetd does", and so on. While this is adequate for
+normal configuration and operation, it does not give sufficient
+information to be of use when troubleshooting. There are also some
+surprising omissions: Emacs gets a substantial chapter, but vi is barely
+mentioned. The programming tools chapter quite reasonably advocates the
+use of a revision control system for all changing files, configuration
+files as well as program code; but it goes into detail only on the
+workings of rcs, rather than the very much more common cvs.
+</p><p>
+The networking chapters are the meat of the book. After an introductory
+section (Ethernet cabling, how IP addresses work and how to configure
+interfaces), a series of chapters deals with network protocols in broad
+groups. Telnet is mentioned and deprecated in favour of ssh; however,
+the r tools (rsh, rcp and so on) are covered in some detail with little
+mention of the major security risks they carry with them. Similarly, NFS
+is described, but while the drawbacks of attempting file locking are
+described, no mention is made of the many problems of privacy and
+security that NFS introduces. The only anonymous ftp server described in
+detail is wu-ftpd, again with no mention of its security problems (or
+the existence of sftp). NetWare support and Samba are touched on very
+briefly, both client- and server-side; DNS is mentioned in more detail
+(bind8 only), but again does not mention precautions such as chroot use.
+(One wonders how many Linux administrators will need to run DNS servers,
+compared with web or email servers - which are not mentioned at all in
+this book.)
+</p><p>
+Overall, this book tries to do too much: while being agnostic as to
+distribution, it attempts to give an introduction to all the standard
+Linux programs and services. This is not achieved, due to the lack of
+comment on web services and some others (smtp, ntp, openssl for https
+and other services, ssh extensions); meanwhile, the attempt to do so
+means that even in this substantial volume very little coverage can be
+given to each section. The information starts with the basics and rarely
+gets beyond this level; this would be a reasonable book to accompany a
+system installation guide for a new Linux user, but it is certainly not
+for "the experienced Linux user".
+</p><p>
+The first edition of this book was published in 1996, when Linux was
+much less widely-known than it is now and security was perhaps less of a
+concern. This unfortunately shows; there is very little mention of the
+security implication of running particular services, and no suggestion
+(odd in a book for system administrators) that the system needs to be
+kept up to date with bug-fixes.
+</p><p>
+The book was written in German, and while the translation is good, it is
+stilted at times; however, this does not detract from the value of the
+book, nor does it render technical points unclear.
+</p><p>
+In summary, this book would find its place on a novice user's shelves;
+it would be supplemented by a security guidebook and introductions to
+firewall, web and email server configuration. For the more experienced
+user, it could serve as an introduction to some of the less well-known
+functions of a standard Linux system, but it will not be of assistance
+in areas with which the user is already familiar.
+</p>
+
+</div>
+
+
+[% END %]

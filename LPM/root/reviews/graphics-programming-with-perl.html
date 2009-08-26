@@ -1,0 +1,90 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Graphics Programming with Perl",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Martien Verbruggen</p>
+  <p>ISBN: <a href="http://www.manning.com/verbruggen/index.html">1-930110-02-2</a></p>
+  <p>Publisher: Manning</p>
+  <p>Reviewed by: Ben Evans</p>
+</div><div class="item">
+<p>On the face of it, the subject matter leads a lot to be desired. Perl
+is not the best choice of language for the sorts of operations that
+graphics seem to require.
+
+</p><p>As the author notes, however ,the ability to leverage meaty XS extensions
+allows Perl to gain much of the low-level power and speed of C. This enables
+the Perl module-writer to compensate for the overly-meta way in which Perl
+often deals with binary data.
+
+</p><p>For the most part, Verbruggen deals with his subject matter very well. The 
+opening chapters cover basic graphics concepts, colour spaces, formats, etc
+and help set the tone for the rest. It is clear that this book is intended 
+as a jumping-off point and a cookbook, rather than a reference guide or
+authorative tome.This is something of a shame as Verbruggen's style is open
+and easy to read, so a reference section written by him would likely have
+been readable and usable. 
+
+</p><p>In addition, much of the focus is around web-based graphics but that surely
+just reflects the needs of its target audience. Virtually all of the second
+part of the book is taken up with discussing the sort of effects and graphics
+creation a web programmer might want to achieve.
+
+</p><p>In practice, on reading it, I found quite a bit of the coverage to be
+somewhat superficial. The major models have their simple operations
+well-covered, but there was little of the special knowledge or detail of
+the quirks and secrets that can really mark a tech book out as very special.
+
+</p><p>On the upside, the issues of version numbering and nasty dependency hell
+(which have often beset my oiwn experiences with Perl and graphics) are very
+well-handled and would doubtless save a less-experienced programmer a lot
+of heartache.
+
+</p><p>The occasional shallowness of the material is my only real concern about this
+book. In particular, I found the discussion of the Gimp rather disappointing
+and that the author rather dropped the ball on SDL. The Simple Direct media
+Layer has opened the possibility of entire graphics-heavy applications being
+written in Perl, and would have been an ideal candidate for a chapter. In 
+addition, some discussion as to why an application designer might want to
+employ the direct methods of OpenGL while within a windowing environment
+would have been interesting, given the poor coverage it has received in
+several other recent books.
+
+</p><p>One other nit was the authors somewhat peculiar dialect of Perl. Possibly
+this should have been caught at the tech reviewing stage, but very little
+of the example Perl in the book will run on a Perl earlier than 5.6.0 - but in 
+most cases this is just because the author uses 'our' liberally. This directly
+contradicts the discussion in the introduction about Perl versions, which is
+very bad.
+
+</p><p>The dialect has other peculiarities as well - bare filehandles instead of IO::*
+modules, extensive use of the CGI module - despite its known systemic problems
+with memory leaks, insistence on methods being available as class or instance
+methods wherever possible, but then introducing possibly troubling calling
+semantics by passing @_ unmodified by delegation, use of @ISA instead of
+'use base', using the -w switch instead of scoping warnings, etc.
+
+</p><p>The book also contains some factual errors - for example Macromedia do *not*
+require a license fee for software which produces SWF files unless it contains
+derived code from their reference implementation.
+
+</p><p>Like some of the other works in the Manning stable, this book suffers at times
+from being neither fish nor fowl - failing to provide enough reference
+material for longevity, but sometimes requiring too much background. Hopefully,
+a second edition would allow more space for the reference section this book
+deserves.
+
+</p><p>Despite this, in many ways Verbruggen provides a charming introduction to
+the topic of graphics and Perl. He covers some interesting modules which may
+have been unknown to the reader and the book should be an excellent read 
+for the intermediate programmer with an interest in graphics.</p>
+</div>
+
+
+[% END %]

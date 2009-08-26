@@ -1,0 +1,156 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Linux Device Drivers (2nd ed)",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Alessandro Rubini &amp; Jonathan Corbet</p>
+  <p>ISBN: <div class="isbn">0596000081</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: Nicholas Clark</p>
+</div><div class="item">
+<p>The second edition gives you 592 pages total, across 16 chapters, written by 2
+authors covering Linux versions 2.4.x, 2.2.x and 2.0.x. This contrasts with a   
+first edition of 450 pages, <strong>17</strong> chapters, 1 author, covering 2.0.x and        
+1.2.13. However, those statistics hide the enormous benefits to the rest of     
+the book that the removal of that extra chapter brings. Chapter 17 in the       
+first edition is entitled "Recent Developments" and gives 20 pages describing   
+the major changes to Linux in the 2.1 development series up to 2.1.43. The      
+first edition had the misfortune to overlap the 2.1 development series, so      
+that by the time it was published in February 1998 it was already partially     
+obsolete, as the 2.1 kernel had reached 2.1.84, and within a year it was out    
+of date when the 2.2.0 kernel was released in January 1999.  In contrast, the   
+second edition was published in June 2001, only a few months into the stable    
+2.4 series, and 2.5.0 was not released until November 2001. Thus over a year    
+later the book is still covering the current stable series, and looks safe for  
+some time to come.  The book is also available online under the GNU free        
+documentation licence at <a href="http://www.xml.com/ldd/chapter/book/">http://www.xml.com/ldd/chapter/book/</a>. I've not      
+checked whether the online version has had updates since the hardcopy edition   
+was committed to press.
+</p>
+
+<p>Although the second edition deals with three distinct versions of the Linux     
+kernel, it manages to almost completely eliminate any complexity that           
+describing multiple versions could have brought. The second edition is much     
+better than the first edition, which could give a feeling of disorientation as  
+it jumped back and forth between the two kernel versions it covered. The        
+second edition achieves its serenity by structuring all chapters so that the    
+main body only deals with 2.4.x series kernels. Example code is presented       
+which will compile on 2.4.x, rather than code cluttered with <span class="code">#ifdef</span>s, and a  
+note made of changes needed to give backwards compatibility to 2.2 and 2.0      
+series kernels.  The detail of these changes is saved up to a Backwards         
+Compatibility section at the end of each chapter, which keeps the main text     
+flowing along nicely.  Concepts or functionality only present in 2.4 (or 2.4    
+and 2.2) series kernels is clearly marked, as are kernel subsystems now         
+principally maintained for backwards compatibility. This makes it easy to       
+decide what features to use if you are only interested in writing drivers for   
+2.4 (or later) kernels, and what features to avoid if you want to run on        
+earlier kernels. It also gives the reader a clear idea of how the kernel        
+systems have evolved over time, something that would not be easy to infer with  
+just the kernel sources.</p>
+
+<p>The book is carefully structured to build up logically, starting with simpler   
+concepts in the early chapters, and building up logically so that more          
+complex subjects in the later chapters don't require the introduction of        
+many new ideas simultaneously. Hence chapter 2 describes how to build modules   
+load the into a running kernel, configure them, and safely unloaded them when   
+done. This description is all safely concluded before the first mention of      
+how to write device drivers, which begins in chapter 3. The preface says that   
+the book is structured in two parts - part 1 (chapters 1 to 10) give            
+everything you need to know about writing a character device, and move from     
+software towards hardware, whereas part 2 (chapters 11 to 16) cover more        
+advanced topics such as block devices and network devices. The ordering is      
+identical to the first edition, and was dictated because prior to the 2.4       
+kernels block devices were implemented using many of the structures of char     
+devices. The preface states that all the chapters cover a distinct problem,     
+and generally they do, in a neat self contained fashion. One exception would    
+be that the many small subsections on various features of char drivers          
+collected in Chapters 3 and 5 ("Char Drivers" and "Enhanced Char Driver         
+Operations") have to be ordered somewhat arbitrarily, but I cannot see a        
+better way of smoothing the flow between the disjoint subtopics. Chapter 12     
+("Loading Block Drivers") covers pretty much everything you ever wanted to      
+know about block drivers (except mmap), request queues, partitioning, and       
+then some. At 49 dense pages I feel that it could have benefited from           
+breaking into 2 chapters (basic block devices, and "everything else")           
+possibly with the mmap chapter put between as light relief. But apart from      
+avoiding getting stuck in that tar pit the book is generally quite readable     
+from start to finish without either your head exploding or drifting off to      
+sleep. (And I confess that is what I have done, over the course of several      
+weeks, without actually trying to program anything it has taught me). </p>
+
+<p>All the example code in the book is supplied online at                          
+<a href="http://examples.oreilly.com/linuxdrive2/">http://examples.oreilly.com/linuxdrive2/</a>. The book doesn't use code as       
+padding - quite often code not necessary to illustrate the point is omitted     
+from the printout in the book, with the reader referred to the downloadable     
+archive. Likewise this is no "all the worlds a VAXC^Wx86". For the first      
+edition all the code was tested on x86, alpha and sparc to ensure it was        
+both 64 bit clean and endian neutral. For this edition the test battery is      
+upped to x86, alpha, ARM, IA-64, M68K, PPC, Sparc, Sparc64 and VR41xx (MIPS)    
+[Which is more than we're smoking perl on, as we have no M68K or IA-64          
+test systems.] In addition the code is SMP safe, and the book is explicit       
+in how to avoid SMP pitfalls.</p>
+
+<p>If I have a gripe about the book, it is the diagrams. There are beautifully
+drawn greyscale diagrams, credited to Robert Romano and Jessamyn Read, which    
+look far more slick than say the austere simplicity of the black and white      
+line drawings in the books of W. Richard Stevens. However, there are far fewer  
+diagrams than in Stevens, and this text hardly refers to the diagrams.  For     
+example, <a href="http://www.xml.com/ldd/chapter/book/figs/ldr2_0302.gif">figure 3.2</a>   
+is captioned <em>the arguments to read</em>. The only mention in the text is the      
+sentence "Figure 3.2 represents how a typical <em>read</em> implementation uses its   
+arguments." No text talks through what the reader is supposed to learn from     
+the diagram - in this case I believe it is illustrating how you need to be      
+careful as a driver writer because some of the pointers you will be given will  
+be to user space, others to kernel space, and that even though you need to      
+treat them differently, there is no way for you (or the compiler) to infer      
+which is which from their C types.                                              
+<a href="http://www.xml.com/ldd/chapter/book/figs/ldr2_0501.gif">Figure 5.2</a> is a       
+complex diagram illustrating "the data structures of poll", with a 1 sentence   
+reference from the body text. There is no caption explaining the significance   
+of the contents, nor is their body text. In a Stevens book this figure would    
+be split into 3 or even 4 parts, each a diagram in itself.  Colouring or        
+shading would be avoided unless it had a clear and explicitly stated            
+contribution to the understanding of the concepts illustrated, and their would  
+be one or more paragraphs explaining the important things to take in and        
+remember from the diagrams.</p>
+
+<p>At first I thought that this lack of integration of the diagrams was a side     
+effect of the book also being available online. I was guessing that the         
+illustrations were copyright O'Reilly and not online, and that there was a      
+single text had to work with and without the diagrams. But this is not the      
+case  - the online version has the same diagrams as the printed version, so     
+there is no excuse for this lack of integration.  I feel that it means that     
+the effort put into the diagrams is mostly wasted, as they add nothing to the   
+text.</p>
+
+<p>So does the book do the job? Yes, I think it does (but beware the caveat that   
+I've not actually tried to write a device driver). The book seems to teach you  
+things pertinent to the task of a device driver author that you couldn't pick   
+up from a simple <span class="code">grep</span> of the kernel sources, such as the hows and whys of    
+interrupts, scheduling your tasks for later, allocating memory suitable for     
+DMA, the kernel interfaces for working with various kinds of hardware           
+buses. There are also introductions to related topics, but this book correctly  
+does not get sidetracked into the details, which would be enough to fill a      
+book in their own right. The isn't a general introduction to the Linux kernel   
+(for example it does not mention filesystems anywhere), but it does not set     
+out to be one. Likewise it avoids the specifics of hardware almost totally,     
+basing most of its examples on either devices that implement ramdisks or        
+devices that implement loopback network drivers. The book attempts to teach     
+the reader best practice in writing drivers, emphasising robustness,            
+portability and maintainability. It is also clear to teach how drivers fit      
+into Linux, keeping the distinction between mechanism and policy clear, and     
+emphasising the Unix philosophy that policy belongs in userspace.</p>
+
+<p>In summary this is a good book for a specific audience - people who need to     
+write device drivers for Linux. Not a kernel primer. Not a hardware primer.     
+Covers stuff you need to know. Not stuff you don't.</p>
+
+	</div>
+
+
+[% END %]

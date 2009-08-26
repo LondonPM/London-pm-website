@@ -1,0 +1,44 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Red Hat Linux Firewalls",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Bill McCarty</p>
+  <p><a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0764524631.html">ISBN: 0764524631
+</a></p>
+  <p>Publisher: redhat press (Wiley)</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div>
+
+<div class="item">
+<p>You are in a maze of Linux Firewall books -- all alike. Fortunately one stands out from the others for two reasons, the first is obvious, its an official Redhat press book, you expect Redhat books to be pretty accurate. The second, slightly more subtle one, is the authors name; Bill McCarty. Best known for his excellent articles in the American Linux Magazine and his Learning Redhat and Debian books for O'Reilly the stage is set for a good read.</p>
+
+<p>Looking over the table of contents you notice everything is covered, the first section gives you the necessary basic grounding (I'd like to see advanced books that skipped all this but i may well be alone in wanting this) in firewalling theory, TCP/IP, principles of both attack and defence and closes with a packet level overview of more popular services.</p>
+
+<p>Part 2 starts with firewall architecture and design before progressing through IPChains and IPTables giving them just one and two chapters respectively. We then hit part 3, the miscellany of the book. Covering the essentials of building bastion hosts, administration tactics and a brief overview of some complementary tools such as TCP Wrappers and Snort this has the potential to show how everything pieces together. Unfortunately this section fails because it's coverage of each is too shallow to be of any real use although it may serve as an idea spring board to newer admins.</p>
+
+<p>We then move onto the glossary and appendix A to F, weighing in at a hefty eighty two pages (of the books five hundred and twenty, including the twenty page index) they bring almost nothing positive to the book. This is one of my pet hates but its displayed nicely here, appendix A is a list of security web sites and mailing lists, nothing that half an hour with Google wouldn't turn up is shown. We then move into an eight page listing of protocol numbers, useful? very doubtful. Plunging ever downwards we then stare in disbelief at the almost twenty page appendix C, which is uncannily like a printed version of /etc/services, but with less graceful aging.</p>
+
+<p>Carrying on this trend of reproducing information easily available online (And if you are reading a firewall book i assume you have an internet connection!) we have the section on ICMP types and codes. Something i know i've requested many times in dead tree format. Honest.</p>
+
+<p>Appendix E and F each actually have a reason to be in the book and in the case of F even add some value. E shows the full sample firewall scripts taken from the Redhat website (yes they too are available online) which are used in sections through the IPChains and IPTables chapters. Having the complete versions of these to look at is useful but hardly inspiring.</p>
+
+<p>Appendix F on the other hand is the only one i actually got something useful from. A short primer on VPN's, IPSec and FreeS/WAN, this section is actually one of the highlights of the book. Well paced and concise it shows where Bill's next book should be focused.</p>
+
+<p>Publishers take heed, small concise books that can be carried without requiring aid are better than big books with pointless padding. Getting off my soap box and back on to the contents of the book the first thing that becomes clear is that this book is not very hands on. While the topics are presented clearly and cover all the essentials the book is both dry and paced very slowly. The ideal target market for this book seems to be patient people that have generated firewalls with fwbuilder or lokkit and now want to understand exactly what those scripts do and why they should care about them. For people looking for hands on instruction or starting from scratch having never built a firewall this book isn't going to be the one purchase on your list.</p>
+
+<p>The three chapters devoted to IPChains and IPTables show all the important options and step through what each one does in isolation but the sparse examples leave you without a mental image of where everything fits together. The Redhat firewalls used for the more complete examples don't really help, they are too big to be easily digested for people without practical experience. The modular design is a good thing to encourage but when starting off it makes the examples unnecessarily complex.</p>
+
+<p>I'd like to see the addition of a chapter or two of specific examples that went from the simple, block everything except http and ssh to the Redhat firewalls already included but with some more fully explained scenarios in between, something in the style of the O'Reilly cookbook series would improve the book immensely. By breaking the examples down into a number of smaller, less complex scripts the learning curve could be made a lot easier to traverse.</p>
+
+<p>Verdict: A very good book on firewall theory and design with a Linux slant. If you plan to build your own firewalls get this for the academic knowledge and another more hands on book for learning the implementation details.</p>
+</div>
+
+
+[% END %]

@@ -1,0 +1,137 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Building Secure Servers with Linux",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Michael D. Bauer</p>
+  <p>ISBN: <div class="isbn">0-596-00217-3</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: Roger Burton West</p>
+</div><div class="item">
+<p>
+<strong>Summary:</strong> An excellent resource for the Linux administrator concerned with
+security.</p>
+
+<p>This book is a comprehensive guide to Linux security. While many books
+deal with installation and setup of a basic server system, they tend to
+be lacking in any security consideration, preferring to emphasise ease
+of use; this is the requisite companion volume to those, assuming a
+basic competence in Linux use and concentrating on security concerns.</p>
+
+<p>
+
+Throughout the book, the author emphasises that systems fail: the
+existence of a firewall doesn't entirely prevent attacks on systems
+within it, proxies can be subverted, and so on. This leads him to a
+preferred position of robust defence in depth.</p>
+
+<p>
+
+Although the book is copyrighted 2003, its history is in a series of
+columns written by the author for _Linux Journal_; in places it is
+significantly outdated, for example considering Debian release 2.2 as
+the most recent version even though 3.0 was released in July 2002.</p>
+
+<p>
+
+The book opens with a consideration of risk. Since there is no such
+thing as a perfectly secure system, against whom should one attempt to
+protect it, and with what level of resource will it be attacked?
+Obviously there are no quick answers, but the author provides a set of
+tools with which reasonable estimates can be made.</p>
+
+<p>
+
+The next chapter deals with perimeter networks: how to position
+firewalls and routers to reach a useful compromise between accessibility
+and security. Various types of firewall are considered, including
+commercial hardware-based products; this book is a rare example of work
+by an author whose expertise is primarily in open-source systems but who
+is also familiar with current commercial software.</p>
+
+<p>
+
+The book now starts to go into rather more detail, as it describes the
+process of hardening a Linux server; the basics of this are as they have
+been described for a long time (run only necessary software, keep up to
+date, read the security mailing list for your chosen distribution), but
+the author expands usefully on all these concepts. This is one of the
+more basic chapters, but even the experienced administrator can usefully
+refresh and expand his knowledge. This chapter also covers security
+scanning with nmap and Nessus, as well as the Bastille Linux automated
+hardening system.</p>
+
+<p>
+
+Remote administration tools are the concern of the next chapter,
+starting with ssh (the author rightly deprecates telnet and related
+clear-text administration tools) in some details, then briefly coverying
+sudo. Next is SSL tunnelling with stunnel, probably the most convenient
+of the programs available, including its client-certificate
+authentication mode (probably the trickiest part of stunnel to set up).</p>
+
+<p>
+
+The next four chapters deal with the security of specific applications,
+starting with DNS. Remarkably, the author is prepared to mention the
+existence of djbdns as well as bind, and gives it a substantial amount
+of space; this is one of very few descriptions of djbdns in print, and
+would deserve attention for that even if it were not rather more clearly
+written than the official documentation. Next comes email, with a long
+general section (mostly considering unauthorised relaying) and detail on
+two specific mail transport agents, sendmail (because of its popularity)
+and postfix (because of the author's admitted bias in its favour). It is
+unfortunate that no room could be found for exim or qmail as well, as
+this would have provided coverage of the vast majority of SMTP servers
+deployed on Linux platforms.</p>
+
+<p>
+
+The web services chapter only covers Apache, which is perhaps a
+pardonable failing given its preponderance on Internet-connected hosts,
+though some coverage of the many lighter-weight servers would have been
+welcome; it also covers CGI script and authentication security, though
+not in any great depth (these are more properly the province of the
+developer than of the system administrator in any case). The final
+application chapter, on file services, describes ProFTPD in some detail
+with some limited consideration of sftp and rsync.</p>
+
+<p>
+
+The book's final section returns to the business of system, rather than
+application, administration, with consideration of intrusion detection.
+One chapter covers inbuilt systems for this (syslog and its
+ramifications including remote loggin, syslog-ng, and the automated
+log-watcher swatch); the other deals with external monitoring packages
+such as tripwire (and some of its kin) and snort. An appendix gives
+pre-built iptables firewall scripts.</p>
+
+<p>
+
+The book is rather shorter than some other security handbooks on the
+market, and more space could perhaps have been given to alternative
+application software, particuarly for email and web services (and client
+mail protocols such as POP3 and IMAP are not even considered). Moreover,
+a slightly expanded treatment of networking - covering security under
+N:N masquerading  rather than the simple N:1 described here and in a
+hundred existing articles - would have added significantly to the value
+of the book.</p>
+
+<p>
+
+The quality of the prose is good and clear throughout, and examples are
+generous though not excessive. In summary, this is a book that I should
+recommend to anyone running a Linux server in an environment where not
+all potential users are fully trusted.
+
+</p>
+</div>
+
+
+[% END %]

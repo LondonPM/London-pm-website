@@ -1,0 +1,97 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Network Programming with Perl",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Lincoln D. Stein</p>
+  <p>ISBN: <div class="isbn">0201615711</div></p>
+  <p>Publisher: Addison-Wesley</p>
+  <p>Reviewed by: Simon Wistow</p>
+</div><div class="item">
+<p>
+Any book that gets a glowing review from Jon Orwant can't be all bad. Plus at
+20 odd quid ($39.99) for a 700+ page book you get good LART value too. But
+what's it like as a Networking guide?
+</p><p>
+Well, in a word, excellent. Neatly separated into 4 sections (Basics,
+Developing Clients for Common Services, Developing TCP Client/Server systems
+and Advanced Topics) the book picks its way neatly around the minefield that is
+trying to be a reference book and a tutorial simultaneously.
+</p><p>
+The first section starts off with an introduction to networking and how it
+pertains to Perl and then provides a useful example of how the IO::* modules
+make shifting from local files to remote files is easy.
+</p><p>
+<pre>
+        #!/usr/bin/perl -w
+
+        use strict;
+        use IO::File;
+
+        my $file = shift;
+        my $fh   = IO::File->new($file);
+        my $line = %gt;$fh&lt;;
+        print $line;
+
+goes to
+
+        #!/usr/bin/perl -w
+
+        use strict;
+        use IO::Socket;
+
+        my $server = shift;
+        my $fh     = IO::Socket::INET->new($server);
+        my $line   = %gt;$fh&lt;;
+        print $line;
+</pre>
+</p><p>
+for example.
+</p><p>
+It then goes on to explain about pipes, processes and signals, tutors on
+Berkley sockets and the TCP protocol and then a more in depth look at the
+IO::Socket API.
+</p><p>
+All of this is presented as an easily readable, well paced tutorial which
+functions as an excellent reference guide.
+</p><p>
+The second section goes on to deal with common clients such as FTP, Telnet,
+Mail (POP, IMAP and SMTP) and web clients including a complete news to mail
+gateway.
+</p><p>
+The third section is probably the best despite the fact that it could easily
+have been the worst. It begins by explaining how to write a forking sever and
+using the inetd daemon and then gradually ramps up the complexity going into,
+in turn, multithreaded servers, multiplexed servers, nonblock I/O,
+bulletproofing, pre forking and threading and non-blocking TCP clients using
+IO::Poll.
+</p><p>
+Again, each stage is clearly explained and the drawbacks of each method are
+laid out in an easy to understand manner.
+</p><p>
+The final section, on Advanced Topics, seems daunting at first but by the time
+you've read the first three chapters they seem like a natural progression. It
+deals with topics that you normally won't have to deal with but which are
+useful for those odd moments when you really do need to know about TCP urgent
+and out of band data. Oddly, UDP is counted as an advanced topic along with
+broadcasting, multicasting and UNIX domain sockets but hey ho.
+</p><p>
+There's also a load of source code including a Markov Chain-a-like called
+Text::Travesty.
+</p><p>
+Which is nice.
+</p><p>
+All in all, a nice book, two thumbs up, highly recommended, fun for all the
+family. Although perfect binding might have been nice :)
+</p>
+       </div>
+
+
+
+[% END %]

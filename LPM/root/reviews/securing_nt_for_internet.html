@@ -1,0 +1,105 @@
+[%- PROCESS "includes/helpers" -%]
+[% WRAPPER page 
+    title => "Securing Windows NT/2000 Servers for the Internet",
+    keywords => "",
+    section => "reviews",
+%]
+
+
+
+
+<div class="item">
+  <p>Author: Stefan Norberg</p>
+  <p>ISBN: <div class="isbn">1565927680</div></p>
+  <p>Publisher: O'Reilly</p>
+  <p>Reviewed by: <a href="http://www.unixdaemon.net/">Dean Wilson</a></p>
+</div><div class="item">
+<p>
+I must admit that I was dubious about volunteering to cover this book when I saw it
+on offered on the list, I was expecting to open it up and see in huge letters,
+one to a page,
+</p><p>
+Step 1 "Unplug the Ethernet cable."<br/>
+Step 2 "Remove the power lead."<br/>
+Step 3 "Feel secure."<br/>
+</p><p>
+But I thought what the hell, I work in a Windows shop so I'll
+read it during the work day and get the company to cover my time. 
+That worked out a very good move to make.
+While anyone that has spent any amount of time building NT and now
+Win2K boxen will know that making them secure enough to stand up on an
+Internet facing connection is no easy mark, the author of this book,
+Stefan Norberg, has released the best and most comprehensive guide to
+giving Windows admin's a fighting chance to date.
+</p><p>
+The book itself is slim and to the point, the author has a terse
+writing style that lets him cover a lot of very technical material
+quickly. From the start of chapter one and a quick high level intro to
+network security models, Windows architecture and a brief detour into
+both crypto and network protocols the tone of the book is shown to be
+brief and very technical, experience with Windows and networks is
+assumed in the reading audience. While this takes the book out of the
+hands of beginners it means that the book can cover a hell of a lot of
+ground in its 200 odd pages. I personally like this style and its one
+of the biggest selling points of O'Reilly books for me, more info in
+less pages.
+</p><p>
+The second chapter takes you through a tour of what is running after a
+default install, what it does, what it leaves open to attack and most
+importantly how to turn it off. This is one of few security books I've
+seen that show you how to disable the built-in Windows networking
+services that get left on after every install. The coverage is nigh on
+complete and includes services, user accounts, the registry and even
+optimising the resilience of the Windows TCP/IP stack. The only aspect
+of this chapter I could find any issue with is that towards the end of
+the chapter the explanations seem to get less terse and more rushed.
+Not a major gripe but annoying considering how good the rest of the
+chapter is.
+</p><p>
+Chapter 3 covers the differences between securing an NT and a Win2K
+box and then covers the newer features such as the IPSec
+implementation and how to set up filters on the host itself. This
+chapter is quite short as it builds on the previous one and only
+highlights the differences between the two.
+</p><p>
+The second half of the book covers the running, role and maintenance
+of the secured hosts. Chapter four covers some of the options
+available for secure remote admin of the boxen including PCAnywhere,
+Terminal Services (slightly overkill in my view) and an Open Source
+based solution involving SSH, Cygwin, TCP Wrappers and VNC. Which
+together make a pretty potent combination of tools but one that
+requires a fair amount of effort to deploy effectively.
+</p><p>
+The author then gives over a number of pages and an appendix (C)
+detailing how to install and build these tools on Windows. This is the
+weakest point of the second half of the book for me. I'd rather have
+more coverage of tightening up policies than build instructions but
+the author evidently knows his audience and when one of my co-workers
+flicked through the book he was impressed by the comprehensive build
+instructions. Proof that Linux and Windows admin's are from different
+disciplines.
+</p><p>
+Chapters five, six and seven cover more of the day to day jobs that
+need covering on a public facing server, how to plan and implement
+secure backup policies and the issues these raise. How to correlate
+auditing information and related topics such as network time syncing
+(And why NNTP is better than SNTP, something I could have done with
+about six months ago.) An overview of integrating Event Log with
+Syslog (Although this section is a little light on details) and ending
+with a very short chapter on the different types of audits that you
+should consider for your shiny new fortress.
+</p><p>
+I would have liked the book to expand a little and cover the securing
+of an IIS server under each of the operating system's as this is where
+I see most people deploying a Windows bastion host. It would have
+moved the book away from a pure OS level look at hardening but would
+have made a worthwhile addition.
+</p><p>
+Summary: If you do Windows admin then read this book. You'll be safer
+for it.
+</p>
+
+        </div>
+
+
+[% END %]

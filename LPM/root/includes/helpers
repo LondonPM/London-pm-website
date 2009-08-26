@@ -1,0 +1,57 @@
+[% BLOCK page %]
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>London.pm: [% title %]</title>
+    <link rel="stylesheet"              type="text/css"             href="/static/css/orange.css" title="Orange">
+[% IF keywords %]    <meta name="keywords" content="[% keywords %]">[% END %]
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/london.pm.js"></script>
+  </head>
+
+  <body> 
+    <div id="page">
+      <div id="header">
+        <a href="/index.html" class="onion"></a>
+        <!-- Start Menu -->
+        <ul id="main_menu" class="tabs">
+
+         <li class="t1"><a href="/"[% ' class="warm"' IF section == 'home' %]>Home</a></li>
+         <li class="t2"><a href="/about/"[% ' class="warm"' IF section == 'about' %]>About Us</a></li>
+         <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
+         <li class="t4"><a href="/who/"[% ' class="warm"' IF section == 'who' %]>People</a></li>
+         <li class="t5"><a href="/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
+         <li class="t6"><a href="/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Advocacy</a></li>
+
+          <li><a href="http://london.pm.org/mailman/listinfo">Mailing Lists</a></li>
+        </ul>
+        <ul id="side_menu" class="tabs">        
+            <li></li>
+            <li class="t6"><a href="/join/"[% ' class="warm"' IF section == 'join' %]>Join</a></li>
+            
+        </ul>
+        <!-- End Menu -->
+
+        <ul id="palette">
+        </ul>
+      </div>
+      <div id="body">
+        <h1>[% title %]</h1>
+      <hr />
+
+[% content %]
+    </div>
+      <div id="footer">
+        <div class="modified">
+          last modified: 12:37:26 18-Dec-2008
+        </div>
+        <div class="credit">
+          powered by <a href="http://perl.org/">Perl</a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+[% END %]
