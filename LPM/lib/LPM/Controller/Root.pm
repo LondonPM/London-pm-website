@@ -35,13 +35,6 @@ sub auto : Private {
     return 1;
 }
 
-sub who : Local {
-    my ( $self, $c ) = @_;
-
-    # FIXME: use correct template / data
-    $c->stash->{template} = 'index.html';
-}
-
 sub default :Path {
     return 1;
 }
