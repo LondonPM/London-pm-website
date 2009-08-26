@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use parent 'Catalyst::Controller';
 
+use LWP::UserAgent;
+
 #
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
@@ -28,7 +30,6 @@ my $rss_url = 'http://www.google.com/calendar/feeds/tge27p54mq26g6r1op26bpj5n4%4
 sub auto : Private {
     my ( $self, $c ) = @_;
 
-    # Set the charset to utf-8
     $c->res->content_type('text/html; charset=utf-8');
     
     return 1;
@@ -48,25 +49,49 @@ sub default :Path {
 sub london_ics :Path('london.pm.ics') {
     my ( $self, $c ) = @_;
 
-    $c->res->redirect($cal_url);
-    return 1;    
+    if(my $response = $self->_get_web_page($cal_url)) {
+        $c->res->content_type('text/calendar; charset=utf-8');
+        $c->res->body($response->decoded_content);
+        return 1;
+    }
+    return 0;    
 }
 
 sub london_rss :Path('london.pm.rss') {
     my ( $self, $c ) = @_;
 
     # Bah, use atom!
-    $c->res->redirect($rss_url);
-    return 1;    
+    if(my $response = $self->_get_web_page($rss_url)) {
+        $c->res->content_type('application/atom+xml; charset=utf-8');
+        $c->res->body($response->decoded_content);
+        return 1;
+    }
+    return 0;    
 }
 
 sub london_atom :Path('london.pm.atom') {
     my ( $self, $c ) = @_;
-
-    $c->res->redirect($rss_url);
-    return 1;    
+    if(my $response = $self->_get_web_page($rss_url)) {
+        $c->res->content_type('application/atom+xml; charset=utf-8');
+        $c->res->body($response->decoded_content);
+        return 1;
+    }
+    return 0;    
 }
 
+sub _get_web_page {
+    my ($self, $url) = @_;
+
+    # FIXME: Add cacheing here
+    my $ua = LWP::UserAgent->new;
+    $ua->timeout(10);
+    
+    my $response = $ua->get($url);
+
+    if ($response->is_success) {
+        return $response;
+    }
+}
 
 =head2 end
 
