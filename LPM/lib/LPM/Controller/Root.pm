@@ -39,19 +39,22 @@ sub default :Path {
 
 sub london_ics :Path('london.pm.ics') {
     my ( $self, $c ) = @_;
-    $c->redirect_and_detach($calendar_ics_url);
+    $c->res->redirect($calendar_ics_url);
+    $c->detach();
 }
 
 sub london_rss :Path('london.pm.rss') {
     my ( $self, $c ) = @_;
 
     # Bah, use atom!
-    $c->redirect_and_detach($calendar_atom_url);
+    $c->res->redirect($calendar_atom_url);
+    $c->detach();
 }
 
 sub london_atom :Path('london.pm.atom') {
     my ( $self, $c ) = @_;
-    $c->redirect_and_detach($calendar_atom_url);
+    $c->res->redirect($calendar_atom_url);
+    $c->detach();
 }
 
 =head2 end
@@ -85,7 +88,8 @@ sub end : Private {
             warn "Dodgy path: $path - rewriting" if $c->debug;
             $path =~ s/\.\.//g;
             $path =~ s/[^\w$legal_chars]//g;    # security?
-            $c->redirect_and_detach( '/' . $path );
+            $c->res->redirect( '/' . $path );
+            $c->detach();
         }
         $path .= 'index.html'
           if $path !~ /html$/ && $path !~ /xml$/ && $path !~ /txt$/;
