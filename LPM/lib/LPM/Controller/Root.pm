@@ -24,8 +24,8 @@ This servers the London.pm website
 
 =cut
 
-my $cal_url = 'http://www.google.com/calendar/ical/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic.ics';
-my $rss_url = 'http://www.google.com/calendar/feeds/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic';
+my $calendar_ics_url = 'http://www.google.com/calendar/ical/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic.ics';
+my $calendar_atom_url = 'http://www.google.com/calendar/feeds/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic';
 
 sub auto : Private {
     my ( $self, $c ) = @_;
@@ -41,19 +41,19 @@ sub default :Path {
 
 sub london_ics :Path('london.pm.ics') {
     my ( $self, $c ) = @_;
-    $c->redirect_and_detach($cal_url);
+    $c->redirect_and_detach($calendar_ics_url);
 }
 
 sub london_rss :Path('london.pm.rss') {
     my ( $self, $c ) = @_;
 
     # Bah, use atom!
-    $c->redirect_and_detach($rss_url);
+    $c->redirect_and_detach($calendar_atom_url);
 }
 
 sub london_atom :Path('london.pm.atom') {
     my ( $self, $c ) = @_;
-    $c->redirect_and_detach($rss_url);
+    $c->redirect_and_detach($calendar_atom_url);
 }
 
 =head2 end
