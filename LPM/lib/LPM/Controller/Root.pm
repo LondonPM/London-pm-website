@@ -4,8 +4,6 @@ use strict;
 use warnings;
 use parent 'Catalyst::Controller';
 
-use LWP::UserAgent;
-
 #
 # Sets the actions in this controller to be registered with no prefix
 # so they function identically to actions created in MyApp.pm
@@ -65,7 +63,6 @@ Attempt to render a view, if needed.
 
 sub end : Private {
 
-    #sub end {
     my ( $self, $c ) = @_;
 
     return if $c->res->status =~ /^30/;
@@ -88,7 +85,7 @@ sub end : Private {
             warn "Dodgy path: $path - rewriting" if $c->debug;
             $path =~ s/\.\.//g;
             $path =~ s/[^\w$legal_chars]//g;    # security?
-            $c->res->redirect( '/' . $path );
+            $c->redirect_and_detach( '/' . $path );
         }
         $path .= 'index.html'
           if $path !~ /html$/ && $path !~ /xml$/ && $path !~ /txt$/;
