@@ -41,49 +41,19 @@ sub default :Path {
 
 sub london_ics :Path('london.pm.ics') {
     my ( $self, $c ) = @_;
-
-    if(my $response = $self->_get_web_page($cal_url)) {
-        $c->res->content_type('text/calendar; charset=utf-8');
-        $c->res->body($response->decoded_content);
-        return 1;
-    }
-    return 0;    
+    $c->redirect_and_detach($cal_url);
 }
 
 sub london_rss :Path('london.pm.rss') {
     my ( $self, $c ) = @_;
 
     # Bah, use atom!
-    if(my $response = $self->_get_web_page($rss_url)) {
-        $c->res->content_type('application/atom+xml; charset=utf-8');
-        $c->res->body($response->decoded_content);
-        return 1;
-    }
-    return 0;    
+    $c->redirect_and_detach($rss_url);
 }
 
 sub london_atom :Path('london.pm.atom') {
     my ( $self, $c ) = @_;
-    if(my $response = $self->_get_web_page($rss_url)) {
-        $c->res->content_type('application/atom+xml; charset=utf-8');
-        $c->res->body($response->decoded_content);
-        return 1;
-    }
-    return 0;    
-}
-
-sub _get_web_page {
-    my ($self, $url) = @_;
-
-    # FIXME: Add cacheing here
-    my $ua = LWP::UserAgent->new;
-    $ua->timeout(10);
-    
-    my $response = $ua->get($url);
-
-    if ($response->is_success) {
-        return $response;
-    }
+    $c->redirect_and_detach($rss_url);
 }
 
 =head2 end

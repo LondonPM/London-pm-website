@@ -26,7 +26,7 @@ our $VERSION = '0.01';
 # with a external configuration file acting as an override for
 # local deployment.
 
-my @plugins_to_load = (qw/-Debug Static::Simple/);
+my @plugins_to_load = (qw/-Debug Static::Simple RedirectAndDetach/);
 
 my %config = ( name => 'LPM', );
 
