@@ -15,3 +15,17 @@ What happened to the who page?
 http://www.google.com/friendconnect/ is easier to maintain!
 
 
+How do changes get put live on the servers?
+-------------------------------------------
+Login
+sudo su -
+
+HTML:
+
+   cd /usr/local/www/root
+   svn up
+
+Code:
+
+  svn co the code somewhere and install it.
+  apachectl restart
