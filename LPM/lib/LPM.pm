@@ -14,7 +14,7 @@ use Catalyst::Runtime '5.70';
 #                 directory
 
 use parent qw/Catalyst/;
-
+use Path::Class;
 our $VERSION = '0.01';
 
 # Configure the application.
@@ -28,7 +28,18 @@ our $VERSION = '0.01';
 
 my @plugins_to_load = (qw/-Debug Static::Simple/);
 
-my %config = ( name => 'LPM', );
+# If we are on a live server, use that
+my $live_root = '/usr/local/www/root';
+my $root
+    = -r "$live_root/canvas.html"
+    ? dir($live_root)
+    : dir(Catalyst::Utils::home('LPM'))->subdir('root');
+
+my %config = (
+    name => 'LPM',
+    root => $root,
+
+);
 
 # Start the application
 __PACKAGE__->config(%config);
