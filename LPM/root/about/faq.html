@@ -175,56 +175,6 @@ You can find a general UK list over at <a href="http://www.perlfoundation.org/pe
 	<p><span class="person">Paul Makepeace</span> has thoughtfully done a <a href="http://paulm.com/how_to/find_a_venue_in_london.html">page</a> on this subject.</p>
     </div>
 
-    <a name="adsl" /><h2><a href="#adsl" onclick="checkTitle(); return 1;">Is there a recommended ADSL provider?<img src="/static/images/permalink.gif" border="0"></a>
-    </h2><div class="item">
-	<p>You basically have two choices - (A)DSL and Cable. We'll deal with cable later.</p>
-
-	<p> First you need to pick a provider. Many people seem happy with Nildram (<a href="http://www.nildram.co.uk">http://www.nildram.co.uk</a>) who, whilst they may be slightly more expensive than some provide excellent technical support. A static IP will cost you a bit more.</p>
-
-	<p>Also recommended are  Andrews and Arnold (<a href="http://aaisp.net.uk/">http://aaisp.net.uk</a>) who givestatic IPs on all products and even /24 networks, will SMS you when the service goes down and send invoices in text and PDF all PGP signed.</p>
-
-	<p>Other options can be found at <a href="http://www.adslguide.org.uk/">http://www.adslguide.org.uk/</a> who provide excellent service comparisons, price guides and FAQs.</p>
-
-	<p>Once you've picked a provider and a service (including whether or not you want a static ip which will allow you to contact your firewall remotely without using DynDNS) then you have to decide whther or not you want managed or wires only.</p>
-
-	<p>Managed services come with (usually a cheap USB) modem and cost a little per month. The advantages are that if the modem breaks then you get a replacement plus they set everything up for you. The disadvantages are that the modems tend to be crappy and it will end up costing more in the long run.</p>
-
-	<p>The alternative is to get a wires only option. This will turn on the service for you but you'll have buy your own DSL modem. Many people recommend the D-Link 504 which is a combination router with 4 port switch and comprehensive web, shell (through serial access) and application (windows only) configuration. It's a good balance between features and cost and can be picked up for about 90 quid from Dabs, Scan and Amazon.co.uk (where I got mine from).</p>
-
-	<p>It should be noted that the phone line that the DSL modem is plugged into will need a microfilter. This looks like a telephone splitter and protects your normal PTSN phone (and Sky Box or <a href="#tivo">Tivo</a> or whatever is plugged into the phone line). You should get one with your service but they're available for about 7 pounds from Scan or about 15 pounds from shops on Tottenham Court Road,</p>
-
-	<p>An alternative to DSL is the much cheaper cable services like Blueyonder (<a href="http://info.blueyonder.co.uk/publish/index.html">http://info.blueyonder.co.uk/publish/index.html</a>). These often come as part of a telvision of phoen package from the same company and represent very good value. Allegedley they are faster (on paper) than DSL although anecdotal evidence suggests other wise. These are almost always managed services.</p>
-
-	<p>Once you've selected your broadband provider you'll want to connect the rest of your computers up (you do have more than one, don't you?).</p>
-
-	<p>Whilst you can just plug everythign straight into the modem this could be considered harmful even if the modem does have firewalling capabilities. For about 30 pound you can build yourself a computer capable of running a firewall (go for the lowest spec possible, you don't even need a harddrive if you can boot from a CDRom or a floppy). Then run something like IPCop (<a href="http://ipcop.org/">http://ipcop.org/</a>) or Smoothwall (<a href="http://www.smoothwall.org">http://www.smoothwall.org</a>). Set up your network something like this.</p>
-
-	<p><pre>
-          internet
-             |
-             |
-	modem/router
-             |
-             | (RED ZONE)
-             |
-       ----------------
-      |  Firewall box  |--- (ORANGE ZONE)
-       ----------------     
-             |
-        (GREEN ZONE)
-             |
-          [ hub ]
-          /  |  \
-         /   |   \
-      YOUR COMPUTERS
-	</pre></p>
-
-
-	<p>Everything in the Green zone will be able to see each other. Anything in the Orange zone will be able to see each other but won't be able to see anything in the Green Zone. If you have an Airport or other wireless hub then you probably want to connect it to the Orange Zone. This means that people leaching your bandwith cannot h4XX0r the machine in the Green zone which will probably be wide open because of SMB or whatever.</p>
-
-	<p>If you want all your computers to be using Wireless (which is what I do since I don't want to run cables upstairs) then stick the Airport in the Green Zone but configure it only to allow connections from specified MAC addresses. This isn't perfect but should be a satisfactory balance between security and convenience.</p>
-    </div>
-
 	<a name="server" /><h2><a href="#server" onclick="checkTitle(); return 1;">You've got a server?<img src="/static/images/permalink.gif" border="0"></a>
     </h2><div class="item">
 		<p>Originally we had a server called penderel after the <a href="/meetings/locations/penderel.html">Penderel's Oak</a> and it's  what hosts london.pm.org.  People that once paid cash for
