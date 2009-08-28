@@ -5,45 +5,71 @@ use warnings;
 
 use Catalyst::Runtime '5.70';
 
-# Set flags and add plugins for the application
-#
-#         -Debug: activates the debug mode for very useful log messages
-#   ConfigLoader: will load the configuration from a Config::General file in the
-#                 application's home directory
-# Static::Simple: will serve static files from the application's root
-#                 directory
-
 use parent qw/Catalyst/;
 use Path::Class;
+use Sys::Hostname;
 our $VERSION = '0.01';
 
-# Configure the application.
-#
-# Note that settings in lpm.conf (or other external
-# configuration file that you set up manually) take precedence
-# over this when using ConfigLoader. Thus configuration
-# details given here can function as a default configuration,
-# with a external configuration file acting as an override for
-# local deployment.
+my @plugins_to_load = (qw/Static::Simple/);
+my $root;
 
-my @plugins_to_load = (qw/-Debug Static::Simple/);
+my $hostname = hostname();
 
-# If we are on a live server, use that
-my $live_root = '/usr/local/www/root';
-my $root
-    = -r "$live_root/canvas.html"
-    ? dir($live_root)
-    : dir(Catalyst::Utils::home('LPM'))->subdir('root');
+if ( $hostname =~ /london\.pm\.org/ ) {
+
+    # We're live!
+    $root = '/usr/local/www/root';
+} else {
+
+    # must be dev;
+    $root = dir( Catalyst::Utils::home('LPM') )->subdir('root');
+    push( @plugins_to_load, '-Debug' );
+}
 
 my %config = (
     name => 'LPM',
     root => $root,
-
 );
 
 # Start the application
 __PACKAGE__->config(%config);
 __PACKAGE__->setup(@plugins_to_load);
+
+sub finalize_error {
+    my $c = shift;
+
+    # in debug mode return the original "page"
+    if ( $c->debug ) {
+        $c->NEXT::finalize_error;
+        return;
+    }
+
+    my $msg = join "\n", @{ $c->error };
+
+    if ( $msg =~ /template .* not found/ ) {
+
+        # File not found
+        $c->response->status(404);
+        $c->stash->{template} = 'page_not_found.html';
+    } else {
+
+        # log the errors to STDERR
+        warn "ERROR DETECTED:\n";
+        warn "  " . $c->req->uri->as_string . "\n";
+        warn map {"  $_\n"} @{ $c->error };
+
+        # change the response
+        $c->response->status(500);
+        $c->stash->{template} = 'internal_server_error.html';
+
+    }
+    $c->error(0);
+    $c->view('TT')->process($c);
+    if ( @{ $c->error } ) {
+        warn "Error in error page! :" . join " ", @{ $c->error };
+        $c->NEXT::finalize_error;
+    }
+}
 
 =head1 NAME
 
@@ -63,7 +89,7 @@ L<LPM::Controller::Root>, L<Catalyst>
 
 =head1 AUTHOR
 
-leo,,,
+Leo Lapworth
 
 =head1 LICENSE
 
