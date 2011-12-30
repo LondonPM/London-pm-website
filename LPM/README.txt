@@ -2,8 +2,7 @@
 
 Where does this code live?
 --------------------------
-https://london-pm.googlecode.com/svn/trunk/LPM
-
+https://github.com/perl-doc-cats/London-pm-website
 
 How do I update the calendar?
 -----------------------------
