@@ -11,6 +11,11 @@ use Plack::Middleware::Rewrite;
 
 my $base = dir('root')->stringify();
 
+my $on_lpm_server = '/home/lpm/London-pm-website/root';
+if(-r $on_lpm_server) {
+    $base = $on_lpm_server;
+}
+
 my $calendar_ics_url
     = 'http://www.google.com/calendar/ical/tge27p54mq26g6r1op26bpj5n4%40group.calendar.google.com/public/basic.ics';
 my $calendar_atom_url
