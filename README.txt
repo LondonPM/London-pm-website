@@ -1,4 +1,5 @@
-
+ABOUT The London.pm Website
+===========================
 
 Where does this code live?
 --------------------------
@@ -8,23 +9,37 @@ How do I update the calendar?
 -----------------------------
 Get ranguard@gmail.com to give you access to the google iCal
 
-
 What happened to the who page?
 ------------------------------
 http://www.google.com/friendconnect/ is easier to maintain!
 
-
 How do changes get put live on the servers?
 -------------------------------------------
-Login
-sudo su -
+Login as 'lpm' user
+cd London-pm-website
+git pull
 
-HTML:
+How to setup apache2
+--------------------
+cd /usr/ports/www
+pkg_add -r apache22
+pkg_add -r mod_perl2
 
-   cd /usr/local/www/root
-   svn up
+vim /etc/rc.conf 
+add:
+    apache22_enable="YES"
 
-Code:
+cd /usr/local/etc/apache22/
+vim httpd.conf
+add:
+    LoadModule perl_module libexec/apache22/mod_perl.so
+    Include /home/lpm/London-pm-website/apache2.conf
 
-  svn co the code somewhere and install it.
-  apachectl restart
+CPAN Modules needed:
+--------------------
+Path::Class;
+Plack::Middleware::TemplateToolkit;
+Plack::Middleware::Static;
+Plack::Middleware::Rewrite;
+
+
