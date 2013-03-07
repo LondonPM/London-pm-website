@@ -63,6 +63,8 @@ add:
     LoadModule perl_module libexec/apache22/mod_perl.so
     Include /home/lpm/London-pm-website/apache2.conf
 
-> [ RESTART APACHE CMD ]
+> apachectl restart
+
+*/5 * * * * cd /home/lpm/London-pm-website; git pull
 
 
