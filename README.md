@@ -11,60 +11,71 @@ Get ranguard@gmail.com to give you access to the google iCal
 
 How do changes get put live on the servers?
 -------------------------------------------
-Login as 'lpm' user
-cd London-pm-website
-git pull
+Updates are automatic from the master git repo every 2 mins
 
-(maybe we could just put in a cronjob for this?)
-
+General notes
+=============
 What happened to the who page?
 ------------------------------
 Too much trouble to maintain
 
-How to setup a server (especially apache2)
--------------------------------------------
+How to set this up on a new server (assuming FreeBSD)
+=====================================================
 
-CPAN Modules needed:
+Install packages
+----------------
+    cd /usr/ports/www
+    pkg_add -r vim
+    pkg_add -r git
+    pkg_add -r apache22
+    pkg_add -r mod_perl2
+
+CPAN Modules needed (install as root):
+--------------------------------------
+    cpan App::cpanminus
+    cpanm Path::Class Plack::Handler::Apache2 Plack::Middleware::TemplateToolkit Plack::Middleware::Static Plack::Middleware::Rewrite
+
+Make sure apache starts on reboot and loads everything:
+-------------------------------------------------------
+    vim /etc/rc.conf 
+    add:
+        apache22_enable="YES"
+
+    cd /usr/local/etc/apache22/
+    vim httpd.conf
+    add:
+        LoadModule perl_module libexec/apache22/mod_perl.so
+        Include /home/lpm/London-pm-website/apache2.conf
+
+
+Create an lpm user
+------------------
+    adduser
+    Username   : lpm
+    Password   : <disabled>
+    Full Name  : London.pm User
+    Uid        : 1009
+    Class      : 
+    Groups     : lpm 
+    Home       : /home/lpm
+    Home Mode  : 
+    Shell      : /usr/local/bin/bash
+    Locked     : no
+    OK? (yes/no): yes
+
+Clone the repository
 --------------------
-> cpan App::cpanminus
-> cpanm Path::Class Plack::Handler::Apache2 Plack::Middleware::TemplateToolkit Plack::Middleware::Static Plack::Middleware::Rewrite
+    su - lpm
+    cd
+    git clone git://github.com/perl-doc-cats/London-pm-website.git
 
-> adduser
-Username   : lpm
-Password   : <disabled>
-Full Name  : London.pm User
-Uid        : 1009
-Class      : 
-Groups     : lpm 
-Home       : /home/lpm
-Home Mode  : 
-Shell      : /usr/local/bin/bash
-Locked     : no
-OK? (yes/no): yes
+    Add a crontab to auto update from github
+    */5 * * * * cd /home/lpm/London-pm-website; git pull
 
-> su - lpm
-> cd
-> git clone git://github.com/perl-doc-cats/London-pm-website.git
 
---------------------
-cd /usr/ports/www
-pkg_add -r vim
-pkg_add -r git
-pkg_add -r apache22
-pkg_add -r mod_perl2
+Restart apache and all should be ok (cross fingers)
+---------------------------------------------------
+    apachectl restart
 
-vim /etc/rc.conf 
-add:
-    apache22_enable="YES"
-
-cd /usr/local/etc/apache22/
-vim httpd.conf
-add:
-    LoadModule perl_module libexec/apache22/mod_perl.so
-    Include /home/lpm/London-pm-website/apache2.conf
-
-> apachectl restart
-
-*/5 * * * * cd /home/lpm/London-pm-website; git pull
 
 
