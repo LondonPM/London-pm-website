@@ -46,7 +46,7 @@ Clone the repository
 --------------------
     su - lpm
     cd
-    git clone git://github.com/perl-doc-cats/London-pm-website.git
+    git clone git://github.com/LondonPM/London-pm-website.git
 
     Add a crontab to auto update from github
     */5 * * * * cd /home/lpm/London-pm-website; git pull
