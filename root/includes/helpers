@@ -24,8 +24,6 @@
          <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
          <li class="t5"><a href="/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
          <li class="t6"><a href="/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Advocacy</a></li>
-
-          <li><a href="http://london.pm.org/mailman/listinfo">Mailing Lists</a></li>
         </ul>
         <ul id="side_menu" class="tabs">        
             <li></li>
