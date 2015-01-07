@@ -11,7 +11,7 @@ How do we setup a new servers?
 
 How do I update the calendar?
 -----------------------------
-Get ranguard@gmail.com to give you access to the google iCal
+Get virtuallysue@gmail.com to give you access to the google iCal
 
 How do changes get put live on the servers?
 -------------------------------------------
