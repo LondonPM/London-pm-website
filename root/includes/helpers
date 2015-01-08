@@ -20,9 +20,10 @@
         <ul id="main_menu" class="tabs">
 
          <li class="t1"><a href="/"[% ' class="warm"' IF section == 'home' %]>Home</a></li>
-         <li class="t2"><a href="/about/"[% ' class="warm"' IF section == 'about' %]>About Us</a></li>
-         <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
+         <li class="t2"><a href="/about/"[% ' class="warm"' IF section == 'about' %]>About</a></li>
+         <li class="t3"><a href="/history/"[% ' class="warm"' IF section == 'history' %]>History</a></li>
          <!--
+         <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
          <li class="t5"><a href="/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
          -->
          <li class="t5"><a href="/who/"[% ' class="warm"' IF section == 'who' %]>People </a></li>
