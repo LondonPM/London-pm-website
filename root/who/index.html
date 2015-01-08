@@ -7,19 +7,25 @@
 
 <h2>Some people who are London Perl Mongers</h2>
 <div class="item">
-<p>This is a small cross-section of the London.pm's estimated 750+ odd members 
-    (where a London.pm member is defined as 'anyone who really wants to be'  - 
-    we have members who aren't in London and even members who don't m[ou]nge Perl).</p>
-<ul>
-    <li><a href="https://github.com/davorg">https://github.com/davorg</a>    
-    <li><a href="https://github.com/denny">https://github.com/denny</a>
-    <li><a href="https://github.com/dorward">https://github.com/dorward</a>
-    <li><a href="https://github.com/jkg">https://github.com/jkg</a>
-    <li><a href="https://github.com/ranguard">https://github.com/ranguard</a>
-    <li><a href="https://github.com/stmuk">https://github.com/stmuk</a>
-    <li><a href="https://github.com/virtualsue">https://github.com/virtualsue</a>
-</ul>
+	<p>This is a small cross-section of the London.pm's estimated 750+ odd members 
+	    (where a London.pm member is defined as 'anyone who really wants to be'  - 
+	    we have members who aren't in London and even members who don't m[ou]nge Perl).</p>
+	[%
+	SET members = {
+		davorg = { display_name => "Dave Cross" },
+		denny = { display_name => "Denny de la Haye" },
+		dorward = { display_name => "David Dorward" },
+		jkg = { display_name => "James Green" },
+		ranguard = { display_name => "Leo Lapworth" },
+		stmuk = { display_name => "Steve Mynott" },
+		virtualsue = { display_name => "sue spence" },
+	};
+	%]
+	<ul>
+		[% FOR member IN members -%]
+		<li><a href="http://github.com/[% member.key | html %]">[% member.value.display_name | html %]</a></li>
+		[% END %]
+	</ul>
 </div>
-
 
 [% END %]
