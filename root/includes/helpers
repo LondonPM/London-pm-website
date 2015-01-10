@@ -29,6 +29,7 @@
          -->
          <li class="t5"><a href="/who/"[% ' class="warm"' IF section == 'who' %]>People </a></li>
          <li class="t6"><a href="/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Businesses</a></li>
+         <li class="t6"><a href="http://london.pm.org:8080/" %]>Wiki</a></li>
         </ul>
         <ul id="side_menu" class="tabs">        
             <li></li>
