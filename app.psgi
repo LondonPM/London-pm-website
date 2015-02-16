@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Path::Class;
-use Plack::Middleware::TemplateToolkit;
+use Plack::Middleware::TemplateToolkit 0.28;
 use Plack::Builder;
 use Plack::Middleware::Static;
 use Plack::Middleware::Rewrite;
@@ -23,9 +23,10 @@ my $calendar_atom_url
 
 # Create our TT app, specifying the root and file extensions
 my $app = Plack::Middleware::TemplateToolkit->new(
-    root => [ ($base) ],    # required
-    404  => "page_not_found.html",
-    500  => "internal_server_error.html",
+    root     => [ ($base) ],    # required
+    ENCODING => 'UTF-8',
+    404      => "page_not_found.html",
+    500      => "internal_server_error.html",
 )->to_app;
 
 # Plack::Middleware::Deflater might be good to use here
