@@ -41,16 +41,11 @@ return builder {
 
     # enable "Debug";
     enable 'Rewrite', rules => sub {
-        my $path = $_;
-        if ( $path =~ m{^/london.pm.ics} ) {
-            $_ = $calendar_ics_url;
-            return 301;
-        } elsif ( $path =~ m{^/london.pm.rss}
-            || $path =~ m{^/london.pm.atom} )
-        {
-            $_ = $calendar_atom_url;
-            return 301;
-        }
+        return [301, [ Location => $calendar_ics_url ], []]
+            if m{^/london\.pm\.ics};
+        return [301, [ Location => $calendar_atom_url ], []]
+            if m{^/london\.pm\.(rss|atom)};
+        return;
     };
     $app;
 }
