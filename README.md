@@ -11,11 +11,11 @@ How do we setup a new server?
 
 How do I update the calendar?
 -----------------------------
-Get virtuallysue@gmail.com to give you access to the google iCal
+Send a message to virtuallysue at gmail.com or ask in the IRC channel (irc.perl.org/london.pm) for someone to give you access to the group google calendar (see http://london.pm.org). 
 
 How do changes get put live on the servers?
 -------------------------------------------
-Updates will be automatic from the master git repo every 30 mins
+Updates are currently automatic via cron from the master branch of the github repo on the hour and half hour.
 
 General notes
 =============
