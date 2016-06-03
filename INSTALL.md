@@ -16,7 +16,7 @@ CPAN Modules needed (install as root):
 
 Make sure apache starts on reboot and loads everything:
 -------------------------------------------------------
-    vim /etc/rc.conf 
+    vim /etc/rc.conf
     add:
         apache22_enable="YES"
 
@@ -34,10 +34,10 @@ Create an lpm user
     Password   : <disabled>
     Full Name  : London.pm User
     Uid        : 1009
-    Class      : 
-    Groups     : lpm 
+    Class      :
+    Groups     : lpm
     Home       : /home/lpm
-    Home Mode  : 
+    Home Mode  :
     Shell      : /usr/local/bin/bash
     Locked     : no
     OK? (yes/no): yes
@@ -49,7 +49,7 @@ Clone the repository
     git clone git://github.com/LondonPM/London-pm-website.git
 
     Add a crontab to auto update from github
-    */5 * * * * cd /home/lpm/London-pm-website; git pull
+    0,30 * * * * cd /home/lpm/London-pm-website; /usr/local/bin/git pull
 
 
 Restart apache and all should be ok (cross fingers)
