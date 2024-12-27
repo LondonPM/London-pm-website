@@ -5,6 +5,10 @@ Where does this code live?
 --------------------------
 https://github.com/LondonPM/London-pm-website
 
+Where is the site viewable?
+--------------------------
+Currently [http://london.pm.org/](http://london.pm.org/) but soon to be [https://londonpm.github.io/](https://londonpm.github.io/)
+
 How do we setup a new server?
 -----------------------------
 [Install documentation](INSTALL.md)
