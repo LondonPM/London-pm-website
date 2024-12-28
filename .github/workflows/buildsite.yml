@@ -25,7 +25,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ttree.log
-        path: ./tree.log
+        path: ./ttree.log
         retention-days: 3
 
     - name: Update pages artifact
