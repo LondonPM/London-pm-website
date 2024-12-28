@@ -4,10 +4,10 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>London.pm: [% title %]</title>
-    <link rel="stylesheet"              type="text/css"             href="/static/css/orange.css" title="Orange">
+    <link rel="stylesheet"              type="text/css"             href="/London-pm-website/static/css/orange.css" title="Orange">
 [% IF keywords %]    <meta name="keywords" content="[% keywords %]">[% END %]
-    <link rel="alternate"               type="application/atom+xml" href="/london.pm.atom" >
-    <link rel="alternate"               type="text/calendar"        href="/london.pm.ics" >
+    <link rel="alternate"               type="application/atom+xml" href="/London-pm-website/london.pm.atom" >
+    <link rel="alternate"               type="text/calendar"        href="/London-pm-website/london.pm.ics" >
     <script type="text/javascript" src="/static/js/jquery.js"></script>
     <script type="text/javascript" src="/static/js/london.pm.js"></script>
   </head>
@@ -15,25 +15,25 @@
   <body> 
     <div id="page">
       <div id="header">
-        <a href="/index.html" class="onion"></a>
+        <a href="/London-pm-website/index.html" class="onion"></a>
         <!-- Start Menu -->
         <ul id="main_menu" class="tabs">
 
-         <li class="t1"><a href="/"[% ' class="warm"' IF section == 'home' %]>Home</a></li>
-         <li class="t2"><a href="/about/"[% ' class="warm"' IF section == 'about' %]>About</a></li>
-         <li class="t3"><a href="/history/"[% ' class="warm"' IF section == 'history' %]>History</a></li>
-         <li class="t3"><a href="/resources/"[% ' class="warm"' IF section == 'resources' %]>Resources</a></li>
+         <li class="t1"><a href="/London-pm-website/"[% ' class="warm"' IF section == 'home' %]>Home</a></li>
+         <li class="t2"><a href="/London-pm-website/about/"[% ' class="warm"' IF section == 'about' %]>About</a></li>
+         <li class="t3"><a href="/London-pm-website/history/"[% ' class="warm"' IF section == 'history' %]>History</a></li>
+         <li class="t3"><a href="/London-pm-website/resources/"[% ' class="warm"' IF section == 'resources' %]>Resources</a></li>
          <!--
-         <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
-         <li class="t5"><a href="/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
+         <li class="t3"><a href="/London-pm-website/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
+         <li class="t5"><a href="/London-pm-website/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
          -->
-         <li class="t5"><a href="/who/"[% ' class="warm"' IF section == 'who' %]>People </a></li>
-         <li class="t6"><a href="/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Businesses</a></li>
+         <li class="t5"><a href="/London-pm-website/who/"[% ' class="warm"' IF section == 'who' %]>People </a></li>
+         <li class="t6"><a href="/London-pm-website/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Businesses</a></li>
          <li class="t6"><a href="http://london.pm.org:8080/" %]>Wiki</a></li>
         </ul>
         <ul id="side_menu" class="tabs">        
             <li></li>
-            <li class="t6"><a href="/join/"[% ' class="warm"' IF section == 'join' %]>Join</a></li>
+            <li class="t6"><a href="/London-pm-website/join/"[% ' class="warm"' IF section == 'join' %]>Join</a></li>
             
         </ul>
         <!-- End Menu -->
