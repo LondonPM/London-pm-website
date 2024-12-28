@@ -1,9 +1,52 @@
-[%- PROCESS "includes/helpers" -%]
-[% WRAPPER page 
-    title => "Information about meetings",
-    keywords => "keywords",
-    section => "meetings",
-%]
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>London.pm: Information about meetings</title>
+    <link rel="stylesheet"              type="text/css"             href="/static/css/orange.css" title="Orange">
+    <meta name="keywords" content="keywords">
+    <link rel="alternate"               type="application/atom+xml" href="/london.pm.atom" >
+    <link rel="alternate"               type="text/calendar"        href="/london.pm.ics" >
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/london.pm.js"></script>
+  </head>
+
+  <body> 
+    <div id="page">
+      <div id="header">
+        <a href="/index.html" class="onion"></a>
+        <!-- Start Menu -->
+        <ul id="main_menu" class="tabs">
+
+         <li class="t1"><a href="/">Home</a></li>
+         <li class="t2"><a href="/about/">About</a></li>
+         <li class="t3"><a href="/history/">History</a></li>
+         <li class="t3"><a href="/resources/">Resources</a></li>
+         <!--
+         <li class="t3"><a href="/meetings/" class="warm">Meetings</a></li>
+         <li class="t5"><a href="/reviews/">Reviews</a></li>
+         -->
+         <li class="t5"><a href="/who/">People </a></li>
+         <li class="t6"><a href="/advocacy/">Businesses</a></li>
+         <li class="t6"><a href="http://london.pm.org:8080/" %]>Wiki</a></li>
+        </ul>
+        <ul id="side_menu" class="tabs">        
+            <li></li>
+            <li class="t6"><a href="/join/">Join</a></li>
+            
+        </ul>
+        <!-- End Menu -->
+
+        <ul id="palette">
+        </ul>
+      </div>
+      <div id="body">
+        <h1>Information about meetings</h1>
+      <hr />
+
+
 
 
 
@@ -34,67 +77,32 @@
     
 
 
-[%#
-<h2>What happens at these meetings?</h2><div class="item">
-    <p><a href="/meetings/previous.html">Have a look at pictures and comments from some of our previous meetings</a></p>
-    <p><a href="/tech_talks/">Here are links to talks given at previous technical meetings.</a></p>
-</div>
 
 
-    <h2>Locations: meetings have been held here:</h2><div class="item">
-        <p>
-            <a href="/meetings/locations/angel_pub.html">The Angel</a><br/>
-            <a href="/meetings/locations/theanchor.html">The Anchor</a><br/>
-            <a href="/meetings/locations/antelope.html">The Antelope</a><br/>
-        <a href="/meetings/locations/bavarian_beerhouse.html">The Bavarian Beerhouse</a><br/>
-        <a href="/meetings/locations/bridge_house.html">Bridge House</a><br/>
-        <a href="/meetings/locations/bupa_house.html">BUPA House</a><br/>
-            <a href="/meetings/locations/calthorpe.html">The Calthorpe Arms</a><br/>
-            <a href="/meetings/locations/chuen_cheng_ku.html">Chuen Cheng Ku</a> (dim sum location)<br/>
-        <a href="/meetings/locations/cittieofyorke.html">Cittie of Yorke</a><br/>
-            <a href="/meetings/locations/the_clachan">The Clachan</a><br/>        
-            <a href="/meetings/locations/codix.html">Codix.net</a><br/>
-        <a href="/meetings/locations/the_college_arms.html">The College Arms</a><br/>
-        <a href="/meetings/locations/conway_hall.html">Conway Hall</a><br/>
-        <a href="/meetings/locations/crown_tavern.html">The Crown Tavern</a><br/>
-        <a href="/meetings/locations/crosse_keys.html">The Crosse Keys</a><br/>
-        <a href="/meetings/locations/dirty_dicks.html">Dirty Dicks</a><br/>
-            <a href="/meetings/locations/doggetts.html">Doggetts</a><br/>
-            <a href="/meetings/locations/edgar_wallace.html">Edgar Wallace</a><br/>
-        <a href="/meetings/locations/factset.html">FactSet</a><br/>
-        <a href="/meetings/locations/founders_arms.html">Founder's Arms</a><br/>
-        <a href="/meetings/locations/fotango.html">Fotango</a><br/>
-            <a href="/meetings/locations/grafton_arms.html">The Grafton Arms, Fitzovia</a><br />
-            <a href="/meetings/locations/henandchickens.html">The Hen And Chickens</a><br/>
-            <a href="/meetings/locations/the_john_snow.html">The John Snow</a><br />
-        <a href="/meetings/locations/knights_templar.html">Knights Templar</a><br/>
-            <a href="/meetings/locations/maple_leaf.html">The Maple Leaf</a><br/>
-            <a href="/meetings/locations/morg.html">Morgan Stanley</a><br/>
-            <a href="/meetings/locations/new-world.html">New World</a> (dim sum location)<br/>
-            <a href="/meetings/locations/the_peasant.html">The Peasant</a><br />
-            <a href="/meetings/locations/penderel.html">Penderel's Oak</a><br/>
-            <a href="/meetings/locations/pillars_of_hercules.html">Pillars of Hercules</a><br/>
-        <a href="/meetings/locations/prince_arthur.html">Prince Arthur</a><br />
-        <a href="/meetings/locations/profero.html">Profero</a><br/>
-            <a href="/meetings/locations/porterhouse.html">Porterhouse</a><br/>
-            <a href="/meetings/locations/shooting_star.html">Shooting Star</a><br/>
-            <a href="/meetings/locations/star_belgravia.html">Star of Belgravia</a><br/>
-            <a href="/meetings/locations/state51.html">State 51</a><br/>
-            <a href="/meetings/locations/st_stephens_tavern.html">St Stephens Tavern</a><br/>
-            <a href="/meetings/locations/suntavern.html">The Sun Tavern</a><br/>
-            <a href="/meetings/locations/the_slaughtered_lamb.html">The Slaughtered Lamb</a><br />
-            <a href="/meetings/locations/threecups.html">Three Cups</a><br/>
-            <a href="/meetings/locations/new_cavendish_street.html">Westminster Univerity, New Cavendish Street Campus</a><br/>
-            <a href="/meetings/locations/the_white_hart.html">The White Hart</a><br/>
-            <a href="/meetings/locations/wildeman.html">Wildeman In</a> - Amsterdam<br/>
-            <a href="/meetings/locations/windmill.html">The Windmill</a><br/>
-        <a href="/meetings/locations/windsor_castle.html">The Windsor Castle</a><br />
-            <a href="/meetings/locations/yahoo.html">Yahoo</a><br/>
-        </p>
-<!--         <p>The <a href="cal2003.html">provisional schedule for -->
-<!-- meetings</a> for 2003 is also available here.</p> -->
+
+
     </div>
-%]
+      <div id="footer">
+        <div class="modified">
+        &copy; 2003-2015. Hosting generously provided by <a href="http://www.exonetric.com">Exonetric</a>.
+        </div>
+        <div class="credit">
+          powered by <a href="http://perl.org/">Perl</a>
+        </div>
+      </div>
+    </div>
 
 
-[% END %]
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10602681-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
+

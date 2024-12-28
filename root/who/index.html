@@ -1,39 +1,102 @@
-[%- PROCESS "includes/helpers" -%]
-[% WRAPPER page 
-    title => "Who",
-    keywords => "who's who",
-    section => "who",
-%]
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>London.pm: Who</title>
+    <link rel="stylesheet"              type="text/css"             href="/static/css/orange.css" title="Orange">
+    <meta name="keywords" content="who's who">
+    <link rel="alternate"               type="application/atom+xml" href="/london.pm.atom" >
+    <link rel="alternate"               type="text/calendar"        href="/london.pm.ics" >
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/london.pm.js"></script>
+  </head>
+
+  <body> 
+    <div id="page">
+      <div id="header">
+        <a href="/index.html" class="onion"></a>
+        <!-- Start Menu -->
+        <ul id="main_menu" class="tabs">
+
+         <li class="t1"><a href="/">Home</a></li>
+         <li class="t2"><a href="/about/">About</a></li>
+         <li class="t3"><a href="/history/">History</a></li>
+         <li class="t3"><a href="/resources/">Resources</a></li>
+         <!--
+         <li class="t3"><a href="/meetings/">Meetings</a></li>
+         <li class="t5"><a href="/reviews/">Reviews</a></li>
+         -->
+         <li class="t5"><a href="/who/" class="warm">People </a></li>
+         <li class="t6"><a href="/advocacy/">Businesses</a></li>
+         <li class="t6"><a href="http://london.pm.org:8080/" %]>Wiki</a></li>
+        </ul>
+        <ul id="side_menu" class="tabs">        
+            <li></li>
+            <li class="t6"><a href="/join/">Join</a></li>
+            
+        </ul>
+        <!-- End Menu -->
+
+        <ul id="palette">
+        </ul>
+      </div>
+      <div id="body">
+        <h1>Who</h1>
+      <hr />
+
+
 
 <h2>Some people who are London Perl Mongers</h2>
 <div class="item">
     <p>This is a small cross-section of the London.pm's estimated 750+ odd members 
         (where a London.pm member is defined as 'anyone who really wants to be'  - 
         we have members who aren't in London and even members who don't use Perl).</p>
-    [%
-    SET members = {
-        KakeLP = { display_name => "Kake" },
-        davorg = { display_name => "Dave Cross" },
-        denny = { display_name => "Denny de la Haye" },
-        dorward = { display_name => "David Dorward" },
-        ilmari = { display_name => "Dagfinn Ilmari Mannsåker" },
-        jeteve = { display_name => "Jerome Eteve" },
-        jkg = { display_name => "James Green" },
-        leejo = { display_name => "Lee J" },
-        mohawk2 = { display_name => "mohawk2" },
-        ranguard = { display_name => "Leo Lapworth" },
-        rjw1 = { display_name => "bob" },
-        stmuk = { display_name => "Steve Mynott" },
-        tla = { display_name => "tla" },
-        virtualsue = { display_name => "Sue Spence" },
-        willsheppard = { display_name => "Will Sheppard" },
-    };
-    %]
+    
     <ul>
-        [% FOR member IN members -%]
-        <li><a href="http://github.com/[% member.key | html %]">[% member.value.display_name | html %]</a></li>
-        [% END %]
+                <li><a href="http://github.com/KakeLP">Kake</a></li>
+                <li><a href="http://github.com/davorg">Dave Cross</a></li>
+                <li><a href="http://github.com/denny">Denny de la Haye</a></li>
+                <li><a href="http://github.com/dorward">David Dorward</a></li>
+                <li><a href="http://github.com/ilmari">Dagfinn Ilmari Mannsåker</a></li>
+                <li><a href="http://github.com/jeteve">Jerome Eteve</a></li>
+                <li><a href="http://github.com/jkg">James Green</a></li>
+                <li><a href="http://github.com/leejo">Lee J</a></li>
+                <li><a href="http://github.com/mohawk2">mohawk2</a></li>
+                <li><a href="http://github.com/ranguard">Leo Lapworth</a></li>
+                <li><a href="http://github.com/rjw1">bob</a></li>
+                <li><a href="http://github.com/stmuk">Steve Mynott</a></li>
+                <li><a href="http://github.com/tla">tla</a></li>
+                <li><a href="http://github.com/virtualsue">Sue Spence</a></li>
+                <li><a href="http://github.com/willsheppard">Will Sheppard</a></li>
+        
     </ul>
 </div>
 
-[% END %]
+
+    </div>
+      <div id="footer">
+        <div class="modified">
+        &copy; 2003-2015. Hosting generously provided by <a href="http://www.exonetric.com">Exonetric</a>.
+        </div>
+        <div class="credit">
+          powered by <a href="http://perl.org/">Perl</a>
+        </div>
+      </div>
+    </div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10602681-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
+
