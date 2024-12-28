@@ -11,7 +11,7 @@ then follow these steps:
 1. Install the Template Toolkit using your favourite CPAN module installation technique
 1. Make whatever changes you want
 1. Build the site locally using `ttree -f ttreerc`
-1. Run a local web server (I like [`http_this`](https://metacpan.org/pod/App::HTTPThis) to test your changes
+1. Run a local web server (I like [`http_this`](https://metacpan.org/pod/App::HTTPThis)) to test your changes
 1. When you're happy, commit your changes and push them to your fork
 1. Create a [pull request](https://github.com/LondonPM/London-pm-website/pulls) to merge your changes to the main repo
 1. Wait for feedback
