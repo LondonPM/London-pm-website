@@ -74,7 +74,7 @@ deployed to the live environment. This happens automatically when your
 pull request is merged to the master branch.
 
 The deployment is automated using GitHub Action (you can see the
-[workflow definition file](https://github.com/LondonPM/London-pm-website/blob/master/.github/workflows/buildsite.yml)
+[workflow definition file](https://github.com/LondonPM/London-pm-website/blob/master/.github/workflows/buildsite.yml))
 and the site is deployed to GitHub Pages.
 
 Note that the generated web site is never stored in the GitHub repo (the
