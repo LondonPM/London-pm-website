@@ -1,0 +1,49 @@
+name: Generate web page
+
+on:
+  push:
+    branches: '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install TT
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install libtemplate-perl
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Create pages
+      run: ttree -f ttreerc 2>&1 > ttree.log
+
+    - name: Archive ttree logs
+      uses: actions/upload-artifact@v4
+      with:
+        name: ttree.log
+        path: ./tree.log
+        retention-days: 3
+
+    - name: Update pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs/
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
