@@ -7,7 +7,7 @@ https://github.com/LondonPM/London-pm-website
 
 Where is the site viewable?
 --------------------------
-Currently [http://london.pm.org/](http://london.pm.org/) but soon to be [https://londonpm.github.io/](https://londonpm.github.io/)
+Currently [https://londonperl.com/](https://londonperl.com/)
 
 How do we setup a new server?
 -----------------------------
