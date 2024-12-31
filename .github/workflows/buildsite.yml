@@ -7,6 +7,7 @@ on:
 
 jobs:
   build:
+    if: github.repository_owner == 'LondonPM'
     runs-on: ubuntu-latest
 
     steps:
@@ -35,6 +36,7 @@ jobs:
 
   deploy:
     needs: build
+    if: github.repository_owner == 'LondonPM'
     permissions:
       pages: write
       id-token: write
