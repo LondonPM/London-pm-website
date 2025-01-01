@@ -1,511 +1,292 @@
 /*------------------------------------------------------------------------
- * css/reset.css
- *   Resets default browser styles.  Created by Erik Meyer
- *   http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
- *   Adapted by Andy Wardley http://wardley.org/
+ * Reset & Base Styles
  *------------------------------------------------------------------------*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-weight: inherit;
-    font-style: inherit;
-    font-size: 100%;
-    font-family: inherit;
-    vertical-align: baseline;
-}
-
-html, body {                                                                  
-    margin: 0px;                                                             
-    border: 0px;
-    height: 100%;                                                            
-}  
-
-/* Remember to define focus styles! */
-:focus {
-    outline: 0;
-}
-
-body {
-    line-height: 1;
-    color: black;
-    background: white;
-}
-
-ol, ul {
-    list-style: none;
-}
-
-/* Tables still need 'cellspacing="0"' in the markup. */
-table {
-    border-collapse: separate;
-    border-spacing: 0; 
-}
-
-caption, th, td {
-    text-align: left;
-    font-weight: normal;
-    vertical-align: top;
-}
-
-/* Remove possible quote marks (") from <q>, <blockquote>. */
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
-}
-blockquote, q {
-    quotes: "" "";
-}
-
-/*------------------------------------------------------------------------
- * end of css/reset.css                                                   
- *------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------
- * css/typography.css
- *   Define the default typography styles.  
- *   Written by Andy Wardley http://wardley.org/
- *   Derived from the Blueprint CSS framework http://bjorkoy.com/blueprint/
- *------------------------------------------------------------------------*/
-
-body,ul,ol,dl,h1,h2,h3,h4,h5,h6,td,th,
-caption,pre,p,blockquote,input,textarea {
-    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
-    font-size: 100%;
-    line-height: 140%;
-    color: #555;
-    color: #555;
-}
-
-ul,ol,dl,h1,h2,h3,h4,h5,h6,td,th,caption,pre,p,blockquote,input,textarea {
-    font-size: 100%;
-    line-height: 140%;
-}
-
-
-/* headings */
-
-h1,h2,h3,h4,h5,h6 { 
-    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
-    margin: 0 0 0 -20px;
-    padding: 0;
-    color: #333;
-    clear: both; 
-}
-
-h1          { font-size: 1.75em;   line-height: 140% }
-h2          { font-size: 1.50em;   line-height: 140% }
-h3          { font-size: 1.25em;   line-height: 140% }
-h4          { font-size: 1em;      line-height: 140% }
-h5          { font-size: 0.875em;  line-height: 140% }
-h6          { font-size: 0.75em;   line-height: 140%}
-h3.headline { margin: 2px; }
-h3.source   { color: #ffcfaf; padding: 2px 0 0 40px; }
-
-div.border h1,
-div.border h2,
-div.border h3,
-div.border h4 {
-    margin-left: 0;
-}
-
-
-/* Text elements */
-
-a           { color: #c66300; outline: 0; text-decoration: underline }
-a:visited   { color: #874400; }
-a:hover     { color: #ff7f00; }
-
-p           { margin: 6px 0px 20px 0px; padding: 0; }
-
-.tt_tag     { color: #292; font-weight: bold; }
-.html_tag   { color: #0066ce; }
-
-
-hr {
-    clear: both;
-    margin: 20px 0px 20px -20px;
-    padding: 0px;
-    background-color: #c0c0c0;
-    height: 1px;
-    border: 0px;
-}
-
-ul, ol      { margin: 10px 0; list-style-type: disc; }
-li          { line-height: 140% }
-ol          { list-style-type: decimal; }
-dl          { margin: 10px 0; }
-dl dt       { font-weight: bold; }
-
-a           { color: #c66300; text-decoration: none; outline: none; text-decoration: underline }
-a:visited   { color: #874400; }
-a:hover     { color: #ff7f00; }
-
-strong      { font-weight: bold; }
-em          { font-style: italic; }
-
-
-/* misc. text styles */
-
-.rank {
-    width: 3em;
-    font-size: small;
-    border: 1px solid #c0c0c0;
-    border-left: 2px;
-    padding: 10px 0 0 10px;
-    vertical-align: top;
-}
-
-.person {
-    font-size: small;
-    border: 1px solid #c0c0c0;
-    padding: 10px;
-    vertical-align: top
-}
-
-.modules {
-    font-size: small;
-    border: 1px solid #c0c0c0;
-    border-right: 2px;
-    padding: 5px 10px 20px 5px;
-}
-
-.code {
-    font-family: "Courier New", Courier, monospace;
-}
-
-.shell {
-    display: block;
-    padding: 10px;
-    background-color: #ffefdf;
-    border: 1px solid #efdfcf;
-    color: #693500;
-    font-family: "Courier New", Courier, monospace;
-    margin-bottom: 20px;
-}
-
-.website {
-/*    margin-left: 20px; */
-}
-
-.email {
-    color: #222;
-    font-style: italic;
-}
-
-.fullon {
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-}
-
-.heading {
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-}
-
-.title {
-    font-weight: bold;
-    font-style: italic;
-    text-decoration: underline;
-}
-
-.quote {
-    font-style: italic;
-}
-
-.modulename {
-    font-family: courier;
-}
-
-.pastevent {
-    /* visibility: collapse; */
-    display: none;
-}
-
-pre.html_code {
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-}
-
-/* Some default classes */
-.tiny,  .tiny  p    { font-size: 100%; line-height: 140% }
-.small, .small p    { font-size: 120%; line-height: 140% }
-.large, .large p    { font-size: 180%; line-height: 140% }
-.huge,  .huge p     { font-size: 240%; line-height: 140% }
-.hide               { display: none; }
-.text               { display: none; }
-.indent             { padding-left: 20px; }
-.top                { margin-top:    0; padding-top:    0 }
-.bot                { margin-bottom: 0; padding-bottom: 0 }
-.info, .about       { font-size: 140%; line-height: 140%; color: #888; }
-.hover              { cursor: pointer }
-.fll                { float: left }
-.flr                { float: right }
-.cll                { clear: left }
-.clr                { clear: right }
-.clear              { clear: both }
-.edge               { border: 1px solid #c0c0c0 }
-
-table td.image {
-   padding-right: 20px;
-}
-    
-
-/*------------------------------------------------------------------------
- * end of css/typography.css                                              
- *------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------*/
-/* layout                                                                 */
-/*------------------------------------------------------------------------*/
-
-body {
-    background: #ff7f00 url('../images/orange/top_strip.gif') repeat-x left top;
-    margin: 0;
-    padding: 0;
-}
-
-#page {
-    position: relative;
-    width: 940px;
-    margin: 0 auto;
-    background-color: #c66300;
-    overflow: visible;
-}
-
-#header {
-    height: 200px;
-    position: relative;
-    background: url('../images/orange/header.gif') no-repeat left top; 
-    overflow: visible;
-}
-
-#header a.onion {
-    position: absolute;
-    top: 100px;
-    left: 0px;
-    margin-left: -20px;
-    width: 128px;
-    height: 128px;
-    background: url('../images/orange/camels.gif') no-repeat left top; 
-    outline: 0;
-}
-
-#header a.onion:hover {
-    background-position: -130px top;
-    outline: 0;
-}
-
-#header ul#main_menu {
-    position: absolute;
-    top: 0;
-    left: 38px;
-    height: 32px;
-    width: 660px; 
-}
-
-#header ul#side_menu {
-    position: absolute;
-    top: 0;
-    right: 38px;
-    height: 32px;
-    width: 195px; 
-}
-
-#header ul#side_menu li {
-    float: right;
-}
-
-#header ul#palette {
-    position: absolute;
-    top: 180px;
-    left: 926px;
-    width: 30px;
-    margin: 0;
-    padding: 0;
-    height: 80px;
-}
-
-#header ul#palette li {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 4px 0;
-}
-
-#header ul#palette li a {
-    display: block;
-    width: 30px;
-    height: 20px;
-    padding: 0;
-    margin: 0 4px;
-    height: 24px;
-    background: url('../images/orange/palette.gif') no-repeat left top; 
-}
-
-#header ul#palette li a.orange        { background-position:   0   -24px }
-#header ul#palette li a.teal          { background-position:   0   -48px } 
-#header ul#palette li a.purple        { background-position:   0   -72px } 
-#header ul#palette li a:hover         { background-position: -30px   0   }
-#header ul#palette li a.orange:hover  { background-position: -30px -24px }
-#header ul#palette li a.teal:hover    { background-position: -30px -48px }
-#header ul#palette li a.purple:hover  { background-position: -30px -72px } 
-
-#header div.tagline {
-    position: absolute;
-    top: 169px;
-    left: 113px;
-    width: 760px;
-    height: 20px;
-    font-size: 0.75em;
-    color: #7b654f;
-}
-    
-#footer {
-    height: 70px;
-    background: url('../images/orange/footer.gif') no-repeat left top; 
-    padding: 18px 40px;
-/*    padding-bottom: 120px; */
-}
-
-#footer div {
-    font-size: 0.8em;
-    color: #8b755f;
-}
-
-#footer div.modified { 
-    float: left;  
-}
-
-#footer div.credit { 
-    float: right; 
-    text-align: right;
-}
-
-#footer div a {
-    color: #693500;
-    text-decoration: none;
-}
-
-#footer div a:hover {
-    color: #874400;
-}
-
-#body {
-    margin-top: 0px;
-    padding: 25px 75px 25px 80px;
-    background: white url('../images/orange/body.gif') repeat-y left top; 
-}
-
-ul.tabs {
-    display: block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-ul.tabs li {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-ul.tabs li a {
-    display: block;
-    float: left;
-    width: 85px;
-    height: 27px;
-    margin-right: 6px;
-    background: url('../images/orange/tabs.gif') no-repeat left top;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.8em;
-    line-height: 23px;
-    color: #874400;
-}
-
-ul.tabs li a:hover {
-    background-position: -90px 0;
-    color: #693500;
-}
-
-ul.tabs li a.warm,
-ul.tabs li a.warm:hover {
-    height: 32px;
-    line-height: 28px;
-    background-position: -180px 0;
-    color: #874400;
-}
-
-ul.tabs li a.warm:hover {
-    color: #693500;
-}
-
-ul.tabs li.skip1 a {
-    margin-left: 90px;
-}
-
-/*------------------------------------------------------------------------*/
-/* go large                                                               */
-/*------------------------------------------------------------------------*/
-
-#page.wide {
-    width: 100%;
-    margin: 0;
-}
-
-#page.wide #header {
-    width: 100%;
-    margin: 0 auto;
-    height: 40px;
-    position: relative;
-    overflow: hidden;
-    background-image: none;
-    border-bottom: 2px solid #874400;
-}
-
-#page.wide #header a.onion,
-#page.wide #header div.tagline {
-    display: none;
-}
-
-#page span.go_small {
-    display: none;
-}
-
-#page.wide span.go_small {
-    display: inline;
-}
-
-#page.wide span.go_large {
-    display: none;
-}
-
-#page.wide #body {
-    width: 90%;
-    margin: 0 auto;
-    background: #fff none;
-}
-
-#page.wide #footer {
-    width: 90%;
-    padding: 0 5%;
-    margin: 0;
-    background: #fff none;
-/*    border-top: 2px solid #874400; */
-}
-
-
-
-
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, font, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     outline: 0;
+     font-weight: inherit;
+     font-style: inherit;
+     font-size: 100%;
+     font-family: inherit;
+     vertical-align: baseline;
+ }
+ 
+ /* Add box-sizing but keep it opt-in */
+ .use-border-box * {
+     box-sizing: border-box;
+ }
+ 
+ html, body {                                                                  
+     margin: 0;                                                             
+     border: 0;
+     height: 100%;                                                            
+ }  
+ 
+ body {
+     line-height: 1.5;
+     color: #555;
+     background: white;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ /* Typography */
+ body, ul, ol, dl, h1, h2, h3, h4, h5, h6, td, th,
+ caption, pre, p, blockquote, input, textarea {
+     font-family: "Trebuchet MS", system-ui, -apple-system, Verdana, sans-serif;
+     font-size: 100%;
+     line-height: 1.4;
+     color: #555;
+ }
+
+ p {
+    margin-bottom: 10px;
+    margin-top: 5px;
+ }
+ 
+ h1, h2, h3, h4, h5, h6 { 
+     margin: 0 0 0 -20px;
+     padding: 0;
+     color: #333;
+     clear: both; 
+ }
+ 
+ h1 { font-size: 1.75em; }
+ h2 { font-size: 1.50em; }
+ h3 { font-size: 1.25em; }
+ h4 { font-size: 1em; }
+ h5 { font-size: 0.875em; }
+ h6 { font-size: 0.75em; }
+ 
+ /* Links with smooth transitions */
+ a { 
+     color: #c66300; 
+     text-decoration: none;
+     transition: color 0.2s ease;
+ }
+ a:visited { color: #874400; }
+ a:hover   { color: #ff7f00; }
+ 
+ /* Layout - keeping original structure */
+ body {
+     background: #ff7f00 url('../images/orange/top_strip.gif') repeat-x left top;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ #page {
+     position: relative;
+     width: 940px;
+     margin: 0 auto;
+     background-color: #c66300;
+     overflow: visible;
+ }
+ 
+ #header {
+     height: 200px;
+     position: relative;
+     background: url('../images/orange/header.gif') no-repeat left top; 
+     overflow: visible;
+ }
+ 
+ /* Preserve all original header elements but improve positioning */
+ #header a.onion {
+     position: absolute;
+     top: 100px;
+     left: 0;
+     margin-left: -20px;
+     width: 128px;
+     height: 128px;
+     background: url('../images/orange/camels.gif') no-repeat left top; 
+     outline: none;
+     transition: background-position 0.2s ease;
+ }
+ 
+ #header a.onion:hover {
+     background-position: -130px top;
+ }
+ 
+ /* Navigation menus and tabs */
+ #header ul#main_menu {
+     position: absolute;
+     top: 0;
+     left: 38px;
+     height: 32px;
+     width: 660px; 
+ }
+ 
+ #header ul#side_menu {
+     position: absolute;
+     top: 0;
+     right: 38px;
+     height: 32px;
+     width: 195px; 
+ }
+ 
+ #header ul#side_menu li {
+     float: right;
+ }
+ 
+ /* Tab styles from original */
+ ul.tabs {
+     display: block;
+     margin: 0;
+     padding: 0;
+     list-style: none;
+ }
+ 
+ ul.tabs li {
+     display: inline;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ ul.tabs li a {
+     display: block;
+     float: left;
+     width: 85px;
+     height: 27px;
+     margin-right: 6px;
+     background: url('../images/orange/tabs.gif') no-repeat left top;
+     text-align: center;
+     text-decoration: none;
+     font-size: 0.8em;
+     line-height: 23px;
+     color: #874400;
+ }
+ 
+ ul.tabs li a:hover {
+     background-position: -90px 0;
+     color: #693500;
+ }
+ 
+ ul.tabs li a.warm,
+ ul.tabs li a.warm:hover {
+     height: 32px;
+     line-height: 28px;
+     background-position: -180px 0;
+     color: #874400;
+ }
+ 
+ ul.tabs li a.warm:hover {
+     color: #693500;
+ }
+ 
+ ul.tabs li.skip1 a {
+     margin-left: 90px;
+ }
+ 
+ /* Preserve palette but improve transitions */
+ #header ul#palette {
+     position: absolute;
+     top: 180px;
+     left: 926px;
+     width: 30px;
+     margin: 0;
+     padding: 0;
+     height: 80px;
+ }
+ 
+ #header ul#palette li {
+     list-style: none;
+     padding: 0;
+     margin: 0 0 4px 0;
+ }
+ 
+ #header ul#palette li a {
+     display: block;
+     width: 30px;
+     height: 24px;
+     padding: 0;
+     margin: 0 4px;
+     background: url('../images/orange/palette.gif') no-repeat left top;
+     transition: background-position 0.2s ease;
+ }
+ 
+ /* Preserve palette positions */
+ #header ul#palette li a.orange        { background-position:   0   -24px }
+ #header ul#palette li a.teal          { background-position:   0   -48px } 
+ #header ul#palette li a.purple        { background-position:   0   -72px } 
+ #header ul#palette li a:hover         { background-position: -30px   0   }
+ #header ul#palette li a.orange:hover  { background-position: -30px -24px }
+ #header ul#palette li a.teal:hover    { background-position: -30px -48px }
+ #header ul#palette li a.purple:hover  { background-position: -30px -72px } 
+ 
+ /* Basic responsive support while maintaining layout */
+ @media (max-width: 960px) {
+     #page {
+         width: 100%;
+         min-width: 320px;
+     }
+     
+     #body {
+         padding: 25px 20px;
+     }
+     
+     #header ul#palette {
+         display: none; /* Hide color palette on mobile */
+     }
+ }
+ 
+ /* Preserve existing layout classes */
+ .hide { display: none; }
+ .text { display: none; }
+ .indent { padding-left: 20px; }
+ .top { margin-top: 0; padding-top: 0; }
+ .bot { margin-bottom: 0; padding-bottom: 0; }
+ .clear { clear: both; }
+ .edge { border: 1px solid #c0c0c0; }
+ 
+ /* Footer preservation */
+ #footer {
+     height: 70px;
+     background: url('../images/orange/footer.gif') no-repeat left top; 
+     padding: 18px 40px;
+ }
+ 
+ #footer div {
+     font-size: 0.8em;
+     color: #8b755f;
+ }
+ 
+ #footer div.modified { float: left; }
+ #footer div.credit { 
+     float: right; 
+     text-align: right;
+ }
+ 
+ /* Body content */
+ #body {
+     margin-top: 0;
+     padding: 25px 75px 25px 80px;
+     background: white url('../images/orange/body.gif') repeat-y left top; 
+ }
+ 
+ /* Print styles */
+ @media print {
+     body {
+         background: none;
+         color: black;
+     }
+     
+     #header ul#palette,
+     #header ul#main_menu,
+     #header ul#side_menu {
+         display: none;
+     }
+ }
+ 
+ /* Helper for images */
+ img {
+     max-width: 100%;
+     height: auto;
+ }

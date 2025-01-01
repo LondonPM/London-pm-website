@@ -6,8 +6,6 @@
     <title>London.pm: [% title %]</title>
     <link rel="stylesheet"              type="text/css"             href="/static/css/orange.css" title="Orange">
 [% IF keywords %]    <meta name="keywords" content="[% keywords %]">[% END %]
-    <link rel="alternate"               type="application/atom+xml" href="/london.pm.atom" >
-    <link rel="alternate"               type="text/calendar"        href="/london.pm.ics" >
     <script type="text/javascript" src="/static/js/jquery.js"></script>
     <script type="text/javascript" src="/static/js/london.pm.js"></script>
   </head>
@@ -22,13 +20,6 @@
          <li class="t1"><a href="/"[% ' class="warm"' IF section == 'home' %]>Home</a></li>
          <li class="t2"><a href="/about/"[% ' class="warm"' IF section == 'about' %]>About</a></li>
          <li class="t3"><a href="/history/"[% ' class="warm"' IF section == 'history' %]>History</a></li>
-         <li class="t3"><a href="/resources/"[% ' class="warm"' IF section == 'resources' %]>Resources</a></li>
-         <!--
-         <li class="t3"><a href="/meetings/"[% ' class="warm"' IF section == 'meetings' %]>Meetings</a></li>
-         <li class="t5"><a href="/reviews/"[% ' class="warm"' IF section == 'reviews' %]>Reviews</a></li>
-         -->
-         <li class="t5"><a href="/who/"[% ' class="warm"' IF section == 'who' %]>People </a></li>
-         <li class="t6"><a href="/advocacy/"[% ' class="warm"' IF section == 'advocacy' %]>Businesses</a></li>
         </ul>
         <ul id="side_menu" class="tabs">        
             <li></li>
