@@ -9,20 +9,29 @@ Where is the site viewable?
 --------------------------
 Currently [https://londonperl.com/](https://londonperl.com/)
 
-How do we setup a new server?
------------------------------
-[Install documentation](INSTALL.md)
+How do I develop locally?
+--------------------------
 
-How do I update the calendar?
------------------------------
-Send a message to virtuallysue at gmail.com or ask in the IRC channel (irc.perl.org/london.pm) for someone to give you access to the group google calendar (see http://london.pm.org). 
+- Install [Carton](https://metacpan.org/dist/Carton/view/script/carton) globally or using plenv or what ever tools you use
 
-How to make changes and make them live on the servers?
--------------------------------------------
-Follow the instructions at https://guides.github.com/activities/hello-world/#branch to branch the LPM website, clone the banch to your machine, make changes, then git add, commit and push them back to github and finally create a pull request. Once your changes are accepted then updates are currently automatic via cron from the master branch of the github repo on the hour and half hour.
+- Clone this repo
 
-General notes
-=============
-What happened to the who page?
-------------------------------
-Too much trouble to maintain
+- Install dependencies
+```sh
+carton install
+```
+
+- Process root -> docs/
+```sh
+carton exec ttree -f ttreerc
+```
+
+- Run local server (you will need to click from the directory listing to the index.html pages, but good enough for developing)
+```sh
+carton exec -- plackup -MPlack::App::Directory -e 'Plack::App::Directory->new(root => "docs")->to_app' -p 8080
+```
+
+How does live deploy work?
+--------------------------
+
+See the .github/workflows/buildsite.yml
