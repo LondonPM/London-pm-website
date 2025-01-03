@@ -1,7 +1,8 @@
 src = root
 dest = docs
 
-copy   = \.(gif|png|jpg|pdf|css|js)$
+copy = \.(gif|png|jpg|pdf|css|js)$
+copy = ^CNAME$ 
 
 recurse
 
