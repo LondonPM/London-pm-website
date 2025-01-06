@@ -7,7 +7,8 @@ https://github.com/LondonPM/London-pm-website
 
 Where is the site viewable?
 --------------------------
-Currently [https://londonperl.com/](https://londonperl.com/)
+Currently [https://londonperl.org/](https://londonperl.org/)
+
 
 How do I develop locally?
 --------------------------
