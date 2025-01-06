@@ -1,0 +1,6 @@
+#!/bin/env perl
+
+use Plack::App::Directory;
+
+my $app = Plack::App::Directory->new(root => "docs")->to_app;
+

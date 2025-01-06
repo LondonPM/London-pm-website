@@ -29,8 +29,16 @@ carton exec ttree -f ttreerc
 
 - Run local server (you will need to click from the directory listing to the index.html pages, but good enough for developing)
 ```sh
-carton exec -- plackup -MPlack::App::Directory -e 'Plack::App::Directory->new(root => "docs")->to_app' -p 8080
+carton exec -- plackup -MPlack::App::Directory -e 'Plack::App::Directory->new(root => "docs")->to_app'
 ```
+
+Or use the convenience program supplied
+
+```sh
+carton exec -- plackup lpm-serve
+```
+
+- Open the address http://localhost:5000/ in a browser to see your local version of the site
 
 How does live deploy work?
 --------------------------
